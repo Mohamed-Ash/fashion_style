@@ -40,8 +40,8 @@ class PageLayoutInterface extends StatelessWidget{
                 },
                 items: [
                   SalomonBottomBarItem(icon: Icon(Icons.home),title: Text('Home')),
-                  SalomonBottomBarItem(icon: Icon(Icons.store_sharp),title: Text('Market')),
-                  SalomonBottomBarItem(icon: Icon(Icons.discount), title: Text('Discount'))
+                  SalomonBottomBarItem(icon: Icon(Icons.store_sharp),title: Text('offers')),
+                  SalomonBottomBarItem(icon: Icon(Icons.discount), title: Text('sales'))
                 ]
               ),
              /*  bottomNavigationBar: BottomNavigationBar(
