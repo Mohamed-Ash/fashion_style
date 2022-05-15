@@ -3,9 +3,9 @@
 import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
 import 'package:flutter/material.dart';
 
-class MarketPage extends StatelessWidget {
+class SalesPage extends StatelessWidget {
   static const   String urlImage = 'https://image.shutterstock.com/image-photo/time-go-full-length-handsome-600w-757863334.jpg';
-  const MarketPage({Key? key}) : super(key: key);
+  const SalesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

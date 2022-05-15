@@ -1,6 +1,7 @@
 
 import 'package:fashion_style/user/home/home_page.dart';
 import 'package:fashion_style/user/offers/offers_page.dart';
+import 'package:fashion_style/user/sales/sales_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,7 +16,7 @@ class ApiDataBloc extends Cubit<ApiDataBlocState> {
   List<Widget> screens = [
   const HomePage(),
   const Offerspage(),
-  const Offerspage(),
+  const SalesPage(),
   ];
  void changeIndex(int index){
    currentIndex = index ;
