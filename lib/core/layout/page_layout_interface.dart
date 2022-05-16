@@ -43,11 +43,11 @@ class PageLayoutInterface extends StatelessWidget {
                 },
                 items: [
                   SalomonBottomBarItem(
-                      icon: Icon(Icons.home), title: Text('Home')),
+                    icon: Icon(Icons.home), title: Text('Home')),
                   SalomonBottomBarItem(
-                      icon: Icon(Icons.store_sharp), title: Text('offers')),
+                    icon: Icon(Icons.store_sharp), title: Text('offers')),
                   SalomonBottomBarItem(
-                      icon: Icon(Icons.discount), title: Text('sales'))
+                    icon: Icon(Icons.discount), title: Text('sales'))
                 ]),
             /*  bottomNavigationBar: BottomNavigationBar(
                 currentIndex: blocLauout.currentIndex,

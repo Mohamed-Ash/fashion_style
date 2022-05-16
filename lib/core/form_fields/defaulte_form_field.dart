@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, prefer_const_constructors
+// ignore_for_file: non_constant_identifier_names, prefer_const_constructors, avoid_types_as_parameter_names, body_might_complete_normally_nullable
 
 import 'package:fashion_style/core/form_fields/form_field_borders.dart';
 import 'package:flutter/material.dart';
@@ -6,16 +6,20 @@ import 'package:flutter/material.dart';
 class DefaulteFormField {
   static TextFormField Field({
     TextInputType? keyboardType,
-    required Function onTap,
+    Function? onTap,
     TextEditingController? controller,
+    final String? Function(String?)? validate,
+    bool obscure = false,
   }) {
     return TextFormField(
+      validator: validate,
       controller: controller,
       decoration: FormFieldBorders.border(),
       cursorColor: Colors.black,
       keyboardType: keyboardType,
+      obscureText: obscure,
       onTap: () {
-        onTap();
+        onTap!();
       },
     );
   }

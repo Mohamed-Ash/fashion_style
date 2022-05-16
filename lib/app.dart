@@ -2,6 +2,7 @@
 
 import 'package:fashion_style/core/auth/login/login_form_page/login_page.dart';
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
+import 'package:fashion_style/core/layout/page_layout_interface.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -15,6 +16,7 @@ class App extends StatelessWidget {
       routes: {
         '/' : (cxt) => LoginPage(),
         '/register' : (cxt) => Registerpage(),
+        '/layout' : (cxt) => PageLayoutInterface(),
       },
     );
     /* return MaterialApp.router(
