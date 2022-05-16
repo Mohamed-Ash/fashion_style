@@ -3,25 +3,26 @@
 import 'package:fashion_style/core/form_fields/form_field_borders.dart';
 import 'package:flutter/material.dart';
 
-class DefaulteFormField{
+class DefaulteFormField {
   static TextFormField Field({
     TextInputType? keyboardType,
     required Function onTap,
-  }){
+    TextEditingController? controller,
+  }) {
     return TextFormField(
+      controller: controller,
       decoration: FormFieldBorders.border(),
       cursorColor: Colors.black,
-      keyboardType: keyboardType ,
-      onTap: (){
+      keyboardType: keyboardType,
+      onTap: () {
         onTap();
       },
-      
     );
   }
 
   static Container container({
     required Widget child,
-  }){
+  }) {
     return Container(
       width: double.infinity,
       height: 35,
@@ -30,7 +31,7 @@ class DefaulteFormField{
         color: Color.fromARGB(255, 146, 227, 169),
         borderRadius: BorderRadius.circular(20),
         border: Border(
-          bottom:  BorderSide(
+          bottom: BorderSide(
             color: Color.fromARGB(255, 1, 48, 2),
             width: 2,
           ),
@@ -38,11 +39,11 @@ class DefaulteFormField{
             color: Color.fromARGB(255, 1, 48, 2),
             width: 2,
           ),
-          right:  BorderSide(
+          right: BorderSide(
             color: Color.fromARGB(255, 1, 48, 2),
             width: 2,
           ),
-          top:  BorderSide(
+          top: BorderSide(
             color: Color.fromARGB(255, 1, 48, 2),
             width: 2,
           ),
