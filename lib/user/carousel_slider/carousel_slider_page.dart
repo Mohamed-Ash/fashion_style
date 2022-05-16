@@ -1,11 +1,11 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class CarouselSliderPage extends StatelessWidget {
   const CarouselSliderPage({Key? key}) : super(key: key);
-  
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -18,50 +18,51 @@ class CarouselSliderPage extends StatelessWidget {
           enableInfiniteScroll: true,
           reverse: false,
           autoPlay: true,
-          autoPlayInterval: Duration(seconds: 5),
+          autoPlayInterval: Duration(seconds: 3),
           autoPlayAnimationDuration: Duration(milliseconds: 800),
           autoPlayCurve: Curves.fastOutSlowIn,
-          enlargeCenterPage: true,
+          enlargeCenterPage: false,
           scrollDirection: Axis.horizontal,
         ),
-        items:[ 
-            Container(
-              width: 300, 
-              margin: EdgeInsets.symmetric(horizontal: 2.5),
-              child: Image(
-                image: NetworkImage('https://image.shutterstock.com/image-photo/beautiful-brunette-woman-natural-makeup-600w-1781009285.jpg')
-              ),
-            ),
-            Container(
-              width: 300, 
-              margin: EdgeInsets.symmetric(horizontal: 2.5),
-              child: Image(
-                image: NetworkImage('https://image.shutterstock.com/image-photo/thoughtful-young-man-drinking-coffee-600w-2006098031.jpg')
-              ),
-            ),
-            InteractiveViewer(
-              // constrained: false,
-              //  scaleEnabled: false,
-              child: Container(
-                width: 300, 
-                margin: EdgeInsets.symmetric(horizontal: 2.5),
-                child: Image(
-                  image: NetworkImage('https://image.shutterstock.com/image-photo/time-go-full-length-handsome-600w-757863334.jpg')
-                ),
-              ),
-            ),
-            Container(
-            width: 300, 
-            margin: EdgeInsets.symmetric(horizontal: 2.5),
+        items: [
+          Container(
+            width: 500,
+            // margin: EdgeInsets.symmetric(horizontal: 0.5),
             child: Image(
-              image: NetworkImage('https://image.shutterstock.com/image-photo/thoughtful-young-man-drinking-coffee-600w-2006098031.jpg')
+                image: NetworkImage(
+                    'https://image.shutterstock.com/image-photo/beautiful-brunette-woman-natural-makeup-600w-1781009285.jpg')),
+          ),
+          Container(
+            width: 500,
+            // margin: EdgeInsets.symmetric(horizontal: 0.5),
+            child: Image(
+                image: NetworkImage(
+                    'https://image.shutterstock.com/image-photo/thoughtful-young-man-drinking-coffee-600w-2006098031.jpg')),
+          ),
+          InteractiveViewer(
+            // constrained: false,
+            //  scaleEnabled: false,
+            child: Container(
+              width: 500,
+              //margin: EdgeInsets.symmetric(horizontal: 0.5),
+              child: Image(
+                  image: NetworkImage(
+                      'https://image.shutterstock.com/image-photo/time-go-full-length-handsome-600w-757863334.jpg')),
             ),
           ),
           Container(
-            width: 300, 
-            margin: EdgeInsets.symmetric(horizontal: 2.5),
+            width: 500,
+            margin: EdgeInsets.symmetric(horizontal: 0.5),
             child: Image(
-              image: NetworkImage('https://image.shutterstock.com/image-photo/fashion-model-sunglasses-beautiful-young-600w-397813951.jpg'),
+                image: NetworkImage(
+                    'https://image.shutterstock.com/image-photo/thoughtful-young-man-drinking-coffee-600w-2006098031.jpg')),
+          ),
+          Container(
+            width: 500,
+            // margin: EdgeInsets.symmetric(horizontal: 0.5),
+            child: Image(
+              image: NetworkImage(
+                  'https://image.shutterstock.com/image-photo/fashion-model-sunglasses-beautiful-young-600w-397813951.jpg'),
             ),
           ),
         ],
@@ -86,9 +87,9 @@ class CarouselSliderPage extends StatelessWidget {
                 child: Container(
                  width: 300, 
                  margin: EdgeInsets.symmetric(horizontal: 2.5),
-                  // decoration: BoxDecoration(
-                  //   color: Colors.amber
-                  // ),
+                   decoration: BoxDecoration(
+                color: Colors.amber
+                   ),
                   child: Image(
                     image: NetworkImage('https://www.byrdie.com/thmb/ans01P9VgGryosDJVn5Auc4wwz8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/fashionbloggersprimary-2210aaad71a0454a899fa4345bef529f.jpg')
                   ),
