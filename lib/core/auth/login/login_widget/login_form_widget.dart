@@ -5,6 +5,7 @@ import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/form_fields/form_field_borders.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 
 class LoginFormWidgt extends StatefulWidget {
@@ -18,8 +19,8 @@ class LoginFormWidgt extends StatefulWidget {
 }
 
 class _LoginFormWidgtState extends State<LoginFormWidgt> {
-  final TextEditingController _emailEding = TextEditingController();
-  final TextEditingController _passwordEding = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   final formkey = GlobalKey<FormState>(); 
   final scaffoldkye =  GlobalKey<ScaffoldState>(); 
@@ -38,9 +39,17 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
             height: 2.5,
           ),
           DefaulteFormField.Field(
-             controller: _emailEding,
-             keyboardType: TextInputType.emailAddress,
-             validate: (value) => value == null || value.length <6 ? 'Please Enter your Email' :null,
+            controller: emailController,
+            keyboardType: TextInputType.emailAddress,
+            validate: ( value){
+              if(value!.isEmpty)
+              {
+                return 'Please Enter your Email';
+              }else if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+                return 'Please a valid Email';
+              }
+              return null;
+            },
           ),
           SizedBox(
             height: 10,
@@ -49,11 +58,23 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
           SizedBox(
             height: 2.5,
           ),
-           DefaulteFormField.Field(
-            controller: _emailEding,
-            obscure: true,
+          DefaulteFormField.Field(
+            controller: passwordController,
             keyboardType: TextInputType.visiblePassword,
-            validate: (value) => value == null || value.length <6 ? 'Please Enter your Password' : null ,  
+            obscure: true,
+            validate: (value){
+              if(value == null){
+                return 'Confirm Password';
+              }else if(value.length < 6){
+                return 'Confirm Password does  not match' ;
+              }
+              /* else if(passwordController.text != confirmpassword.text){
+                return 'Confirm Pas sword does not match';
+              } else if(value.length < 6){
+                return 'Confirm Password does  not match' ;
+              } */
+              return null;
+            }
           ),
           
           SizedBox(
@@ -123,23 +144,40 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
 
   Future loginTap(context)async{
     User? user = await loginUseingEmailPassword(
-      password: _passwordEding.text,
-      email: _emailEding.text,
+      password: passwordController.text,
+      email: emailController.text,
       context: context
     );
     if (user != null) {
-      print('Login');
+      /* SharedPreferences prefs = await SharedPreferences.getInstance();
+        bool? login = prefs.getBool('login');
+        login != null ?  */
+    /*   Navigator.pushNamedAndRemoveUntil(
+        context, 
+        '/layout' ,
+        (route) => false
+      ) :  */
       Navigator.pushNamedAndRemoveUntil(
         context, 
-        '/layout',
+        '/login',
         (route) => false
       );
+      print('Login');
       /* Navigator.push(
         context,
         MaterialPageRoute(
           builder: (context) => ,
         ),
       ); */
+
+       /* SharedPreferences prefs = await SharedPreferences.getInstance();
+                  bool? login = prefs.getBool("login");
+                  login == null ? 
+      Navigator.pushNamedAndRemoveUntil(
+        context, 
+        '/',
+        (route) => false
+      ) :  */
     } else {
       print('testtttttttt' + user.toString());
     }
