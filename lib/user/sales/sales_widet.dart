@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
 class SalesWidget extends StatelessWidget {
@@ -7,7 +9,7 @@ class SalesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('asdsad')
+        Text('asdsad'),
       ],
     );
   }
