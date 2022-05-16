@@ -6,45 +6,50 @@ import 'package:fashion_style/core/layout/salomon_bottom_bar/salomon_bottom_bar_
 import 'package:fashion_style/user/menu/drawer_page/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-class PageLayoutInterface extends StatelessWidget{
+
+class PageLayoutInterface extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKye = GlobalKey();
 
-  PageLayoutInterface({Key? key,}) : super(key: key);
+  PageLayoutInterface({
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ApiDataBloc(),
-      child:  BlocBuilder<ApiDataBloc, ApiDataBlocState>(
+      child: BlocBuilder<ApiDataBloc, ApiDataBlocState>(
         builder: (context, state) {
           ApiDataBloc blocLauout = ApiDataBloc.get(context);
           return Scaffold(
-              key: scaffoldKye,
-              backgroundColor: Color.fromARGB(255, 218, 218, 218),
-              drawer: DrawerPage(),
-              body: blocLauout.screens[blocLauout.currentIndex],
-              appBar: AppBar(
-                backgroundColor: Color.fromARGB(255, 146, 227, 169),
-                title: Text(
-                  'dolly fashion eg'
-                ),
-                bottomOpacity: 80,
-              ),
-              bottomNavigationBar: SalomonBottomBar(
+            key: scaffoldKye,
+            backgroundColor: Color.fromARGB(255, 218, 218, 218),
+            drawer: DrawerPage(),
+            body: blocLauout.screens[blocLauout.currentIndex],
+            appBar: AppBar(
+              backgroundColor: Color.fromARGB(255, 146, 227, 169),
+              title: Text('fashion style'),
+              titleSpacing: 90,
+              bottomOpacity: 80,
+              elevation: 0.5,
+            ),
+            bottomNavigationBar: SalomonBottomBar(
                 selectedColorOpacity: 0.0,
                 currentIndex: blocLauout.currentIndex,
-                selectedItemColor: Color.fromARGB(255, 3, 83, 4), 
+                selectedItemColor: Color.fromARGB(255, 3, 83, 4),
                 unselectedItemColor: Color.fromARGB(255, 146, 227, 169),
-                onTap: (index){
+                onTap: (index) {
                   blocLauout.changeIndex(index);
                 },
                 items: [
-                  SalomonBottomBarItem(icon: Icon(Icons.home),title: Text('Home')),
-                  SalomonBottomBarItem(icon: Icon(Icons.store_sharp),title: Text('offers')),
-                  SalomonBottomBarItem(icon: Icon(Icons.discount), title: Text('sales'))
-                ]
-              ),
-             /*  bottomNavigationBar: BottomNavigationBar(
+                  SalomonBottomBarItem(
+                      icon: Icon(Icons.home), title: Text('Home')),
+                  SalomonBottomBarItem(
+                      icon: Icon(Icons.store_sharp), title: Text('offers')),
+                  SalomonBottomBarItem(
+                      icon: Icon(Icons.discount), title: Text('sales'))
+                ]),
+            /*  bottomNavigationBar: BottomNavigationBar(
                 currentIndex: blocLauout.currentIndex,
                 unselectedItemColor: Color.fromARGB(255, 146, 227, 169),
                 selectedItemColor: Color.fromARGB(255, 3, 83, 4),
@@ -57,7 +62,7 @@ class PageLayoutInterface extends StatelessWidget{
                   BottomNavigationBarItem(icon: Icon(Icons.discount),label: 'Discount'),
                 ],
               ), */
-            );
+          );
         },
       ),
     );
