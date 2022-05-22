@@ -3,6 +3,7 @@
 import 'package:fashion_style/core/bloc/cubit/api_data_bloc_cubit.dart';
 import 'package:fashion_style/core/layout/salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:fashion_style/core/layout/salomon_bottom_bar/salomon_bottom_bar_item.dart';
+import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:fashion_style/user/menu/drawer_page/drawer_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,11 +24,11 @@ class PageLayoutInterface extends StatelessWidget {
           ApiDataBloc blocLauout = ApiDataBloc.get(context);
           return Scaffold(
             key: scaffoldKye,
-            backgroundColor: Color.fromARGB(255, 218, 218, 218),
+            backgroundColor: ColorsTheme.backgaroundDefault,
             drawer: DrawerPage(),
             body: blocLauout.screens[blocLauout.currentIndex],
             appBar: AppBar(
-              backgroundColor: Color.fromARGB(255, 146, 227, 169),
+              backgroundColor: ColorsTheme.primary,
               title: Text('fashion style'),
               titleSpacing: 90,
               bottomOpacity: 80,
@@ -36,8 +37,8 @@ class PageLayoutInterface extends StatelessWidget {
             bottomNavigationBar: SalomonBottomBar(
                 selectedColorOpacity: 0.0,
                 currentIndex: blocLauout.currentIndex,
-                selectedItemColor: Color.fromARGB(255, 3, 83, 4),
-                unselectedItemColor: Color.fromARGB(255, 146, 227, 169),
+                selectedItemColor: ColorsTheme.selectIcon,
+                unselectedItemColor: ColorsTheme.primary,
                 onTap: (index) {
                   blocLauout.changeIndex(index);
                 },
