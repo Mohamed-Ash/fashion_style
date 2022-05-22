@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers
 
+import 'package:fashion_style/core/theme/themes.dart';
 import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +38,7 @@ class SalesPage extends StatelessWidget {
           'retail and electronics industries looking for new strategies to',
           maxLines: 3,
           overflow: TextOverflow.ellipsis,
+          style: Themes().style(1),
         ),
         contentPadding: EdgeInsets.fromLTRB(5, 0, 5, 0),
         minVerticalPadding: 1.5,
