@@ -2,6 +2,7 @@
 
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
+import 'package:fashion_style/core/router/string_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -117,7 +118,9 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
             height: 10,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context,layout);
+            },
             child: Text(
               'Forget Pssword ?',
               style: TextStyle(
