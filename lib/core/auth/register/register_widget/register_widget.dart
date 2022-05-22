@@ -1,19 +1,34 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, unrelated_type_equality_checks
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, unrelated_type_equality_checks, unused_local_variable, prefer_const_constructors_in_immutables
+
 
 
 import 'package:fashion_style/core/auth/login/login_form_page/login_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
+import 'package:fashion_style/core/theme/colors/colors_theme.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class RegisterWidget extends StatelessWidget {
+class RegisterWidget extends StatefulWidget {
+
+  RegisterWidget({Key? key}) : super(key: key);
+
+  @override
+  State<RegisterWidget> createState() => _RegisterWidgetState();
+}
+
+class _RegisterWidgetState extends State<RegisterWidget> {
   final formkye = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final phonecontroller = TextEditingController();
   final passwordController = TextEditingController();
   final confirmpassword = TextEditingController();
 
-
-  RegisterWidget({Key? key}) : super(key: key);
+  UserCredential? credential;
+  final user = FirebaseAuth.instance.currentUser;
+  
+  get emailAddress => 'asd@gmail.com';
+  
+  get password => 'asdasd';
 
   @override
   Widget build(BuildContext context) {
@@ -111,15 +126,38 @@ class RegisterWidget extends StatelessWidget {
             height: 10,
           ),
           GestureDetector(
-            onTap: () {
+            onTap: ()async{
               if(formkye.currentState!.validate()){
+                try {
+                  final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: emailController.text.trim(),
+                    password: passwordController.text.trim(),
+                  ).then((value) => Navigator.pushNamedAndRemoveUntil(
+                      context,   
+                      '/layout',  
+                      (route) => false
+                    ),
+                  );
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    print('The password provided is too weak.');
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                  }
+                } catch (e) {
+                  print(e);
+                }
+               
+              /*  if(formkye.currentState!.validate()){
                  Navigator.pushNamedAndRemoveUntil(
-                  context, 
-                  '/layout',
+                  context,      email: "emailAddressewrwewerer@gmail.com",
+                  password: "22334432234"   
+                  '/layout',  
                   (route) => false
                 );
-              }
+              } */
               print('Login');
+             }
             },
             child: DefaulteFormField.container(
               child: Center(
@@ -141,7 +179,7 @@ class RegisterWidget extends StatelessWidget {
               Text(
                 'Alredy Have an account ?',
                 style: TextStyle(
-                  color: Colors.grey,
+                  color: ColorsTheme.gray,
                   fontSize: 13,
                 ),
               ),
@@ -166,5 +204,27 @@ class RegisterWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+  void createNewEmail()async{
+    try {
+      credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email:  "asd@gmail.com",
+        password: "asdasd",
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+      print('user is. '+ credential.toString());
+  }
+
+  void changePassword()async{
+    await FirebaseAuth.instance.setLanguageCode('eg');
+    await user?.sendEmailVerification();
   }
 }
