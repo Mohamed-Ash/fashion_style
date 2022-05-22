@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
 
-import 'package:fashion_style/app.dart';
+import 'package:fashion_style/core/app.dart';
+import 'package:fashion_style/core/router/route.dart';
 import 'package:fashion_style/firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,6 @@ void main() async {
     );
    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 
-  runApp(App());
+  runApp(App(routesrs: Routesrs(),));
   print('[dolly_fashion]  App Started');
 }

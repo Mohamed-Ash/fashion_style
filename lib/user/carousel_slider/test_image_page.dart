@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:fashion_style/core/theme/themes.dart';
 import 'package:flutter/material.dart';
 
 class TestImagePage extends StatelessWidget {
@@ -8,6 +9,7 @@ class TestImagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Themes().color(1),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -17,7 +19,7 @@ class TestImagePage extends StatelessWidget {
               onPressed: (){
                 Navigator.pop(context);
               }, 
-              icon: Icon(Icons.abc),
+              icon: Icon(Icons.arrow_back_ios_new,),
             ),
           ],
         ),
