@@ -1,51 +1,22 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers
 
-import 'package:fashion_style/core/router/string_route.dart';
-import 'package:fashion_style/core/theme/colors/colors_theme.dart';
-import 'package:fashion_style/core/theme/fonts/style.dart';
+import 'package:fashion_style/user/sales/sales_widet.dart';
 import 'package:flutter/material.dart';
 
 class SalesPage extends StatelessWidget {
-  static const   String urlImage = 'https://image.shutterstock.com/image-photo/time-go-full-length-handsome-600w-757863334.jpg';
   const SalesPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
       scrollDirection: Axis.vertical,
-      itemBuilder: ((context, index) => salesWidget(context)), 
-      separatorBuilder:((context, index) => Divider()), 
+      itemBuilder: ((context, index) => const SalesWidget()), 
+      separatorBuilder:((context, index) => const SizedBox()), 
       itemCount: 10
-    );
-  }
-
-  Widget salesWidget(context){
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context,testpage);
-      },
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Container(
-          width: double.infinity,
-          height: 120,
-          color: ColorsTheme.wight,
-          child: Row(
-            children: [
-              CircleAvatar(
-                maxRadius: 40,
-                minRadius: 40,
-                backgroundImage: NetworkImage(urlImage) 
-              ),
-            ],
-          ),
-        ),
-      )
     );
   }
 }
 
-  /* leading: Container(
+  /* leading: Container(  
           height: 60,
           width: 60,
           decoration: BoxDecoration(
