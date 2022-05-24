@@ -24,20 +24,15 @@ class PageLayoutInterface extends StatelessWidget {
           ApiDataBloc blocLauout = ApiDataBloc.get(context);
           return Scaffold(
             key: scaffoldKye,
-            backgroundColor: ColorsTheme.backgaroundDefault,
             drawer: DrawerPage(),
             body: blocLauout.screens[blocLauout.currentIndex],
             appBar: AppBar(
-              backgroundColor: ColorsTheme.primary,
               title: Text('fashion style'),
-              titleSpacing: 90,
-              bottomOpacity: 80,
-              elevation: 0.5,
             ),
             bottomNavigationBar: SalomonBottomBar(
                 selectedColorOpacity: 0.0,
                 currentIndex: blocLauout.currentIndex,
-                selectedItemColor: ColorsTheme.selectIcon,
+                selectedItemColor: ColorsTheme.green,
                 unselectedItemColor: ColorsTheme.primary,
                 onTap: (index) {
                   blocLauout.changeIndex(index);

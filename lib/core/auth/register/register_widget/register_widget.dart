@@ -22,14 +22,43 @@ class _RegisterWidgetState extends State<RegisterWidget> {
   final phonecontroller = TextEditingController();
   final passwordController = TextEditingController();
   final confirmpassword = TextEditingController();
-
   UserCredential? credential;
   final user = FirebaseAuth.instance.currentUser;
   
-  get emailAddress => 'asd@gmail.com';
+ /*  get emailAddress => 'asd@gmail.com';
   
-  get password => 'asdasd';
+  get password => 'asdasd'; */
 
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    confirmpassword.dispose();
+    super.dispose();
+  }
+ /* void signUp()async{
+  await FirebaseAuth.instance.createUserWithEmailAndPassword(
+    email: emailController.text.trim(), 
+    password: passwordController.text.trim(),
+  );
+ } */
+
+  void createNewEmail()async{
+    try {
+      credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email:   emailController.text.trim(), 
+        password: passwordController.text.trim(),
+      );
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e.toString());
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -41,7 +70,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
           SizedBox(
             height: 2.5,  
           ),
-          DefaulteFormField.Field(
+          DefaulteFormField.field(
             controller: emailController,
             keyboardType: TextInputType.emailAddress,
             validate: ( value){
@@ -61,7 +90,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
           SizedBox(
             height: 2.5,  
           ),
-          DefaulteFormField.Field(
+        /*   DefaulteFormField.field(
             controller: phonecontroller,
             keyboardType: TextInputType.phone,
             validate:  (value){
@@ -74,7 +103,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               }
               return null ;
             }
-          ),
+          ), */
            SizedBox(
             height: 10,
           ),
@@ -82,7 +111,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
             SizedBox(
             height: 2.5,  
           ),
-          DefaulteFormField.Field(
+          DefaulteFormField.field(
             controller: passwordController,
             keyboardType: TextInputType.visiblePassword,
             obscure: true,
@@ -107,7 +136,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
             SizedBox(
             height: 2.5,  
           ),
-          DefaulteFormField.Field(
+          /* DefaulteFormField.field(
             controller: confirmpassword,
             obscure: true,
             keyboardType: TextInputType.visiblePassword,
@@ -121,44 +150,12 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               }
               return null;
             }
-          ),
+          ), */
           SizedBox(
             height: 10,
           ),
           GestureDetector(
-            onTap: ()async{
-              if(formkye.currentState!.validate()){
-                try {
-                  final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                    email: emailController.text.trim(),
-                    password: passwordController.text.trim(),
-                  ).then((value) => Navigator.pushNamedAndRemoveUntil(
-                      context,   
-                      '/layout',  
-                      (route) => false
-                    ),
-                  );
-                } on FirebaseAuthException catch (e) {
-                  if (e.code == 'weak-password') {
-                    print('The password provided is too weak.');
-                  } else if (e.code == 'email-already-in-use') {
-                    print('The account already exists for that email.');
-                  }
-                } catch (e) {
-                  print(e);
-                }
-               
-              /*  if(formkye.currentState!.validate()){
-                 Navigator.pushNamedAndRemoveUntil(
-                  context,      email: "emailAddressewrwewerer@gmail.com",
-                  password: "22334432234"   
-                  '/layout',  
-                  (route) => false
-                );
-              } */
-              print('Login');
-             }
-            },
+           onTap: () => createNewEmail(),
             child: DefaulteFormField.container(
               child: Center(
                 child: Text(
@@ -205,9 +202,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
       ),
     );
   }
-  void createNewEmail()async{
+/*   void createNewEmail()async{
     try {
-      credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email:  "asd@gmail.com",
         password: "asdasd",
       );
@@ -221,10 +218,62 @@ class _RegisterWidgetState extends State<RegisterWidget> {
       print(e.toString());
     }
       print('user is. '+ credential.toString());
-  }
+  } */
 
-  void changePassword()async{
+/*   void changePassword()async{
     await FirebaseAuth.instance.setLanguageCode('eg');
     await user?.sendEmailVerification();
-  }
+  } */
 }
+
+
+
+/*  onTap: ()async{
+                  try {
+                    credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                      email: emailAddress,
+                      password: password,
+                    );
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'weak-password') {
+                      print('The password provided is too weak.');
+                    } else if (e.code == 'email-already-in-use') {
+                      print('The account already exists for that email.');
+                    }
+                  } catch (e) {
+                    print(e);
+                  }
+                 /*  credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    /* email: emailController.text.trim(),
+                    password: passwordController.text.trim(), */
+                    email: 'asdadsa@gmail.com',
+                    password: '34343444',
+                  /*). then((value) => Navigator.pushNamedAndRemoveUntil(
+                      context,   
+                      '/layout',  
+                      (route) => false
+                    ), */
+                  );
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                  } else if (e.code == 'email-already-in-use') {
+                  } else if (e.code == 'user-not-found') {
+                  } else if (e.code == 'wrong-password') {
+                  }
+                  print(e.code) ; //Add this line to see other firebase exceptions.
+                } catch (e) {
+                  print(e);
+                } */
+              if(formkye.currentState!.validate()){
+               
+              /*  if(formkye.currentState!.validate()){
+                 Navigator.pushNamedAndRemoveUntil(
+                  context,      email: "emailAddressewrwewerer@gmail.com",
+                  password: "22334432234"   
+                  '/layout',  
+                  (route) => false
+                );
+              } */
+              print('Login');
+             }
+            }, */

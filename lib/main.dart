@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
-  print('[dolly_fashion] Initializing Reflections');
+  print('[fashion_style] Initializing Reflections');
   WidgetsFlutterBinding.ensureInitialized();
-    print('[dolly_fashion] Starting App');
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-   await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+    print('[fashion_style] Starting App');
+    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 
   runApp(App(routesrs: Routesrs(),));
-  print('[dolly_fashion]  App Started');
+  print('[fashion_style]  App Started');
 }

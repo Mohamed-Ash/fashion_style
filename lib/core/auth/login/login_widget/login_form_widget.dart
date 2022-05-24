@@ -7,7 +7,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginFormWidgt extends StatefulWidget {
-
+  
   LoginFormWidgt({Key? key}) : super(key: key);
 
  
@@ -33,7 +33,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
           SizedBox(
             height: 2.5,
           ),
-          DefaulteFormField.Field(
+          DefaulteFormField.field(
             controller: emailController,
             keyboardType: TextInputType.emailAddress,
             validate: (value){
@@ -53,7 +53,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
           SizedBox(
             height: 2.5,
           ),
-          DefaulteFormField.Field(
+          DefaulteFormField.field(
             controller: passwordController,
             keyboardType: TextInputType.visiblePassword,
             obscure: true,
@@ -71,7 +71,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                     Navigator.pushNamedAndRemoveUntil(
                       context, 
                      '/layout',
-                      (route) => false
+                      (route) => true
                     );
                    }
                 );

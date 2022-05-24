@@ -2,6 +2,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:fashion_style/core/router/route.dart';
+import 'package:fashion_style/core/theme/theme_manager.dart';
 import 'package:flutter/material.dart';
 class App extends StatelessWidget {
   final Routesrs routesrs;
@@ -16,6 +17,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       onGenerateRoute: routesrs.genrateRoute,
+      theme: getAppThemeData(),
       //theme: Themes().theme,
       /* initialRoute:  '/login',
       routes: {
@@ -24,13 +26,6 @@ class App extends StatelessWidget {
         '/layout' : (cxt) => PageLayoutInterface(),
       }, */
     );
-    /* return MaterialApp.router(
-      key: key,
-      debugShowCheckedModeBanner: false,
-      routeInformationParser: _router.routeInformationParser,
-      routerDelegate: _router.routerDelegate,
-      title: 'dolly_fashion_eg',
-    ); */
   }
 
 }

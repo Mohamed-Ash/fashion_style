@@ -1,5 +1,6 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison
 
+import 'package:fashion_style/core/router/string_route.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -120,7 +121,38 @@ class DrawerWidget extends StatelessWidget {
               Text('Profile'),
             ],
           ),
-        ),
+        ),  
+          SizedBox(
+            height: 15,
+          ),
+          const Divider(
+            color: Color.fromARGB(255, 104, 196, 107),
+            height: 1.5,
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          InkWell(
+            hoverColor:Colors.transparent,
+            splashColor:Colors.transparent,
+            focusColor:Colors.transparent,
+            highlightColor:Colors.transparent,
+            onTap: (){
+              Navigator.pushNamed(context, admin);
+            },
+            child: Flex(
+              direction: Axis.horizontal,
+              children: [
+                Icon(
+                  Icons.admin_panel_settings_rounded,
+                  color: Color.fromARGB(255, 146, 227, 169),
+                ),
+                SizedBox(  width: 50),
+                Text('admin'),
+              ],
+            ),
+          ),
+          
       ],
     );
   }

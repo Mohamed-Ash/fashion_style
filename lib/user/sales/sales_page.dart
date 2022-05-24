@@ -1,7 +1,8 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_unnecessary_containers
 
-import 'package:fashion_style/core/theme/themes.dart';
-import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
+import 'package:fashion_style/core/router/string_route.dart';
+import 'package:fashion_style/core/theme/colors/colors_theme.dart';
+import 'package:fashion_style/core/theme/fonts/style.dart';
 import 'package:flutter/material.dart';
 
 class SalesPage extends StatelessWidget {
@@ -10,49 +11,36 @@ class SalesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ListView.separated(
-        scrollDirection: Axis.vertical,
-        itemBuilder: ((context, index) => salesWidget(context)), 
-        separatorBuilder:((context, index) => Divider()), 
-        itemCount: 10
-      ),
+    return ListView.separated(
+      scrollDirection: Axis.vertical,
+      itemBuilder: ((context, index) => salesWidget(context)), 
+      separatorBuilder:((context, index) => Divider()), 
+      itemCount: 10
     );
   }
+
   Widget salesWidget(context){
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: ((context) => TestImagePage())));
+        Navigator.pushNamed(context,testpage);
       },
-      child: ListTile(
-        title: Text(
-          'Mohamed Ashraf',
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Container(
+          width: double.infinity,
+          height: 120,
+          color: ColorsTheme.wight,
+          child: Row(
+            children: [
+              CircleAvatar(
+                maxRadius: 40,
+                minRadius: 40,
+                backgroundImage: NetworkImage(urlImage) 
+              ),
+            ],
+          ),
         ),
-        subtitle: Text(
-          'Senior sales professional with over 25 years'
-          'of experience providing assistance in office'
-          'and storefront environments primarily within'
-          'retail and electronics industries looking for new strategies to',
-          maxLines: 3,
-          overflow: TextOverflow.ellipsis,
-          style: Themes().style(1),
-        ),
-        contentPadding: EdgeInsets.fromLTRB(5, 0, 5, 0),
-        minVerticalPadding: 1.5,
-        horizontalTitleGap: 2,
-        dense: true,
-        tileColor: Color.fromARGB(255, 236, 235, 235),
-        isThreeLine: true,  
-        minLeadingWidth: 5,
-
-        leading: CircleAvatar(
-          // radius: 5,
-          backgroundImage: NetworkImage(urlImage) 
-        ),
-      ),
+      )
     );
   }
 }
@@ -64,4 +52,36 @@ class SalesPage extends StatelessWidget {
             shape: BoxShape.circle,
             image:DecorationImage( image: NetworkImage(urlImage)),
           ),
+
+
+          ListTile(
+        title: Text(
+          'Mohamed Ashraf',
+          style: getBoldStyle(color: Colors.black),
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+        ),
+        subtitle: Text(
+          'Senior sales professional with over 25 years'
+          'of experience providing assistance in office'
+          'and storefront environments primarily within'
+          'retail and electronics industries looking for new strategies to',
+          maxLines: 3,
+          overflow: TextOverflow.ellipsis,
+          style:  getLightStyle(color: ColorsTheme.gray,),
+        ),
+        contentPadding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+        // minVerticalPadding: 1.5,
+        // horizontalTitleGap: 2,
+        // dense: true,
+        tileColor: ColorsTheme.salseColor,
+        isThreeLine: true,  
+        // minLeadingWidth: 2,
+        enabled: true,
+        leading: CircleAvatar(
+          maxRadius: 50,
+          minRadius: 50,
+          backgroundImage: NetworkImage(urlImage) 
+        ),
+      ),
         ) */
