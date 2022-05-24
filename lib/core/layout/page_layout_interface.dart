@@ -33,7 +33,7 @@ class PageLayoutInterface extends StatelessWidget {
                 selectedColorOpacity: 0.0,
                 currentIndex: blocLauout.currentIndex,
                 selectedItemColor: ColorsTheme.green,
-                unselectedItemColor: ColorsTheme.primary,
+                unselectedItemColor: ColorsTheme.iconUnselect,
                 onTap: (index) {
                   blocLauout.changeIndex(index);
                 },
@@ -43,7 +43,7 @@ class PageLayoutInterface extends StatelessWidget {
                   SalomonBottomBarItem(
                     icon: Icon(Icons.store_sharp), title: Text('offers')),
                   SalomonBottomBarItem(
-                    icon: Icon(Icons.discount), title: Text('sales'))
+                    icon: Icon(Icons.people_alt_outlined), title: Text('sales'))
                 ]),
             /*  bottomNavigationBar: BottomNavigationBar(
                 currentIndex: blocLauout.currentIndex,
