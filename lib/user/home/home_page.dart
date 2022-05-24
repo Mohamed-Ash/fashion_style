@@ -49,44 +49,50 @@ class _HomePageState extends State<HomePage> {
             ),
             Column(
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                   productItem(),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    productItem(),
-                    
-                    /* Container(
-                      decoration: BoxDecoration(
-                        color: ColorsTheme.wight,
-                        borderRadius: BorderRadius.circular(8)
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                     productItem(),
+                      const SizedBox(
+                        width: 10,
                       ),
-                      alignment: Alignment.topCenter,
-                      width: 235,
-                      height: 400,
-                      padding: EdgeInsets.all(8),
-                      child: Image(
-                        image: NetworkImage(
-                          'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500'
+                      productItem(),
+                      
+                      /* Container(
+                        decoration: BoxDecoration(
+                          color: ColorsTheme.wight,
+                          borderRadius: BorderRadius.circular(8)
                         ),
-                      ),
-                    ), */
-                  ],
+                        alignment: Alignment.topCenter,
+                        width: 235,
+                        height: 400,
+                        padding: EdgeInsets.all(8),
+                        child: Image(
+                          image: NetworkImage(
+                            'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500'
+                          ),
+                        ),
+                      ), */
+                    ],
+                  ),
                 ),
                 const SizedBox(
                       height: 10,
                     ),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    productItemTest(),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    productItemTest()
-                  ],
+                SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      productItemTest(),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      productItemTest()
+                    ],
+                  ),
                 ),
               ],
             ),
