@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:fashion_style/core/theme/themes.dart';
+import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:flutter/material.dart';
 
 class TestImagePage extends StatelessWidget {
@@ -9,7 +9,7 @@ class TestImagePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Themes().color(1),
+      backgroundColor: ColorsTheme.backgaroundPage,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
