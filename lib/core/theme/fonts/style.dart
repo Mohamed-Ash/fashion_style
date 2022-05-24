@@ -61,12 +61,12 @@ TextStyle getLightStyle({
 }
 
 TextStyle getRegulerStyle({
-  double fontSizes = FontSize.s12, 
-  required Color colorr,
+  double fontSizes = FontSize.s14, 
+  required Color color,
 }){
   return _getTextStyle(
     fontSizes,
-    colorr,
+    color,
     FontWeightManager.reguler
   );
 }
@@ -94,7 +94,7 @@ TextStyle getSemiBoldStyle({
 }
 
 TextStyle getBoldStyle({
-  double fontSize = FontSize.s12,
+  double fontSize = FontSize.s16,
   required Color color,
 }){
   return _getTextStyle(
