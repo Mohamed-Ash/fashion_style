@@ -10,6 +10,9 @@ ThemeData getAppThemeData(){
 /*     progressIndicatorTheme: ProgressIndicatorThemeData(
       circularTrackColor: ColorsTheme.green,
     ), */
+    dividerTheme: DividerThemeData(
+      color: ColorsTheme.dividerColor,
+    ),
     scaffoldBackgroundColor:  ColorsTheme.backgaroundPage,
     appBarTheme: AppBarTheme(
       backgroundColor: ColorsTheme.primary,
