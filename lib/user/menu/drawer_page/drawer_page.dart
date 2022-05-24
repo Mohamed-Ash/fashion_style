@@ -23,15 +23,12 @@ class DrawerPage extends StatelessWidget {
               Stack(
                 alignment: Alignment.center,
                 children: [
-                  // ignore: sized_box_for_whitespace
-                  Container(
+                  SizedBox(
                     width: double.infinity,
                     height: 160,
-                    //color: Colors.red,
                   ), 
                   const CircleAvatar(
                     radius: 45, 
-                    // backgroundColor: Colors.black,
                     backgroundImage: NetworkImage('https://image.shutterstock.com/image-photo/time-go-full-length-handsome-600w-757863334.jpg')
                   ),
                 ],
@@ -40,7 +37,6 @@ class DrawerPage extends StatelessWidget {
               // height: 5,  
               ),
               const Divider(
-                color: Color.fromARGB(255, 104, 196, 107),
                 height: 1.5,
               ),
               DrawerWidget(),
