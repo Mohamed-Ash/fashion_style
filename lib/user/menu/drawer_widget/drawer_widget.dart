@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison
 
 import 'package:fashion_style/core/router/string_route.dart';
+import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
@@ -30,7 +31,7 @@ class DrawerWidget extends StatelessWidget {
             children: [
               Icon( 
                 Icons.person_outline_outlined,
-                color: Color.fromARGB(255, 146, 227, 169),
+                color: ColorsTheme.iconUnselect,
               ),
               SizedBox(  width: 50),
               Text('Profile'),
@@ -41,7 +42,6 @@ class DrawerWidget extends StatelessWidget {
           height: 15,
         ),
          const Divider(
-          color: Color.fromARGB(255, 104, 196, 107),
           height: 1.5,
         ),
         SizedBox(
@@ -58,7 +58,7 @@ class DrawerWidget extends StatelessWidget {
             children: [
               Icon(
                 Icons.favorite_border,
-                color: Color.fromARGB(255, 146, 227, 169),
+                color:  ColorsTheme.iconUnselect,
               ),
               SizedBox(  width: 50),
               Text('favorite'),
@@ -69,7 +69,6 @@ class DrawerWidget extends StatelessWidget {
           height: 15,
         ),
          const Divider(
-          color: Color.fromARGB(255, 104, 196, 107),
           height: 1.5,
         ),
         SizedBox(
@@ -86,7 +85,7 @@ class DrawerWidget extends StatelessWidget {
             children: [
               Icon(
                 Icons.settings_outlined,
-                color: Color.fromARGB(255, 146, 227, 169),
+                color:  ColorsTheme.iconUnselect,
                 
               ),
               SizedBox(  width: 50),
@@ -98,7 +97,6 @@ class DrawerWidget extends StatelessWidget {
           height: 15,
         ),
         const Divider(
-          color: Color.fromARGB(255, 104, 196, 107),
           height: 1.5,
         ),
         SizedBox(
@@ -115,7 +113,7 @@ class DrawerWidget extends StatelessWidget {
             children: [
               Icon(
                 Icons.people_alt_outlined,
-                color: Color.fromARGB(255, 146, 227, 169),
+                color: ColorsTheme.iconUnselect,
               ),
               SizedBox(  width: 50),
               Text('Profile'),
