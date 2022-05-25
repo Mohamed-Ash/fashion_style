@@ -4,6 +4,7 @@
 
 import 'package:fashion_style/core/auth/login/login_form_page/login_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
+import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -83,27 +84,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
               return null;
             },
           ),
-          SizedBox(
-            height: 10,
-          ),
-            Text('phone:'),
-          SizedBox(
-            height: 2.5,  
-          ),
-        /*   DefaulteFormField.field(
-            controller: phonecontroller,
-            keyboardType: TextInputType.phone,
-            validate:  (value){
-              if(value  == null){
-                return 'Please enter  your phone' ;
-              }else if(value.length < 11){
-                return 'Please enter  your phone' ;
-              }else if(value.length > 11){
-                return 'Please enter  your phone' ;
-              }
-              return null ;
-            }
-          ), */
+         
            SizedBox(
             height: 10,
           ),
@@ -155,7 +136,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
             height: 10,
           ),
           GestureDetector(
-           onTap: () => createNewEmail(),
+           onTap: () => Navigator.pushNamed(context, profile), 
+           //createNewEmail(),
             child: DefaulteFormField.container(
               child: Center(
                 child: Text(
