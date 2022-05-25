@@ -26,6 +26,24 @@ class AdminInterface extends StatelessWidget {
                 child: Text('Sales')
               ),
             ),
+            Container(
+              child: TextButton(
+                onPressed: (){}, 
+                child: Text('Offers')
+              ),
+            ),
+            Container(
+              child: TextButton(
+                onPressed: (){}, 
+                child: Text('product')
+              ),
+            ),
+            Container(
+              child: TextButton(
+                onPressed: (){}, 
+                child: Text('user nmber')
+              ),
+            ),
           ],
         ) ,
       ),
