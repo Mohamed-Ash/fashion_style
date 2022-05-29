@@ -3,7 +3,6 @@
 import 'package:fashion_style/core/app.dart';
 import 'package:fashion_style/core/router/route.dart';
 import 'package:fashion_style/firebase_options.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
@@ -14,7 +13,7 @@ void main() async {
       options: DefaultFirebaseOptions.currentPlatform,
     );
     print('[fashion_style] Starting App');
-    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+    // await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
 
   runApp(App(routesrs: Routesrs(),));
   print('[fashion_style]  App Started');
