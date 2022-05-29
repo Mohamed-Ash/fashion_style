@@ -8,6 +8,7 @@ import 'package:fashion_style/core/layout/page_layout_interface.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
 import 'package:fashion_style/user/favorite/favorite_page/favorite_page.dart';
+import 'package:fashion_style/user/home/home_page.dart';
 import 'package:fashion_style/user/product_item/product_item_sell/product_item_sell_page/product_item_sell_page.dart';
 import 'package:fashion_style/user/product_item/product_page/product_item_page.dart';
 import 'package:fashion_style/user/profile/profile_page/profile_page.dart';
@@ -19,18 +20,19 @@ class Routesrs{
 
   Route? genrateRoute(RouteSettings settings) {
     switch (settings.name) {
-      case login :                              return MaterialPageRoute(builder: (_) =>    const LoginPage(),);
-      case register:                            return MaterialPageRoute(builder: (_) =>    const Registerpage());
-      case layout:                              return MaterialPageRoute(builder: (_) =>    PageLayoutInterface());        
-      case admin:                               return MaterialPageRoute(builder: (_) =>    const AdminInterface());  
-      case testpage:                            return MaterialPageRoute(builder: (_) =>    const TestImagePage());       
-      case profile:                             return MaterialPageRoute(builder: (_) =>    ProfilePage());       
-      case setting:                             return MaterialPageRoute(builder: (_) =>    const SettngsPage());       
-      case accountsales:                        return MaterialPageRoute(builder: (_) =>    const AccountSalesPage());       
-      case favorite:                            return MaterialPageRoute(builder: (_) =>    const FavoritePage());       
-      case product:                             return MaterialPageRoute(builder: (_) =>    const ProductPage());       
-      case sales:                               return MaterialPageRoute(builder: (_) =>    const SalesPage());       
-      case producitem:                          return MaterialPageRoute(builder: (_) =>    const ProductItemSellPage());       
+      case login :                              return MaterialPageRoute(builder: (_) => const LoginPage(),);
+      case register:                            return MaterialPageRoute(builder: (_) => const Registerpage());
+      case layout:                              return MaterialPageRoute(builder: (_) => PageLayoutInterface());        
+      case admin:                               return MaterialPageRoute(builder: (_) => const AdminInterface());  
+      case testpage:                            return MaterialPageRoute(builder: (_) => const TestImagePage());       
+      case profile:                             return MaterialPageRoute(builder: (_) => ProfilePage());       
+      case setting:                             return MaterialPageRoute(builder: (_) => const SettngsPage());       
+      case accountsales:                        return MaterialPageRoute(builder: (_) => const AccountSalesPage());       
+      case favorite:                            return MaterialPageRoute(builder: (_) => const FavoritePage());       
+      case product:                             return MaterialPageRoute(builder: (_) => const ProductPage());       
+      case sales:                               return MaterialPageRoute(builder: (_) => const SalesPage());       
+      case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
+      case home:                                return MaterialPageRoute(builder: (_) => const HomePage());      
      
     }
   }
