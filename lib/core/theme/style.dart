@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 
 class Margin{
   static const double m8 = 8.0;
