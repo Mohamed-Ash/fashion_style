@@ -1,10 +1,122 @@
-import 'package:flutter/material.dart';
+// ignore_for_file: must_be_immutable, prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-class ProductWidget extends StatelessWidget {
+import 'package:fashion_style/core/router/string_route.dart';
+import 'package:fashion_style/core/theme/fonts/style.dart';
+import 'package:flutter/material.dart';
+import 'package:fashion_style/core/theme/colors/colors_theme.dart';
+
+class ProductWidget extends StatefulWidget {
+
   const ProductWidget({Key? key}) : super(key: key);
 
   @override
+  State<ProductWidget> createState() => _ProductWidgetState();
+}
+
+class _ProductWidgetState extends State<ProductWidget> {
+  bool select2 = false;
+
+  IconData iconselect2 = Icons.favorite;
+
+  IconData iconUnSelect2 = Icons.favorite_outline_sharp;
+
+  @override
   Widget build(BuildContext context) {
-    return Container();
+    return InkWell(
+      onTap: (){
+        Navigator.pushNamed(context, testpage);
+      },
+      child: Stack(
+        children: [
+          Container(
+            width: 175,
+            height: 300,
+            decoration: BoxDecoration(
+              color: ColorsTheme.wight,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            // alignment: Alignment.topCenter,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 220,
+                  decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  color: ColorsTheme.black,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500'
+                        // 'https://media.istockphoto.com/photos/image-of-brunette-in-fake-fur-coat-with-hood-picture-id535313567?k=20&m=535313567&s=612x612&w=0&h=xU51bRMrO0IV_uhBeys4orEUjktUbwzJVszpNgikKOY='
+                      ),
+                    ),
+                  ),
+                ),
+              
+                const SizedBox(
+                  height: 3,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Zara',
+                        style: getBoldStyle(color: ColorsTheme.black),
+                      ),
+                      Text(
+                        'reversible angora',
+                        style: getSemiBoldStyle(color: ColorsTheme.gray),
+                      ),
+                      const SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        '\$120',
+                          style: getRegulerStyle(color: ColorsTheme.black),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            height: 40,
+            right: 3,
+            child: IconButton(
+              icon: Icon(
+                select2 ? iconselect2: iconUnSelect2
+              ),
+              onPressed: () {
+                setState(() {
+                  select2 = !select2 ;
+                });
+              },
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
+
+
+
+
+
+ /* const SizedBox(
+            height: 10,
+          ), */
+         /*  Image(
+            height: 200,
+            width: double.infinity,
+            color: ColorsTheme.black,
+            image: NetworkImage(
+              // 'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500'
+              'https://media.istockphoto.com/photos/image-of-brunette-in-fake-fur-coat-with-hood-picture-id535313567?k=20&m=535313567&s=612x612&w=0&h=xU51bRMrO0IV_uhBeys4orEUjktUbwzJVszpNgikKOY='
+            ),
+          ), */
