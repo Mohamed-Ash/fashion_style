@@ -10,3 +10,4 @@ const String  favorite = '/favorite';
 const String  product = '/product';
 const String  sales = '/sales';
 const String  producitem = '/producitem';
+const String  home = '/home';
