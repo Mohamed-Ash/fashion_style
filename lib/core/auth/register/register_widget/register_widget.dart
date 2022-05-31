@@ -133,26 +133,23 @@ class _RegisterWidgetState extends State<RegisterWidget> {
           GestureDetector(
             onTap: ()async{
               if(formkye.currentState!.validate()){
-                 try {
-                 credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                  email: emailController.text,
-                  password: passwordController.text
-                );
-              } on FirebaseAuthException catch (e) {
-                if (e.code == 'weak-password') {
-                  'The password provided is too weak.' ;
-                } else if (e.code == 'email-already-in-use') {
-                  print('The account already exists for that email.');
+                try {
+                  credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                    email: emailController.text,
+                    password: passwordController.text
+                  );
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'weak-password') {
+                    'The password provided is too weak.' ;
+                  } else if (e.code == 'email-already-in-use') {
+                    print('The account already exists for that email.');
+                  }
+                } catch (e) {
+                   print(e.toString());
                 }
-              } catch (e) {
-                print(e.toString());
-
-              }
-              print(credential);
-              if(credential!.user!.email != null) {
-                  Navigator.pushNamed(context, layout);
-                }else{
-                  'The account already exists for that email.' ;
+                print(credential);
+                if(credential!.user!.email != null) {
+                  Navigator.pushNamed(context, craeteUserProfile);
                 }
               }
            },

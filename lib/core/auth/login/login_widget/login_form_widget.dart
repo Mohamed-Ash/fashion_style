@@ -2,11 +2,10 @@
 
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
-import 'package:fashion_style/core/layout/page_layout_interface.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginFormWidgt extends StatefulWidget {
   
@@ -68,51 +67,30 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
           ),
           GestureDetector(
             onTap: ()async{
-                try {
-                   userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                    email: emailController.text,
-                    password: passwordController.text
-                  );
-                } on FirebaseAuthException catch (e) {
-                  if (e.code == 'user-not-found') {
-                    print('No user found for that email.');
-                  } else if (e.code == 'wrong-password') {
-                    print('Wrong password provided for that user.');
-                  }
-                  print(userCredential);
-                }
-                if(userCredential!.user!.email != null) {
-                  Navigator.pushNamed(context, layout);
-                }else{
-                  print('okyaaaaaaayyyyy');
-                }
-                
-              /* try {
-                UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                  email: "barry.allen@example.com",
-                  password: "SuperSecretPassword!"
+              try {
+                userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  email: emailController.text,
+                  password: passwordController.text
                 );
               } on FirebaseAuthException catch (e) {
-                if (e.code == 'weak-password') {
-                  'The password provided is too weak.' ;
-                } else if (e.code == 'email-already-in-use') {
-                  'The account already exists for that email.';
+                if (e.code == 'user-not-found') {
+                  print('No user found for that email.');
+                } else if (e.code == 'wrong-password') {
+                  print('Wrong password provided for that user.');
                 }
-              } catch (e) {
-                print(e.toString());
+                print(userCredential);
               }
-              print(user == 'email-already-in-use'); */
-                /* User? user = await loginUseingEmailPassword(
-                  email: emailController.text,
-                  password: passwordController.text,
-                );
-                if(user != null)
-                  print(' user is:  ' + user.toString());
-                  Navigator.pushNamed(context, layout); */
-                  // Navigator.pushReplacement(context, MaterialPageRoute(builder:   (context)=> PageLayoutInterface()));
-                
-              /* if(formkey.currentState!.validate()){
-              }  */
+              if(userCredential!.user!.email != null) {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                    bool? loginpage = prefs.getBool('loginpage');
+                    login != null ? 
+                  Navigator.pushNamedAndRemoveUntil(
+                    context, 
+                    '/layout' ,
+                    (route) => false
+                  ) : 
+                Navigator.pushNamed(context, '/');
+              }
             },
             child: DefaulteFormField.container(
               child: Center(
@@ -155,8 +133,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
             height: 10,
           ),
           TextButton(
-            onPressed: () {
-            },
+            onPressed: () {},
             child: Text(
               'Forget Pssword ?',
               style: TextStyle(
@@ -185,7 +162,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
     }
   }   */
   
-  static Future<User?> loginUseingEmailPassword() async {
+  /* static Future<User?> loginUseingEmailPassword() async {
     
      try {
         UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -199,5 +176,5 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
           print('Wrong password provided for that user.');
         }
       }
-  }
+  } */
 }
