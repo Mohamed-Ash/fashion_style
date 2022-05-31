@@ -8,6 +8,9 @@ class AdminInterface extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('fashion style'),
+      ),
       body: SafeArea(
         left: true,
          right: true,
