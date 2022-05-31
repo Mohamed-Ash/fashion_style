@@ -11,9 +11,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class PageLayoutInterface extends StatelessWidget {
   final GlobalKey<ScaffoldState> scaffoldKye = GlobalKey();
 
-  PageLayoutInterface({
-    Key? key,
-  }) : super(key: key);
+  PageLayoutInterface({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,30 +19,31 @@ class PageLayoutInterface extends StatelessWidget {
       create: (context) => ApiDataBloc(),
       child: BlocBuilder<ApiDataBloc, ApiDataBlocState>(
         builder: (context, state) {
-          ApiDataBloc blocLauout = ApiDataBloc.get(context);
+          ApiDataBloc blocLayout = ApiDataBloc.get(context);
           return Scaffold(
             key: scaffoldKye,
             drawer: DrawerPage(),
-            body: blocLauout.screens[blocLauout.currentIndex],
+            body: blocLayout.screens[blocLayout.currentIndex],
             appBar: AppBar(
               title: Text('fashion style'),
             ),
             bottomNavigationBar: SalomonBottomBar(
-                selectedColorOpacity: 0.0,
-                currentIndex: blocLauout.currentIndex,
-                selectedItemColor: ColorsTheme.green,
-                unselectedItemColor: ColorsTheme.iconUnselect,
-                onTap: (index) {
-                  blocLauout.changeIndex(index);
-                },
-                items: [
-                  SalomonBottomBarItem(
-                    icon: Icon(Icons.home), title: Text('Home')),
-                  SalomonBottomBarItem(
-                    icon: Icon(Icons.store_sharp), title: Text('offers')),
-                  SalomonBottomBarItem(
-                    icon: Icon(Icons.people_alt_outlined), title: Text('sales'))
-                ]),
+              selectedColorOpacity: 0.0,
+              currentIndex: blocLayout.currentIndex,
+              selectedItemColor: ColorsTheme.green,
+              unselectedItemColor: ColorsTheme.iconUnselect,
+              onTap: (index) {
+                blocLayout.changeIndex(index);
+              },
+              items: [
+                SalomonBottomBarItem(
+                  icon: Icon(Icons.home), title: Text('clothes')),
+                SalomonBottomBarItem(
+                  icon: Icon(Icons.store_sharp), title: Text('shoes')),
+                SalomonBottomBarItem(
+                  icon: Icon(Icons.people_alt_outlined), title: Text('sales'))
+              ],
+            ),
             /*  bottomNavigationBar: BottomNavigationBar(
                 currentIndex: blocLauout.currentIndex,
                 unselectedItemColor: Color.fromARGB(255, 146, 227, 169),
