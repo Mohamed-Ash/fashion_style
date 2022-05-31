@@ -11,7 +11,8 @@ import 'package:fashion_style/user/favorite/favorite_page/favorite_page.dart';
 import 'package:fashion_style/user/home/home_page.dart';
 import 'package:fashion_style/user/product_item/product_item_sell/product_item_sell_page/product_item_sell_page.dart';
 import 'package:fashion_style/user/product_item/product_page/product_item_page.dart';
-import 'package:fashion_style/user/profile/profile_page/profile_page.dart';
+import 'package:fashion_style/user/profile/create_user_profile_page/create_user_profile_page.dart';
+import 'package:fashion_style/user/profile/user_profile_page/user_profile_page.dart';
 import 'package:fashion_style/user/sales/sales_page.dart';
 import 'package:fashion_style/user/settings/settings_page/settngs_page.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class Routesrs{
       case layout:                              return MaterialPageRoute(builder: (_) => PageLayoutInterface());        
       case admin:                               return MaterialPageRoute(builder: (_) => const AdminInterface());  
       case testpage:                            return MaterialPageRoute(builder: (_) => const TestImagePage());       
-      case profile:                             return MaterialPageRoute(builder: (_) => ProfilePage());       
+      case craeteUserProfile:                   return MaterialPageRoute(builder: (_) => CreateUserProfilePage());       
       case setting:                             return MaterialPageRoute(builder: (_) => const SettngsPage());       
       case accountsales:                        return MaterialPageRoute(builder: (_) => const AccountSalesPage());       
       case favorite:                            return MaterialPageRoute(builder: (_) => const FavoritePage());       
@@ -33,6 +34,7 @@ class Routesrs{
       case sales:                               return MaterialPageRoute(builder: (_) => const SalesPage());       
       case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
       case home:                                return MaterialPageRoute(builder: (_) => const HomePage());      
+      case userProfilePage:                     return MaterialPageRoute(builder: (_) => const UserProfilePage());      
      
     }
   }
