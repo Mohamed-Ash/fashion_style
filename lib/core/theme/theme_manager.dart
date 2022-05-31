@@ -19,6 +19,7 @@ ThemeData getAppThemeData(){
       elevation: 0.5,
       centerTitle: true,
     ) ,
+    
     // bannerTheme: MaterialBannerThemeData(
 
     //   backgroundColor: ColorsTheme.wight, 
