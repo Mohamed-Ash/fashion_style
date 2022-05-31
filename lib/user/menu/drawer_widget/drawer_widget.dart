@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, unrelated_type_equality_checks
 
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
@@ -12,11 +12,7 @@ class DrawerWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-      /* ListTile(
-        onLongPress: (){},
-        leading: Icon(  Icons.people_alt_outlined),
-        trailing: Text('Profile'),
-        ), */
+     
         SizedBox(
           height: 15,
         ),
@@ -111,25 +107,29 @@ class DrawerWidget extends StatelessWidget {
           child: Flex(
             direction: Axis.horizontal,
             children: [
-              Icon(
-                Icons.people_alt_outlined,
-                color: ColorsTheme.iconUnselect,
+              TextButton.icon(
+                label: Text('profile'),
+                icon: Icon(
+                  Icons.people_alt_outlined,
+                  color: Color.fromARGB(255, 146, 227, 169),
+                ), 
+                onPressed: () => Navigator.pushNamed(context, userProfilePage),
+                clipBehavior: Clip.antiAlias,
               ),
-              SizedBox(  width: 50),
-              Text('Profile'),
-            ],
+            ], //profile
           ),
         ),  
-          SizedBox(
-            height: 15,
-          ),
-          const Divider(
-            color: Color.fromARGB(255, 104, 196, 107),
-            height: 1.5,
-          ),
-          SizedBox(
-            height: 15,
-          ),
+        SizedBox(
+          height: 15,
+        ),
+        const Divider(
+          color: Color.fromARGB(255, 104, 196, 107),
+          height: 1.5,
+        ),
+        SizedBox(
+          height: 15,
+        ),
+       // if(userCredential == "0MY3kAtFYaezb8TI4lKaJXArOeE3")
           InkWell(
             hoverColor:Colors.transparent,
             splashColor:Colors.transparent,
@@ -150,7 +150,6 @@ class DrawerWidget extends StatelessWidget {
               ],
             ),
           ),
-          
       ],
     );
   }
