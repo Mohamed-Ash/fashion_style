@@ -2,7 +2,7 @@
 
 import 'package:fashion_style/core/app.dart';
 import 'package:fashion_style/core/router/route.dart';
-import 'package:fashion_style/firebase_options.dart';
+import 'package:fashion_style/core/auth/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
