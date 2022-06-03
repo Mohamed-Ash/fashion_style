@@ -2,6 +2,7 @@
 
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 ThemeData getAppThemeData(){
   return ThemeData(
@@ -18,6 +19,11 @@ ThemeData getAppThemeData(){
       backgroundColor: ColorsTheme.primary,
       elevation: 0.5,
       centerTitle: true,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.black38,
+        statusBarIconBrightness: Brightness.light
+      ) ,
+      
     ) ,
     
     // bannerTheme: MaterialBannerThemeData(
