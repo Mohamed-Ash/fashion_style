@@ -14,6 +14,7 @@ import 'package:fashion_style/user/product_item/product_page/product_item_page.d
 import 'package:fashion_style/user/profile/create_user_profile_page/create_user_profile_page.dart';
 import 'package:fashion_style/user/profile/user_profile_page/user_profile_page.dart';
 import 'package:fashion_style/user/sales/sales_page.dart';
+import 'package:fashion_style/user/search/search_page/search_page.dart';
 import 'package:fashion_style/user/settings/settings_page/settngs_page.dart';
 import 'package:flutter/material.dart';
 
@@ -35,6 +36,7 @@ class Routesrs{
       case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
       case home:                                return MaterialPageRoute(builder: (_) => const HomePage());      
       case userProfilePage:                     return MaterialPageRoute(builder: (_) => const UserProfilePage());      
+      case search:                              return MaterialPageRoute(builder: (_) => const SearchPage());      
      
     }
   }

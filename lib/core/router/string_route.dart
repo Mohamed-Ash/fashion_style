@@ -12,3 +12,4 @@ const String  product = '/product';
 const String  sales = '/sales';
 const String  producitem = '/producitem';
 const String  home = '/home';
+const String  search = '/search';
