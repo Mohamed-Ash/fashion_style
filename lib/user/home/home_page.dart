@@ -1,8 +1,8 @@
 
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, must_be_immutable, void_checks, unused_field
 
+import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/user/carousel_slider/carousel_slider_page.dart';
-import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
 import 'package:fashion_style/user/product_item/product_page/product_item_page.dart';
 import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
@@ -21,11 +21,7 @@ class HomePage extends StatelessWidget {
             ),
             InkWell(
               onTap: (){
-                Navigator.push(
-                  context, MaterialPageRoute(
-                    builder: (context) => const TestImagePage(),
-                  ),
-                );
+                Navigator.pushNamed(context, testpage);
               },
               child: const CarouselSliderPage(),
             ),
