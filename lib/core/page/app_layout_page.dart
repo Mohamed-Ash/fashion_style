@@ -19,7 +19,7 @@ class AppLayoutPage extends StatelessWidget {
         builder: (context, state) {
           ApiDataBloc blocLayout = ApiDataBloc.get(context);
           return Scaffold(
-            backgroundColor: blocLayout.currentIndex == 2 ? Colors.transparent : ColorsTheme.backgaroundPage,
+            // backgroundColor:  ColorsTheme.backgaroundPage,
             drawer: buildDrawer,
             body: NestedScrollView(
               floatHeaderSlivers: true,
