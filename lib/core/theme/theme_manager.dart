@@ -8,6 +8,7 @@ ThemeData getAppThemeData(){
   return ThemeData(
     primaryColor: ColorsTheme.primary,
     applyElevationOverlayColor: true,
+    
 /*     progressIndicatorTheme: ProgressIndicatorThemeData(
       circularTrackColor: ColorsTheme.green,
     ), */
@@ -23,6 +24,7 @@ ThemeData getAppThemeData(){
         statusBarColor: Colors.black38,
         statusBarIconBrightness: Brightness.light
       ) ,
+      
       
     ) ,
     

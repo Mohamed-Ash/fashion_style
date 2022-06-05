@@ -19,7 +19,7 @@ class DefaultTheme extends ThemeInterface {
   @override
  List<Color> get colors => [
     Color(0xFFFFFFFF), 
-    Color(0xFF242526), // IDX:0 | First Color (White / Black) (Scaffold & Primary)
+    Color(0xFF242526), // IDX:0 | First Color (White / Black) 
     Color(0xFF4996CC), 
     Color(0xFF64D2FF), // IDX:1 | Second Color (Main Button)
     Color(0xFF050505), 
