@@ -1,12 +1,22 @@
+// ignore_for_file: must_be_immutable
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'package:flutter/material.dart';
 
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
-import 'package:flutter/material.dart';
 
 class AppBarPage extends StatelessWidget implements PreferredSizeWidget {
-  const AppBarPage({Key? key}) : super(key: key);
-
+  // final bool visible;
+  
+  const AppBarPage({
+    Key? key,
+    // required this.isAppBar,
+    // required this.child,
+    // required this.controller,
+    // required this.visible,
+  }) : super(key: key);
+  
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
@@ -64,3 +74,24 @@ class AppBarPage extends StatelessWidget implements PreferredSizeWidget {
   // @override
   // Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
+
+
+/*    title: Text('fashion style'),
+              actions: [
+                IconButton(
+                  onPressed: (){
+                    Navigator.pushNamed(context, testpage);
+                  }, 
+                  icon: Icon(Icons.notifications_none),
+                ),
+              ],
+              toolbarHeight: 66,
+             bottom: PreferredSize(
+              child: Container(
+                decoration: BoxDecoration(
+                  border: 
+                ),
+                height: 20.0,
+              ),
+              preferredSize: Size.fromHeight(4.0)),
+            ), */
