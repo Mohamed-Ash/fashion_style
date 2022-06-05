@@ -78,7 +78,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                 } else if (e.code == 'wrong-password') {
                   print('Wrong password provided for that user.');
                 }
-                print(userCredential);
+                print(userCredential!.user!.email);
               }
               if(userCredential!.user!.email != null) {
                 SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -86,7 +86,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                     login != null ? 
                   Navigator.pushNamedAndRemoveUntil(
                     context, 
-                    '/layout' ,
+                    '/app_page' ,
                     (route) => false
                   ) : 
                 Navigator.pushNamed(context, '/');
@@ -133,7 +133,9 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
             height: 10,
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, appPage);
+            },
             child: Text(
               'Forget Pssword ?',
               style: TextStyle(
