@@ -1,118 +1,120 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
+import 'package:fashion_style/core/layout/page_layout_interface.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:flutter/material.dart';
 
-class CreateUserProfilePage extends StatelessWidget {
+// ignore: must_be_immutable
+class CreateUserProfilePage extends PageLayoutInterface {
   final nameController = TextEditingController();
   final phonecontroller = TextEditingController();
   final formKey = GlobalKey<FormState>();
   static const String url = 'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500';
 
   CreateUserProfilePage({Key? key}) : super(key: key);
-
+  
   @override
-  Widget build(BuildContext context){
-    return Scaffold(
-      appBar: AppBar(
-        leading: Container(),
-        title: Text('fashion style'),
-        elevation: 0,
-      ) ,
-      body: Form(
-        key: formKey,
-        child: Column(
-          children: [
-            Container(
-              alignment: Alignment.topCenter,
-              width: MediaQuery.of(context).size.width,
-              height: 150,
-              decoration: BoxDecoration(
-              color: ColorsTheme.primary,
-              shape: BoxShape.rectangle,
-              borderRadius: BorderRadius.vertical(
-                bottom: Radius.elliptical(  
-                  MediaQuery.of(context).size.width, 120.0,
-                  ),
+  Widget buildBody(BuildContext context) {
+    return Form(
+      key: formKey,
+      child: Column(
+        children: [
+          Container(
+            alignment: Alignment.topCenter,
+            width: MediaQuery.of(context).size.width,
+            height: 150,
+            decoration: BoxDecoration(
+            color: ColorsTheme.primary,
+            shape: BoxShape.rectangle,
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.elliptical(  
+                MediaQuery.of(context).size.width, 120.0,
                 ),
               ),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 55),
-                child: Center(
-                  child: Container( 
-                    width: 80,
-                    height: 80,
-                    decoration: BoxDecoration(
-                      color: ColorsTheme.backgaroundPage,
-                      borderRadius: BorderRadius.circular(12),
-                      image: DecorationImage(
-                        scale: 10 ,
-                        fit: BoxFit.none,
-                        // fit: BoxFit.fitWidth,
-                        // image: NetworkImage(
-                        //   url,
-                        // ),
-                        alignment: Alignment.center,
-                        // opacity: 52,
-                        image: AssetImage('assets/images/userrr.png',)
-                      ) ,
-                    ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 0, 0, 55),
+              child: Center(
+                child: Container( 
+                  width: 80,
+                  height: 80,
+                  decoration: BoxDecoration(
+                    color: ColorsTheme.backgaroundPage,
+                    borderRadius: BorderRadius.circular(12),
+                    image: DecorationImage(
+                      scale: 10 ,
+                      fit: BoxFit.none,
+                      // fit: BoxFit.fitWidth,
+                      // image: NetworkImage(
+                      //   url,
+                      // ),
+                      alignment: Alignment.center,
+                      // opacity: 52,
+                      image: AssetImage('assets/images/userrr.png',)
+                    ) ,
                   ),
                 ),
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Name:'),
-                  DefaulteFormField.field(
-                    controller: nameController,
-                    keyboardType: TextInputType.name,
-                    validate: ( value) => value!.isEmpty ? 'please enter you name' : null ,
-                  ),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  Text('Phone:'),
-                  SizedBox(
-                    height: 2.5,  
-                  ),
-                  DefaulteFormField.field(
-                    controller: phonecontroller,
-                    keyboardType: TextInputType.phone,
-                    validate:  (value){
-                      if(value!.isEmpty|| value.length < 11 && value.length > 11 ){
-                        return 'Please enter  your phone' ;
-                      }
-                      return null ;
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Name:'),
+                DefaulteFormField.field(
+                  controller: nameController,
+                  keyboardType: TextInputType.name,
+                  validate: ( value) => value!.isEmpty ? 'please enter you name' : null ,
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text('Phone:'),
+                SizedBox(
+                  height: 2.5,  
+                ),
+                DefaulteFormField.field(
+                  controller: phonecontroller,
+                  keyboardType: TextInputType.phone,
+                  validate:  (value){
+                    if(value!.isEmpty|| value.length < 11 && value.length > 11 ){
+                      return 'Please enter  your phone' ;
                     }
-                  ),
-                  SizedBox(
-                    height: 20,
-                  ),
-                  DefaulteFormField.container(
-                    child: GestureDetector(
-                      child : Center(child: Text('Continue')),
-                      onTap: () {
-                        // if(formKey.currentState!.validate()){
-                          Navigator.pushNamed(context, appPage);
-                        // }
-                      },
-                    )
-                  ),
-                ],
-              ),
+                    return null ;
+                  }
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                DefaulteFormField.container(
+                  child: GestureDetector(
+                    child : Center(child: Text('Continue')),
+                    onTap: () {
+                      // if(formKey.currentState!.validate()){
+                        Navigator.pushNamed(context, appPage);
+                      // }
+                    },
+                  )
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
+
+  @override
+  PreferredSizeWidget? get buildAppBar =>AppBar(
+    leading: Container(),
+    title: Text('fashion style'),
+    elevation: 0,
+  );
 }

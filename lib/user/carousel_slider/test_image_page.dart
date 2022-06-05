@@ -1,28 +1,26 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:fashion_style/core/theme/colors/colors_theme.dart';
+import 'package:fashion_style/core/layout/page_layout_interface.dart';
 import 'package:flutter/material.dart';
 
-class TestImagePage extends StatelessWidget {
-  const TestImagePage({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class TestImagePage extends PageLayoutInterface {
+  TestImagePage({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorsTheme.backgaroundPage,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Coming Soon'),
-            IconButton(
-              onPressed: (){
-                Navigator.pop(context);
-              }, 
-              icon: Icon(Icons.arrow_back_ios_new,),
-            ),
-          ],
-        ),
+  Widget buildBody(BuildContext context) {
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Coming Soon'),
+          IconButton(
+            onPressed: (){
+              Navigator.pop(context);
+            }, 
+            icon: Icon(Icons.arrow_back_ios_new,),
+          ),
+        ],
       ),
     );
   }
