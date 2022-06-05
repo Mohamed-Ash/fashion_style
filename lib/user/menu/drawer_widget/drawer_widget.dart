@@ -136,7 +136,7 @@ class DrawerWidget extends StatelessWidget {
             focusColor:Colors.transparent,
             highlightColor:Colors.transparent,
             onTap: (){
-              Navigator.pushNamed(context, admin);
+              Navigator.pushNamed(context, adminPage);
             },
             child: Flex(
               direction: Axis.horizontal,

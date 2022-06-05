@@ -102,7 +102,7 @@ class CreateUserProfilePage extends StatelessWidget {
                       child : Center(child: Text('Continue')),
                       onTap: () {
                         // if(formKey.currentState!.validate()){
-                          Navigator.pushNamed(context,layout);
+                          Navigator.pushNamed(context, appPage);
                         // }
                       },
                     )
