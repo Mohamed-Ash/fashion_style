@@ -1,10 +1,12 @@
 // ignore_for_file: body_might_complete_normally_nullable
 
 import 'package:fashion_style/account_sales/account_sales_page/account_sales_page.dart';
+import 'package:fashion_style/admin/admin_page.dart';
 import 'package:fashion_style/admin/interface/admin_interface.dart';
 import 'package:fashion_style/core/auth/login/login_form_page/login_page.dart';
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
 import 'package:fashion_style/core/layout/page_layout_interface.dart';
+import 'package:fashion_style/core/page/app_layout_page.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
 import 'package:fashion_style/user/favorite/favorite_page/favorite_page.dart';
@@ -23,8 +25,7 @@ class Routesrs{
   Route? genrateRoute(RouteSettings settings) {
     switch (settings.name) {
       case login :                              return MaterialPageRoute(builder: (_) => const LoginPage(),);
-      case register:                            return MaterialPageRoute(builder: (_) => const Registerpage());
-      case layout:                              return MaterialPageRoute(builder: (_) => PageLayoutInterface());        
+      case register:                            return MaterialPageRoute(builder: (_) => const Registerpage());        
       case admin:                               return MaterialPageRoute(builder: (_) => const AdminInterface());  
       case testpage:                            return MaterialPageRoute(builder: (_) => const TestImagePage());       
       case craeteUserProfile:                   return MaterialPageRoute(builder: (_) => CreateUserProfilePage());       
@@ -36,7 +37,9 @@ class Routesrs{
       case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
       case home:                                return MaterialPageRoute(builder: (_) => const HomePage());      
       case userProfilePage:                     return MaterialPageRoute(builder: (_) => const UserProfilePage());      
-      case search:                              return MaterialPageRoute(builder: (_) => const SearchPage());      
+      case search:                              return MaterialPageRoute(builder: (_) => const SearchPage()); 
+      case appPage:                             return MaterialPageRoute(builder: (_) => AppLayoutPage());     
+      case adminPage:                           return MaterialPageRoute(builder: (_) =>  AdminPage());     
      
     }
   }
