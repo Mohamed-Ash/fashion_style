@@ -43,7 +43,7 @@ dependencies:
   carousel_slider: ^4.1.1
   page_transition: ^2.0.5
   shared_preferences: ^2.0.15
-  pmvvm: ^4.0.1
+  video_player: ^2.4.2
 
 
 dev_dependencies:
