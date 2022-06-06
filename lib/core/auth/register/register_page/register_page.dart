@@ -4,6 +4,7 @@ import 'package:fashion_style/core/auth/register/register_widget/register_widget
 import 'package:fashion_style/core/layout/page_layout_interface.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class Registerpage extends PageLayoutInterface {
   Registerpage({Key? key}) : super(key: key);
 

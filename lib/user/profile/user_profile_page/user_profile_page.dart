@@ -5,6 +5,7 @@ import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:fashion_style/user/menu/drawer_page/drawer_page.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class UserProfilePage extends PageLayoutInterface {
   UserProfilePage({Key? key}) : super(key: key);
 
