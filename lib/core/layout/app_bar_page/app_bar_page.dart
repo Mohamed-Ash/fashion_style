@@ -7,15 +7,7 @@ import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 
 class AppBarPage extends StatelessWidget implements PreferredSizeWidget {
-  // final bool visible;
-  
-  const AppBarPage({
-    Key? key,
-    // required this.isAppBar,
-    // required this.child,
-    // required this.controller,
-    // required this.visible,
-  }) : super(key: key);
+  const AppBarPage({ Key? key,}) : super(key: key);
   
   @override
   Widget build(BuildContext context) {
