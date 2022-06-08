@@ -48,12 +48,12 @@ class _ReelsPageState extends State<ReelsPage> {
         height:  MediaQuery.of(context).size.height,
         color: Colors.grey,
       ),
-      Container(
+      SizedBox(
         width: MediaQuery.of(context).size.width,
         height:  MediaQuery.of(context).size.height,
         child: VideoPlayer(_videoPlayerController),
       ),
-      Container(
+      SizedBox(
         width: MediaQuery.of(context).size.width,
         height:  MediaQuery.of(context).size.height,
         child: VideoPlayer(_videoPlayerController),
