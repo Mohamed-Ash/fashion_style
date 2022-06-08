@@ -1,7 +1,7 @@
 // ignore_for_file: body_might_complete_normally_nullable
 
 import 'package:fashion_style/account_sales/account_sales_page/account_sales_page.dart';
-import 'package:fashion_style/admin/admin_page.dart';
+import 'package:fashion_style/admin/interface/admin_dashboard.dart';
 import 'package:fashion_style/core/auth/login/login_form_page/login_page.dart';
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
 import 'package:fashion_style/core/page/app_layout_page.dart';
@@ -36,7 +36,7 @@ class Routesrs{
       case userProfilePage:                     return MaterialPageRoute(builder: (_) => UserProfilePage());      
       case search:                              return MaterialPageRoute(builder: (_) => SearchPage()); 
       case appPage:                             return MaterialPageRoute(builder: (_) => const AppLayoutPage());     
-      case adminPage:                           return MaterialPageRoute(builder: (_) =>  AdminPage());     
+      case adminDashboard:                           return MaterialPageRoute(builder: (_) =>  AdminDashboard());     
      
     }
   }
