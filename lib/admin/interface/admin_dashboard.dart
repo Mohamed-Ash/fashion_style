@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_unnecessary_containers
+
 
 import 'package:fashion_style/admin/interface/admin_interface.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +18,10 @@ class AdminDashboard extends AdminInterface{
       ) ,
     );
   }
+  
+  @override
+  String get title => 'Admin Dashboard';
+  
   
 /*   @override
   PreferredSizeWidget? get buildAppBar => throw UnimplementedError();
