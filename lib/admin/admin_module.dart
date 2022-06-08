@@ -1,10 +1,4 @@
-import 'package:flutter/material.dart';
+/* abstract class AdminModule {
 
-class AdminModule extends StatelessWidget {
-  const AdminModule({Key? key}) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+} */
