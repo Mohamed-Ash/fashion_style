@@ -1,5 +1,5 @@
 
-import 'package:fashion_style/user/cubit/data/model/user_model.dart';
+import 'package:fashion_style/core/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 
 @immutable

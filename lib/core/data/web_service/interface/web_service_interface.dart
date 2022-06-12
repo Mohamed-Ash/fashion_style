@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 
 abstract class WebServiceInterface {
   late Dio dio;
-  String baseUrl = 'http://jack07-001-site1.htempurl.com/api/';
+  String baseUrl = 'https://jack07-001-site1.htempurl.com/api/';
 
   WebServiceInterface(){
     BaseOptions options = BaseOptions(
