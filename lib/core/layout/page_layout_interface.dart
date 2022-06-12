@@ -3,8 +3,7 @@
 import 'package:flutter/material.dart';
 
 abstract class PageLayoutInterface extends StatelessWidget {
- bool? isAppBar ;
-  PageLayoutInterface({Key? key,}) : super(key: key);
+  const PageLayoutInterface({Key? key,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +11,9 @@ abstract class PageLayoutInterface extends StatelessWidget {
       // todo : build new app bar without sliver
       appBar: buildAppBar,
       drawer: buildDrawer,
-      body: buildBody(context),
+      body: SafeArea(
+        child: buildBody(context)
+      ),
     );
   }
 
