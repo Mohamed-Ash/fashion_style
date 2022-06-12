@@ -5,10 +5,13 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class SearchPage extends PageLayoutInterface {
-  SearchPage({Key? key}) : super(key: key);
+  const SearchPage({Key? key}) : super(key: key);
   
   @override
   Widget buildBody(BuildContext context) {
     return Column();
   }
+  
+  @override
+  bool get backButton => false;
 }
