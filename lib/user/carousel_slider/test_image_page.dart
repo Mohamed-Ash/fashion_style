@@ -24,5 +24,12 @@ class TestImagePage extends PageLayoutInterface {
       ),
     );
   }
+  
+  @override
+  bool get backButton => true;
+  
+  @override
+  // TODO: implement isAppBar
+  bool get isAppBar => true;
 
 }
