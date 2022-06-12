@@ -14,7 +14,7 @@ class SalesWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context,testpage);
+        Navigator.pushNamed(context,profileSales);
       },
       child: Container(
         padding: const EdgeInsets.all(8.0),

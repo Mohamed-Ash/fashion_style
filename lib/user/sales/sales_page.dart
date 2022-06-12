@@ -1,18 +1,26 @@
 
 import 'package:fashion_style/user/sales/sales_widet.dart';
+import 'package:fashion_style/user/user_interface.dart';
 import 'package:flutter/material.dart';
 
-class SalesPage extends StatelessWidget {
-  const SalesPage({Key? key}) : super(key: key);
+// ignore: must_be_immutable
+class SalesPage extends UserInterface {
+  SalesPage({Key? key}) : super(key: key);
 
+
+
+  
   @override
-  Widget build(BuildContext context) {
+  String get title => 's';
+  
+  @override
+  Widget buildBody(BuildContext context) {
     return ListView.separated(
       scrollDirection: Axis.vertical,
       itemBuilder: ((context, index) => const SalesWidget()), 
       separatorBuilder:((context, index) => const SizedBox()), 
       itemCount: 10
-    );
+    );  
   }
 }
 
