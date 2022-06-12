@@ -3,7 +3,7 @@
 
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/user/carousel_slider/carousel_slider_page.dart';
-import 'package:fashion_style/user/product_item/product_page/product_item_page.dart';
+import 'package:fashion_style/user/product/product_page/product_page.dart';
 import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
