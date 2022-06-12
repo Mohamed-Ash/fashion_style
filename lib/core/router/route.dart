@@ -46,8 +46,8 @@ class Routesrs{
       case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
       case userProfilePage:                     return MaterialPageRoute(builder: (_) => const UserProfilePage());      
       case search:                              return MaterialPageRoute(builder: (_) => const SearchPage()); 
-      case appPage:                             return MaterialPageRoute(builder: (_) => const AppLayoutPage());     
-      case appLayoutPage:                       return MaterialPageRoute(builder: (_) => const AppLayoutPage());      
+      case appPage:                             return MaterialPageRoute(builder: (_) => AppLayoutPage());     
+      case appLayoutPage:                       return MaterialPageRoute(builder: (_) => AppLayoutPage());      
       case activeSales:                         return MaterialPageRoute(builder: (_) => const ActiveSales());  
 
       // Todo: admin   
