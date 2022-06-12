@@ -27,124 +27,142 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formkey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Email:'),
-          SizedBox(
-            height: 2.5,
-          ),
-          DefaulteFormField.field(
-            controller: emailController,
-            keyboardType: TextInputType.emailAddress,
-            validate: (value){
-              if(value!.isEmpty)
-              {
-                return 'Please Enter your Email';
-              }else if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
-                return 'Please a valid Email';
-              }
-              return null;
-            },
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text('Password:'),
-          SizedBox(
-            height: 2.5,
-          ),
-          DefaulteFormField.field(
-            controller: passwordController,
-            keyboardType: TextInputType.visiblePassword,
-            obscure: true,
-            validate: (value) => value == null || value.length < 6 ? 'Password does  not match' : null,
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          GestureDetector(
-            onTap: ()async{
-              try {
-                userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                  email: emailController.text,
-                  password: passwordController.text
-                );
-              } on FirebaseAuthException catch (e) {
-                if (e.code == 'user-not-found') {
-                  print('No user found for that email.');
-                } else if (e.code == 'wrong-password') {
-                  print('Wrong password provided for that user.');
-                }
-                print(userCredential!.user!.email);
-              }
-              if(userCredential!.user!.email != null) {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                    bool? loginpage = prefs.getBool('loginpage');
-                    login != null ? 
-                  Navigator.pushNamedAndRemoveUntil(
-                    context, 
-                    '/app_page' ,
-                    (route) => false
-                  ) : 
-                Navigator.pushNamed(context, '/');
-              }
-            },
-            child: DefaulteFormField.container(
-              child: Center(
-                child: Text(
-                  'Login',  
+    return Center(
+      child: Form(
+        key: formkey,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Center(
+                 child: Text(
+                  'Login',
                   style: TextStyle(
-                    color: Colors.white,
+                    fontSize: 22
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 35,
+              ),
+              Text('Email:'),
+              SizedBox(
+                height: 2.5,
+              ),
+              DefaulteFormField.field(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                validate: (value){
+                  if(value!.isEmpty)
+                  {
+                    return 'Please Enter your Email';
+                  }else if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+                    return 'Please a valid Email';
+                  }
+                  return null;
+                },
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text('Password:'),
+              SizedBox(
+                height: 2.5,
+              ),
+              DefaulteFormField.field(
+                controller: passwordController,
+                keyboardType: TextInputType.visiblePassword,
+                obscure: true,
+                validate: (value) => value == null || value.length < 6 ? 'Password does  not match' : null,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: ()async{
+                  try {
+                    userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+                      email: emailController.text,
+                      password: passwordController.text
+                    );
+                  } on FirebaseAuthException catch (e) {
+                    if (e.code == 'user-not-found') {
+                      print('No user found for that email.');
+                    } else if (e.code == 'wrong-password') {
+                      print('Wrong password provided for that user.');
+                    }
+                    print(userCredential!.user!.email);
+                  }
+                  if(userCredential!.user!.email != null) {
+                    SharedPreferences prefs = await SharedPreferences.getInstance();
+                        bool? loginpage = prefs.getBool('loginpage');
+                        login != null ? 
+                      Navigator.pushNamedAndRemoveUntil(
+                        context, 
+                        '/app_page' ,
+                        (route) => false
+                      ) : 
+                    Navigator.pushNamed(context, '/');
+                  }
+                },
+                child: DefaulteFormField.container(
+                  child: Center(
+                    child: Text(
+                      'Login',  
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: (){
+                  print("successfully");
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => Registerpage(),
+                    ),
+                  );
+                },
+                child: DefaulteFormField.container(
+                  child: Center(
+                    child: Text(
+                      'Sign UP',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, appPage);
+                },
+                child: Text(
+                  'Forget Pssword ?',
+                  style: TextStyle(
+                    color: Color.fromARGB(255, 146, 227, 169),
                     fontSize: 13,
                   ),
                 ),
               ),
-            ),
+            ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          GestureDetector(
-            onTap: (){
-              print("successfully");
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => Registerpage(),
-                ),
-              );
-            },
-            child: DefaulteFormField.container(
-              child: Center(
-                child: Text(
-                  'Sign UP',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.pushNamed(context, appPage);
-            },
-            child: Text(
-              'Forget Pssword ?',
-              style: TextStyle(
-                color: Color.fromARGB(255, 146, 227, 169),
-                fontSize: 13,
-              ),
-            ),
-          ),
-        ],
+        ),
       ),
     );
     

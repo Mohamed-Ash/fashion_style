@@ -8,24 +8,24 @@ class LoginPage extends PageLayoutInterface{
   LoginPage({Key? key}) : super(key: key);
   
   @override
+  bool get backButton => false;
+
+  @override
   Widget buildBody(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            'Login',
-            style: TextStyle(
-              fontSize: 22
-            ),
-          ),
-          SizedBox(
-            height: 35,
-          ),
-          LoginFormWidgt(),
-        ],
+    return LoginFormWidgt();
+     /* Expanded(
+      child: SingleChildScrollView(
+        reverse: true,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+           
+            LoginFormWidgt(),
+          ],
+        ),
       ),
-    );
+    ); */
   }
+  
 }
