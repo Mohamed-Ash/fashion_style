@@ -4,7 +4,11 @@ import 'package:flutter/material.dart';
 // ignore: must_be_immutable
 class SplashScreen extends PageLayoutInterface{
   SplashScreen({Key? key}) : super(key: key);
-
+  int? timer;
+  
+  @override
+  bool get backButton => true;
+  
   @override
   Widget buildBody(BuildContext context) {
     return PageView(
@@ -14,3 +18,4 @@ class SplashScreen extends PageLayoutInterface{
   }
 
 }
+// todo: make onboarding screen on the main name of class
