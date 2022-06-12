@@ -1,11 +1,10 @@
+import 'package:fashion_style/core/data/model/user_model.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
-import 'package:fashion_style/user/cubit/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ShowUserProfileWidget extends StatelessWidget {
   UserModel? userModel;
-  // late List<UserModel> userModel;
 
   ShowUserProfileWidget({Key? key,required this.userModel}) : super(key: key);
 
@@ -38,12 +37,7 @@ class ShowUserProfileWidget extends StatelessWidget {
                   image: const DecorationImage(
                     scale: 10 ,
                     fit: BoxFit.none,
-                    // fit: BoxFit.fitWidth,
-                    // image: NetworkImage(
-                    //   url,
-                    // ),
                     alignment: Alignment.center,
-                    // opacity: 52,
                     image: AssetImage('assets/images/userrr.png',)
                   ) ,
                 ),
@@ -51,11 +45,30 @@ class ShowUserProfileWidget extends StatelessWidget {
             ),
           ),
         ),
-        /* Text('${userModel}',),
+        Text(
+          '${userModel!.name}',
+          style: TextStyle(
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            color: ColorsTheme.black,
+          ),
+        ),
         const SizedBox(height: 10,),
-        Text('${userModel.length}',),
+        Text(
+          '${userModel!.age}',
+          style: TextStyle(
+            fontSize: 20,
+            color: ColorsTheme.black,
+          ),
+        ),
         const SizedBox(height: 10,),
-        Text('${userModel.length}',), */
+        Text(
+          'id: ${userModel!.id}',
+          style: TextStyle(
+            fontSize: 20,
+            color: ColorsTheme.black,
+          ),
+        ),
       ],
     ); 
   }

@@ -1,8 +1,8 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
 
-import 'package:fashion_style/user/cubit/user_cubit.dart';
-import 'package:fashion_style/user/cubit/data/repository/user_repository.dart';
-import 'package:fashion_style/user/cubit/data/web_service/user_web_service.dart';
+import 'package:fashion_style/core/bloc/user_cubit/user_cubit.dart';
+import 'package:fashion_style/core/data/repository/user_repository.dart';
+import 'package:fashion_style/core/data/web_service/user_web_service.dart';
 import 'package:fashion_style/user/profile/user_profile_widget/user_profile_widget.dart';
 import 'package:fashion_style/user/user_interface.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +18,7 @@ class UserProfilePage extends UserInterface {
   @override
   Widget buildBody(BuildContext context) {
     return BlocProvider(
-      create: (context) => ApidatablocuserCubit(UserRepository(UserWebService()))..getAllUserModel(),
+      create: (context) => Usercubit(UserRepository(UserWebService()))..getAllUserModel(),
       child: UserProfileWidget(),
     );
   }

@@ -3,10 +3,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'package:fashion_style/user/cubit/data/model/user_model.dart';
-import 'package:fashion_style/user/cubit/user_cubit.dart';
-import 'package:fashion_style/user/cubit/user_state.dart';
+import 'package:fashion_style/core/bloc/user_cubit/user_cubit.dart';
+import 'package:fashion_style/core/bloc/user_cubit/user_state.dart';
 import 'package:fashion_style/user/profile/user_profile_widget/show_user_profile_widget.dart';
 
 // ignore: must_be_immutable
@@ -16,10 +14,10 @@ class UserProfileWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ApidatablocuserCubit, UserState>(
+    return BlocBuilder<Usercubit, UserState>(
       builder: (context, state) {
         if(state is UserLoadedState) {
-          return  ShowUserProfileWidget(userModel : state.users[2]); //userModel : state.users[2]
+          return  ShowUserProfileWidget(userModel : state.users[0]); //userModel : state.users[2]
         } else if(state is UserLoadingState) {
           return const Center(child: CircularProgressIndicator());
         } else {
