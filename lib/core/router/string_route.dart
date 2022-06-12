@@ -1,4 +1,6 @@
 // Todo: auth 
+
+// const String  splashScreen = '/' ;
 const String  login = '/' ;
 const String  register = '/register' ;
 const String  craeteUserProfile = '/craeteuserprofile';
@@ -32,3 +34,4 @@ const String  adminUserNumber = '/admin_user_nmber';
 
 // Todo: accountSales 
 const String  accountSales = '/accountsales';
+const String  profileSales = '/profile_sales';
