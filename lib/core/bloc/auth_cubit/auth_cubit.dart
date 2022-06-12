@@ -8,17 +8,19 @@ import 'package:fashion_style/user/sales/sales_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'api_data_bloc_state.dart';
+part 'auth_state.dart';
 
-class ApiDataBloc extends Cubit<ApiDataBlocState> {
-  ApiDataBloc() : super(ApiDataBlocInitial());
-  static ApiDataBloc get(context) => BlocProvider.of(context); 
+class AuthCubit extends Cubit<AuthState> {
 
+  AuthCubit() : super(AuthCubitInithial());
+
+  static AuthCubit get(context) => BlocProvider.of(context); 
+  
   int currentIndex = 0 ;
 
   List<Widget> screens = [
     const HomePage(),
-    const SalesPage(),
+    SalesPage(),
     ReelsPage(),
     const BasketPage()
   ];

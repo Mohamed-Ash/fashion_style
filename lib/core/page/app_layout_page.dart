@@ -1,6 +1,6 @@
+import 'package:fashion_style/core/bloc/auth_cubit/auth_cubit.dart';
 import 'package:fashion_style/user/menu/drawer_page/drawer_page.dart';
 import 'package:flutter/material.dart';
-import 'package:fashion_style/core/bloc/cubit/api_data_bloc_cubit.dart';
 import 'package:fashion_style/core/layout/app_bar_page/app_bar_page.dart';
 import 'package:fashion_style/core/layout/salomon_bottom_bar/salomon_bottom_bar.dart';
 import 'package:fashion_style/core/layout/salomon_bottom_bar/salomon_bottom_bar_item.dart';
@@ -14,10 +14,10 @@ class AppLayoutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => ApiDataBloc(),
-      child: BlocBuilder<ApiDataBloc, ApiDataBlocState>(
+      create: (context) => AuthCubit(),
+      child: BlocBuilder<AuthCubit, AuthState>(
         builder: (context, state) {
-          ApiDataBloc blocLayout = ApiDataBloc.get(context);
+          AuthCubit blocLayout = AuthCubit.get(context);
           return Scaffold(
             // backgroundColor:  ColorsTheme.backgaroundPage,
             drawer: buildDrawer,
