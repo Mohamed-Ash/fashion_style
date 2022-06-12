@@ -6,6 +6,8 @@ class ForgetPassword extends PageLayoutInterface {
   ForgetPassword({Key? key}) : super(key: key);
 
   @override
+  bool get backButton => true;
+  @override
   Widget buildBody(BuildContext context) {
     return Container();
   }
