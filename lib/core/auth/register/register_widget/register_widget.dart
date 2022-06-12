@@ -57,145 +57,162 @@ class _RegisterWidgetState extends State<RegisterWidget> {
   Widget build(BuildContext context) {
     return Form(
       key: formkye ,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Email address:'),
-          SizedBox(
-            height: 2.5,  
-          ),
-          DefaulteFormField.field(
-            controller: emailController,
-            keyboardType: TextInputType.emailAddress,
-            validate: ( value){
-              if(value!.isEmpty)
-              {
-                return 'Please Enter your Email';
-              }else if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
-                return 'Please a valid Email';
-              }else if(value.hashCode == 'email-already-in-use'){
-                return 'The account already exists for that email.';
-              }
-              return null;
-            },
-          ),
-         
-           SizedBox(
-            height: 10,
-          ),
-          Text('Password:'),
-            SizedBox(
-            height: 2.5,  
-          ),
-          DefaulteFormField.field(
-            controller: passwordController,
-            keyboardType: TextInputType.visiblePassword,
-            obscure: true,
-            validate: (value){
-              if(value == null){
-                return 'Confirm Password';
-              }else if(value.length < 6){
-                return 'Confirm Password does  not match' ;
-              }
-              /* else if(passwordController.text != confirmpassword.text){
-                return 'Confirm Pas sword does not match';
-              } else if(value.length < 6){
-                return 'Confirm Password does  not match' ;
-              } */
-              return null;
-            }
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Text('Confirm  Password:'),
-            SizedBox(
-            height: 2.5,  
-          ),
-          /* DefaulteFormField.field(
-            controller: confirmpassword,
-            obscure: true,
-            keyboardType: TextInputType.visiblePassword,
-            validate: (value){
-              if(value == null){
-                return 'Confirm Password';
-              }else if(confirmpassword.text != passwordController.text){
-                return 'Confirm Password does not match';
-              } else if(value.length < 6){
-                return 'Confirm Password does not match' ;
-              }
-              return null;
-            }
-          ), */
-          SizedBox(
-            height: 10,
-          ),
-          GestureDetector(
-            onTap: ()async{
-              if(formkye.currentState!.validate()){
-                try {
-                  credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                    email: emailController.text,
-                    password: passwordController.text
-                  );
-                } on FirebaseAuthException catch (e) {
-                  if (e.code == 'weak-password') {
-                    'The password provided is too weak.' ;
-                  } else if (e.code == 'email-already-in-use') {
-                    print('The account already exists for that email.');
-                  }
-                } catch (e) {
-                   print(e.toString());
-                }
-                print(credential);
-                if(credential!.user!.email != null) {
-                  Navigator.pushNamed(context, craeteUserProfile);
-                }
-              }
-           },
-            child: DefaulteFormField.container(
-              child: Center(
-                child: Text(
-                  'Sign UP',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 13,
-                  ),
-                ),
-              ),
-            ),
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          Row(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Alredy Have an account ?',
-                style: TextStyle(
-                  color: ColorsTheme.gray,
-                  fontSize: 13,
-                ),
-              ),
-              TextButton(
-                onPressed:(){
-                  Navigator.push(
-                    context, MaterialPageRoute(
-                      builder: (context)=> LoginPage(),
-                    ),
-                  );
-                },
+              Center(
                 child: Text(
-                  'Login ',
+                  'Sign Up',
                   style: TextStyle(
-                    color: Color.fromARGB(255, 146, 227, 169),
-                    fontSize: 15,
+                    fontSize: 22
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 35,
+              ),
+              Text('Email address:'),
+              SizedBox(
+                height: 2.5,  
+              ),
+              DefaulteFormField.field(
+                controller: emailController,
+                keyboardType: TextInputType.emailAddress,
+                validate: ( value){
+                  if(value!.isEmpty)
+                  {
+                    return 'Please Enter your Email';
+                  }else if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+                    return 'Please a valid Email';
+                  }else if(value.hashCode == 'email-already-in-use'){
+                    return 'The account already exists for that email.';
+                  }
+                  return null;
+                },
+              ),
+             
+               SizedBox(
+                height: 10,
+              ),
+              Text('Password:'),
+                SizedBox(
+                height: 2.5,  
+              ),
+              DefaulteFormField.field(
+                controller: passwordController,
+                keyboardType: TextInputType.visiblePassword,
+                obscure: true,
+                validate: (value){
+                  if(value == null){
+                    return 'Confirm Password';
+                  }else if(value.length < 6){
+                    return 'Confirm Password does  not match' ;
+                  }
+                  /* else if(passwordController.text != confirmpassword.text){
+                    return 'Confirm Pas sword does not match';
+                  } else if(value.length < 6){
+                    return 'Confirm Password does  not match' ;
+                  } */
+                  return null;
+                }
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text('Confirm  Password:'),
+                SizedBox(
+                height: 2.5,  
+              ),
+              /* DefaulteFormField.field(
+                controller: confirmpassword,
+                obscure: true,
+                keyboardType: TextInputType.visiblePassword,
+                validate: (value){
+                  if(value == null){
+                    return 'Confirm Password';
+                  }else if(confirmpassword.text != passwordController.text){
+                    return 'Confirm Password does not match';
+                  } else if(value.length < 6){
+                    return 'Confirm Password does not match' ;
+                  }
+                  return null;
+                }
+              ), */
+              SizedBox(
+                height: 10,
+              ),
+              GestureDetector(
+                onTap: ()async{
+                  if(formkye.currentState!.validate()){
+                    try {
+                      credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                        email: emailController.text,
+                        password: passwordController.text
+                      );
+                    } on FirebaseAuthException catch (e) {
+                      if (e.code == 'weak-password') {
+                        'The password provided is too weak.' ;
+                      } else if (e.code == 'email-already-in-use') {
+                        print('The account already exists for that email.');
+                      }
+                    } catch (e) {
+                       print(e.toString());
+                    }
+                    print(credential);
+                    if(credential!.user!.email != null) {
+                      Navigator.pushNamed(context, craeteUserProfile);
+                    }
+                  }
+               },
+                child: DefaulteFormField.container(
+                  child: Center(
+                    child: Text(
+                      'Sign UP',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 13,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                children: [
+                  Text(
+                    'Alredy Have an account ?',
+                    style: TextStyle(
+                      color: ColorsTheme.gray,
+                      fontSize: 13,
+                    ),
+                  ),
+                  TextButton(
+                    onPressed:(){
+                      Navigator.push(
+                        context, MaterialPageRoute(
+                          builder: (context)=> LoginPage(),
+                        ),
+                      );
+                    },
+                    child: Text(
+                      'Login ',
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 146, 227, 169),
+                        fontSize: 15,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),
-        ],
+        ),
       ),
     );
   }

@@ -8,26 +8,11 @@ import 'package:flutter/material.dart';
 class Registerpage extends PageLayoutInterface {
   Registerpage({Key? key}) : super(key: key);
 
-  
+   @override
+  bool get backButton => false;
+
   @override
   Widget buildBody(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            'Sign Up',
-            style: TextStyle(
-              fontSize: 22
-            ),
-          ),
-          SizedBox(
-            height: 35,
-          ),
-          RegisterWidget(),
-        ],
-      ),
-    );
+    return RegisterWidget();
   }
 }
