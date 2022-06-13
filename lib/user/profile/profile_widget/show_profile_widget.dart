@@ -3,10 +3,10 @@ import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class ShowUserProfileWidget extends StatelessWidget {
+class ShowProfileWidget extends StatelessWidget {
   UserModel? userModel;
 
-  ShowUserProfileWidget({Key? key,required this.userModel}) : super(key: key);
+  ShowProfileWidget({Key? key,required this.userModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -7,13 +7,13 @@ import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
-class CreateUserProfilePage extends PageLayoutInterface {
+class CreateProfilePage extends PageLayoutInterface {
   final nameController = TextEditingController();
   final phonecontroller = TextEditingController();
   final formKey = GlobalKey<FormState>();
   static const String url = 'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500';
 
-  CreateUserProfilePage({Key? key}) : super(key: key);
+  CreateProfilePage({Key? key}) : super(key: key);
   
   @override
   Widget buildBody(BuildContext context) {

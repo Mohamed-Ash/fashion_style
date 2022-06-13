@@ -18,8 +18,8 @@ import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
 import 'package:fashion_style/user/favorite/favorite_page/favorite_page.dart';
 import 'package:fashion_style/user/product/product_page/product_page.dart';
 import 'package:fashion_style/user/product/product_page/product_sell_page.dart';
-import 'package:fashion_style/user/profile/user_profile_page/create_user_profile_page.dart';
-import 'package:fashion_style/user/profile/user_profile_page/user_profile_page.dart';
+import 'package:fashion_style/user/profile/profile_page/create_profile_page.dart';
+import 'package:fashion_style/user/profile/profile_page/profile_page.dart';
 import 'package:fashion_style/user/sales/sales_page.dart';
 import 'package:fashion_style/user/search/search_page/search_page.dart';
 import 'package:fashion_style/user/settings/settings_page/settngs_page.dart';
@@ -34,7 +34,7 @@ class Routesrs{
       case login :                              return MaterialPageRoute(builder: (_) => LoginPage(),);
       case register:                            return MaterialPageRoute(builder: (_) => Registerpage());   
       case forgetPassword:                      return MaterialPageRoute(builder: (_) => ForgetPassword());   
-      case craeteUserProfile:                   return MaterialPageRoute(builder: (_) => CreateUserProfilePage());       
+      case craeteUserProfile:                   return MaterialPageRoute(builder: (_) => CreateProfilePage());       
 
 
       // Todo: user 
@@ -44,7 +44,7 @@ class Routesrs{
       case product:                             return MaterialPageRoute(builder: (_) => const ProductPage());       
       case sales:                               return MaterialPageRoute(builder: (_) => SalesPage());       
       case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
-      case userProfilePage:                     return MaterialPageRoute(builder: (_) => const UserProfilePage());      
+      case userProfilePage:                     return MaterialPageRoute(builder: (_) => const ProfilePage());      
       case search:                              return MaterialPageRoute(builder: (_) => const SearchPage()); 
       case appPage:                             return MaterialPageRoute(builder: (_) => AppLayoutPage());     
       case appLayoutPage:                       return MaterialPageRoute(builder: (_) => AppLayoutPage());      
