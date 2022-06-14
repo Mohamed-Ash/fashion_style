@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
-import 'package:fashion_style/core/bloc/cubit/sales_cubit_cubit.dart';
-import 'package:fashion_style/core/data/model/all_sales_model.dart';
+import 'package:fashion_style/core/bloc/sales_cubit/sales_cubit.dart';
 import 'package:fashion_style/user/sales/sales_widget/item_sales_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
