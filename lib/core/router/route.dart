@@ -61,7 +61,7 @@ class Routesrs{
      
       // Todo: accountSales 
       case accountSales:                        return MaterialPageRoute(builder: (_) => const AccountSalesPage());
-      case profileSales:                        return MaterialPageRoute(builder: (_) => const AccountProfileSalesPage());
+      case profileSales:                        return MaterialPageRoute(builder: (_) => const ProfileSalesPage());
     }
   }
 }

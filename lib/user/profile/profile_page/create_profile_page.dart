@@ -112,7 +112,7 @@ class CreateProfilePage extends PageLayoutInterface {
   }
 
   @override
-  PreferredSizeWidget? get buildAppBar =>AppBar(
+  PreferredSizeWidget? get apBar =>AppBar(
     leading: Container(),
     title: Text('fashion style'),
     elevation: 0,
