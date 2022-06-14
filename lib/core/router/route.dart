@@ -20,7 +20,7 @@ import 'package:fashion_style/user/product/product_page/product_page.dart';
 import 'package:fashion_style/user/product/product_page/product_sell_page.dart';
 import 'package:fashion_style/user/profile/profile_page/create_profile_page.dart';
 import 'package:fashion_style/user/profile/profile_page/profile_page.dart';
-import 'package:fashion_style/user/sales/sales_page.dart';
+import 'package:fashion_style/user/sales/sales_page/sales_page.dart';
 import 'package:fashion_style/user/search/search_page/search_page.dart';
 import 'package:fashion_style/user/settings/settings_page/settngs_page.dart';
 import 'package:flutter/material.dart';
@@ -42,12 +42,12 @@ class Routesrs{
       case setting:                             return MaterialPageRoute(builder: (_) => const SettngsPage());       
       case favorite:                            return MaterialPageRoute(builder: (_) => const FavoritePage());       
       case product:                             return MaterialPageRoute(builder: (_) => const ProductPage());       
-      case sales:                               return MaterialPageRoute(builder: (_) => SalesPage());       
+      case sales:                               return MaterialPageRoute(builder: (_) => const SalesPage());       
       case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
       case userProfilePage:                     return MaterialPageRoute(builder: (_) => const ProfilePage());      
       case search:                              return MaterialPageRoute(builder: (_) => const SearchPage()); 
-      case appPage:                             return MaterialPageRoute(builder: (_) => AppLayoutPage());     
-      case appLayoutPage:                       return MaterialPageRoute(builder: (_) => AppLayoutPage());      
+      case appPage:                             return MaterialPageRoute(builder: (_) => const AppLayoutPage());     
+      case appLayoutPage:                       return MaterialPageRoute(builder: (_) => const AppLayoutPage());      
       case activeSales:                         return MaterialPageRoute(builder: (_) => const ActiveSales());  
 
       // Todo: admin   

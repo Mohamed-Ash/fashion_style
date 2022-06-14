@@ -1,29 +1,33 @@
 
-import 'package:fashion_style/user/sales/sales_widet.dart';
+import 'package:fashion_style/core/bloc/cubit/sales_cubit_cubit.dart';
+import 'package:fashion_style/core/data/repository/all_sales_repository.dart';
+import 'package:fashion_style/core/data/web_service/all_sales_web_service.dart';
+import 'package:fashion_style/user/sales/sales_widget/sales_widet.dart';
 import 'package:fashion_style/user/user_interface.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
 class SalesPage extends UserInterface {
-  SalesPage({Key? key}) : super(key: key);
-
-
-
-  
-  @override
-  String get title => 's';
+  const SalesPage({Key? key}) : super(key: key);
   
   @override
   Widget buildBody(BuildContext context) {
-    return ListView.separated(
-      scrollDirection: Axis.vertical,
-      itemBuilder: ((context, index) => const SalesWidget()), 
-      separatorBuilder:((context, index) => const SizedBox()), 
-      itemCount: 10
-    );  
+    return BlocProvider(
+      create: (context) => SalesCubit(AllSalesRepository(AllSalesWebService()))..getAllSales(),
+      child: const SalesWidget(),
+    );
   }
+  
+  @override
+  String get title => throw UnimplementedError();
 }
-
+/*  ListView.separated(
+        scrollDirection: Axis.vertical,
+        itemBuilder: ((context, index) => const SalesWidget()), 
+        separatorBuilder:((context, index) => const SizedBox()), 
+        itemCount: 10,
+      ), */
   /* leading: Container(  
           height: 60,
           width: 60,

@@ -1,14 +1,21 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'package:flutter/material.dart';
 
+import 'package:fashion_style/core/data/model/all_sales_model.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:fashion_style/core/theme/fonts/style.dart';
-import 'package:flutter/material.dart';
 
-class SalesWidget extends StatelessWidget {
+// ignore: must_be_immutable
+class ItemSalesWidget extends StatelessWidget {
+  AllSalesModel? allSalesModel;
+
   static const   String urlImage = 'https://image.shutterstock.com/image-photo/time-go-full-length-handsome-600w-757863334.jpg';
 
-  const SalesWidget({Key? key}) : super(key: key);
+  ItemSalesWidget({
+    Key? key,
+    this.allSalesModel,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +23,7 @@ class SalesWidget extends StatelessWidget {
       onTap: () {
         Navigator.pushNamed(context,profileSales);
       },
-      child: Container(
+      child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Container(
           decoration: BoxDecoration(
@@ -25,16 +32,16 @@ class SalesWidget extends StatelessWidget {
           ),
           width: double.infinity,
           height: 100,
-          child: Container(
-            padding:  EdgeInsets.all(8.0),
+          child: Padding(
+            padding:  const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                CircleAvatar(
+                const CircleAvatar(
                   maxRadius: 45,
                   minRadius: 45,
                   backgroundImage: NetworkImage(urlImage) 
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 10,
                 ),
                 Expanded(
@@ -42,26 +49,23 @@ class SalesWidget extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Mohamed Ashraf',
+                        '${allSalesModel!.name}',
                         style: getBoldStyle(color: ColorsTheme.black),
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
-                        'Senior sales professional with over 25 years'
-                        'of experience providing assistance in office'
-                        'and storefront environments primarily within'
-                        'retail and electronics industries looking for new strategies to',
+                        '${allSalesModel!.description}',
                         maxLines: 3,
                         overflow: TextOverflow.ellipsis,
                         style:  getRegulerStyle(color: ColorsTheme.gray,),
                       ),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),
