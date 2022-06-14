@@ -8,7 +8,7 @@ abstract class UserState {}
 class UserInitialState extends UserState {}
 // ignore: must_be_immutable
 class UserLoadedState extends UserState {
-  List<UserModel> users;
+ final List<UserModel> users;
   UserLoadedState(this.users);
 }
 

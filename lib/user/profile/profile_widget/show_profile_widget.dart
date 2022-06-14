@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ShowProfileWidget extends StatelessWidget {
-  UserModel? userModel;
+ final UserModel userModel;
 
-  ShowProfileWidget({Key? key,required this.userModel}) : super(key: key);
+  const ShowProfileWidget({Key? key,required this.userModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class ShowProfileWidget extends StatelessWidget {
           ),
         ),
         Text(
-          '${userModel!.name}',
+          '${userModel.name}',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -55,7 +55,7 @@ class ShowProfileWidget extends StatelessWidget {
         ),
         const SizedBox(height: 10,),
         Text(
-          '${userModel!.age}',
+          '${userModel.age}',
           style: TextStyle(
             fontSize: 20,
             color: ColorsTheme.black,
@@ -63,7 +63,28 @@ class ShowProfileWidget extends StatelessWidget {
         ),
         const SizedBox(height: 10,),
         Text(
-          'id: ${userModel!.id}',
+          'id: ${userModel.id}',
+          style: TextStyle(
+            fontSize: 20,
+            color: ColorsTheme.black,
+          ),
+        ),
+        const SizedBox(height: 10,),
+        Text('gender: ${userModel.gender}',
+          style: TextStyle(
+            fontSize: 20,
+            color: ColorsTheme.black,
+          ),
+        ),
+        const SizedBox(height: 10,),
+        Text('phoneNumber: ${userModel.phoneNumber}',
+          style: TextStyle(
+            fontSize: 20,
+            color: ColorsTheme.black,
+          ),
+        ),
+        const SizedBox(height: 10,),
+        Text('address: ${userModel.address}',
           style: TextStyle(
             fontSize: 20,
             color: ColorsTheme.black,

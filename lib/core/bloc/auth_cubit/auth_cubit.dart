@@ -4,7 +4,7 @@
 import 'package:fashion_style/user/basket/basket_page/basket_page.dart';
 import 'package:fashion_style/user/home/home_page.dart';
 import 'package:fashion_style/user/reels/reels_page/reels_page.dart';
-import 'package:fashion_style/user/sales/sales_page.dart';
+import 'package:fashion_style/user/sales/sales_page/sales_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
