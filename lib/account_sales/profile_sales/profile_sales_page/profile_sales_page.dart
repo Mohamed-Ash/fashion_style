@@ -10,17 +10,18 @@ class AccountProfileSalesPage extends UserInterface{
 
   @override
   Widget buildBody(BuildContext context) {
-   return AccountSalesWidget();
+   return  AccountSalesWidget();
+  
   }
   
   
-  bool get backButton => true;
+  bool get backButton => false;
   
   
-  bool get isAppBar => true;
+  bool get isAppBar => false;
   
   @override
-  String get title => throw UnimplementedError();
+  String get title => '';
 }
 
 // Todo : rahan 1000 (eg)
