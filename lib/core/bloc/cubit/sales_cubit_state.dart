@@ -1,4 +1,4 @@
-part of 'sales_cubit_cubit.dart';
+part of 'sales_cubit.dart';
 
 @immutable
 abstract class SalesCubitState {}
