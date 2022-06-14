@@ -1,7 +1,7 @@
 // ignore_for_file: body_might_complete_normally_nullable
 
 import 'package:fashion_style/account_sales/account_sales_page/account_sales_page.dart';
-import 'package:fashion_style/account_sales/profile_sales/profile_sales_page.dart';
+import 'package:fashion_style/account_sales/profile_sales/profile_sales_page/profile_sales_page.dart';
 import 'package:fashion_style/admin/active_sales/active_sales_page/active_sales.dart';
 import 'package:fashion_style/admin/admin_all_order/admin_all_order_page/admin_all_order_page.dart';
 import 'package:fashion_style/admin/admin_reels/admin_reels_page/admin_reels.dart';
