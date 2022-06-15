@@ -46,6 +46,13 @@ dependencies:
   video_player: ^2.4.4
   dio: ^4.0.6
   sqflite: ^2.0.2+1
+  flutter_native_splash: ^2.2.3+1
+
+
+
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/images/user.png
 
 
 dev_dependencies:
