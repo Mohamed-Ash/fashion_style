@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+/* // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:fashion_style/account_sales/account_sales_widget/account_sales_widget.dart';
 import 'package:fashion_style/account_sales/profile_sales/profile_sales_widget/profile_sales_widget.dart';
@@ -16,7 +16,9 @@ class ProfileSalesPage extends UserInterface{
   @override
   Widget buildBody(BuildContext context) {
    return  BlocProvider(
-     create: (context) => ProfileSalesCubit(GetSalesProfileRepository(GetSalesProfileWebService()))..getProfileSales(),
+     create: (context) => ProfileSalesCubit(
+      GetSalesProfileRepository(GetSalesProfileWebService()))
+      ..getProfileSales(),
      child: ProfileSalesWidget(),
    );
   
@@ -32,4 +34,4 @@ class ProfileSalesPage extends UserInterface{
   String get title => '';
 }
 
-// Todo : rahan 1000 (eg)
+// Todo : rahan 1000 (eg) */

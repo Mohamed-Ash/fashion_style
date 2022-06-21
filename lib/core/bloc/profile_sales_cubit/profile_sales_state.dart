@@ -11,6 +11,7 @@ class ProfileSalesLoadedState extends ProfileSalesState {
   final List<GetSalesModel> salesModel;
 
   ProfileSalesLoadedState(this.salesModel);
+  
 }
 
 class ProfileSalesLoadingState extends ProfileSalesState{

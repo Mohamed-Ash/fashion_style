@@ -1,4 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
+// ignore_for_file: public_member_api_docs, sort_constructors_first, avoid_print
 import 'package:flutter/material.dart';
 
 import 'package:fashion_style/core/data/model/all_sales_model.dart';
@@ -14,14 +14,15 @@ class ItemSalesWidget extends StatelessWidget {
 
   ItemSalesWidget({
     Key? key,
-    this.allSalesModel,
+    this.allSalesModel
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.pushNamed(context,profileSales);
+        print('test print ${allSalesModel!.id}');
+        Navigator.pushNamed(context,profileSales,arguments: allSalesModel);
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -39,7 +40,7 @@ class ItemSalesWidget extends StatelessWidget {
                 const CircleAvatar(
                   maxRadius: 45,
                   minRadius: 45,
-                  backgroundImage: NetworkImage(urlImage) 
+                  backgroundImage: NetworkImage(urlImage)
                 ),
                 const SizedBox(
                   width: 10,
