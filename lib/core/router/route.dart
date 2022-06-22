@@ -53,7 +53,7 @@ class Routesrs{
 
       // Todo: admin   
       case adminDashboard:                      return MaterialPageRoute(builder: (_) => const AdminDashboard());     
-      case adminAllOrders:                      return MaterialPageRoute(builder: (_) => const AdminAllOrdersPage());      
+      case adminAllOrders:                      return MaterialPageRoute(builder: (_) => AdminAllOrdersPage());      
       case adminReels:                          return MaterialPageRoute(builder: (_) => const AdminReels());      
       case adminSalesNumber:                    return MaterialPageRoute(builder: (_) => const AdminSalesNumberPage());      
       case adminSalesProduct:                   return MaterialPageRoute(builder: (_) => const AdminSalesProduct());      
