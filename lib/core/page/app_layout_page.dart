@@ -19,7 +19,6 @@ class AppLayoutPage extends StatelessWidget {
         builder: (context, state) {
           AuthCubit blocLayout = AuthCubit.get(context);
           return Scaffold(
-            // backgroundColor:  ColorsTheme.backgaroundPage,
             drawer: buildDrawer,
             body: NestedScrollView(
               floatHeaderSlivers: true,
