@@ -4,6 +4,7 @@
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/user/carousel_slider/carousel_slider_page.dart';
 import 'package:fashion_style/user/product/product_page/product_page.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -13,7 +14,8 @@ class HomePage extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SingleChildScrollView(
-        physics: ScrollPhysics(),
+        clipBehavior: Clip.none,
+        physics: PageScrollPhysics(),
         child: Column(
           children: [
             const SizedBox(
