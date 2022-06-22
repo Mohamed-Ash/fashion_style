@@ -8,7 +8,7 @@ ThemeData getAppThemeData(){
   return ThemeData(
     primaryColor: ColorsTheme.primary,
     applyElevationOverlayColor: true,
-    
+    accentColor: Colors.transparent,  // Scroll Glow
 /*     progressIndicatorTheme: ProgressIndicatorThemeData(
       circularTrackColor: ColorsTheme.green,
     ), */
