@@ -6,7 +6,6 @@ abstract class AccountSalesInterface extends PageLayoutInterface{
 
 
 
-  @override
   PreferredSizeWidget? get apBar => AppBar(
     title:  Text(title)
   );

@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Registerpage extends PageLayoutInterface {
-  Registerpage({Key? key}) : super(key: key);
+  const Registerpage({Key? key}) : super(key: key);
 
-   @override
   bool get backButton => false;
 
   @override

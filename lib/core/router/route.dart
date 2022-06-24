@@ -32,17 +32,17 @@ class Routesrs{
     switch (settings.name) {
 
       // Todo: auth 
-      case login :                              return MaterialPageRoute(builder: (_) => LoginPage(),);
-      case register:                            return MaterialPageRoute(builder: (_) => Registerpage());   
-      case forgetPassword:                      return MaterialPageRoute(builder: (_) => ForgetPassword());   
+      case login :                              return MaterialPageRoute(builder: (_) => const LoginPage(),);
+      case register:                            return MaterialPageRoute(builder: (_) => const Registerpage());   
+      case forgetPassword:                      return MaterialPageRoute(builder: (_) => const ForgetPassword());   
       case craeteUserProfile:                   return MaterialPageRoute(builder: (_) => CreateProfilePage());       
 
 
       // Todo: user 
-      case testpage:                            return MaterialPageRoute(builder: (_) => TestImagePage());       
+      case testpage:                            return MaterialPageRoute(builder: (_) => const TestImagePage());       
       case setting:                             return MaterialPageRoute(builder: (_) => const SettngsPage());       
       case favorite:                            return MaterialPageRoute(builder: (_) => FavoritePage());       
-      case product:                             return MaterialPageRoute(builder: (_) => const ProductPage());       
+      case product:                             return MaterialPageRoute(builder: (_) => ProductPage());       
       case sales:                               return MaterialPageRoute(builder: (_) => const SalesPage());       
       case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
       case userProfilePage:                     return MaterialPageRoute(builder: (_) => const ProfilePage());      

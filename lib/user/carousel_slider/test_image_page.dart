@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class TestImagePage extends PageLayoutInterface {
-  TestImagePage({Key? key}) : super(key: key);
+  const TestImagePage({Key? key}) : super(key: key);
 
   @override
   Widget buildBody(BuildContext context) {
@@ -25,11 +25,8 @@ class TestImagePage extends PageLayoutInterface {
     );
   }
   
-  @override
   bool get backButton => true;
   
-  @override
-  // TODO: implement isAppBar
   bool get isAppBar => true;
 
 }

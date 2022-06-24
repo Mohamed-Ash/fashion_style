@@ -8,7 +8,7 @@ abstract class AdminInterface extends PageLayoutInterface {
   const AdminInterface({Key? key}) : super(key: key);
 
   @override
-  PreferredSizeWidget? get apBar => AppBar(
+  PreferredSizeWidget? get appBar => AppBar(
     title:  Text(title)
   );
 

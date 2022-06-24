@@ -6,7 +6,6 @@ class SplashScreen extends PageLayoutInterface{
   SplashScreen({Key? key}) : super(key: key);
   int? timer;
   
-  @override
   bool get backButton => true;
   
   @override

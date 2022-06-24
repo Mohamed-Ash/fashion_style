@@ -9,13 +9,10 @@ class AdminDashboard extends AdminInterface{
 
   @override
   Widget buildBody(BuildContext context) {
-    return SafeArea(
-      minimum: const EdgeInsets.all(50),
-      child: Column(
-        children: const [
-          Text('Admin Page'),
-        ],
-      ) ,
+    return Column(
+      children: const [
+        Text('Admin Page'),
+      ],
     );
   }
   

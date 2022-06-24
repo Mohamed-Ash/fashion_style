@@ -5,14 +5,6 @@ import 'package:flutter/material.dart';
 abstract class UserInterface extends PageLayoutInterface{
   const UserInterface({Key? key}) : super(key: key);
 
-
-
-
-  String get title ;
-
-  
-
-
-
+  String get title ;  
 
 } 

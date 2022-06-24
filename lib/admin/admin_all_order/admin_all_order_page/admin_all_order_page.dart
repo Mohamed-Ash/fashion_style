@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:fashion_style/admin/admin_interface/admin_interface.dart';
 import 'package:flutter/widgets.dart';
 import 'package:pluto_grid/pluto_grid.dart';
@@ -124,7 +126,6 @@ class AdminAllOrdersPage extends AdminInterface{
       },
     ),
   ];
-  
   final List<PlutoColumnGroup> columnGroups = [
     PlutoColumnGroup(title: 'Id', fields: ['id'], expandedColumn: true,),
     PlutoColumnGroup(title: 'Order information', fields: ['order']),

@@ -111,13 +111,11 @@ class CreateProfilePage extends PageLayoutInterface {
     );
   }
 
-  @override
   PreferredSizeWidget? get apBar =>AppBar(
     leading: Container(),
     title: Text('fashion style'),
     elevation: 0,
   );
   
-  @override
   bool get backButton => false;
 }
