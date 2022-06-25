@@ -19,7 +19,7 @@ class AuthCubit extends Cubit<AuthState> {
   int currentIndex = 0 ;
 
   List<Widget> screens = [
-    const HomePage(),
+    HomePage(),
     SalesPage(),
     ReelsPage(),
     const BasketPage()
