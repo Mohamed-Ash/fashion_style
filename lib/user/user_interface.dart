@@ -5,6 +5,15 @@ import 'package:flutter/material.dart';
 abstract class UserInterface extends PageLayoutInterface{
   const UserInterface({Key? key}) : super(key: key);
 
-  String get title ;  
+  @override
+  PreferredSizeWidget? get appBar => AppBar(
+    title:  Text(title!)
+  );
+
+  String? get title ;
+
+  @override
+  Widget? get buildDrawer => null;
+  
 
 } 
