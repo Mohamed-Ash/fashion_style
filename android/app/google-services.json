@@ -37,6 +37,13 @@
             {
               "client_id": "365863147603-jtjdpfsk35rpo7tfouo8saf7inim69f5.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "365863147603-tti2b0itq5no50tvns75ett3r0jrve1c.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.fashionStyle"
+              }
             }
           ]
         }
