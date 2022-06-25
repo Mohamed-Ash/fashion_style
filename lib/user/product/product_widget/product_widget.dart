@@ -13,12 +13,14 @@ class ProductWidget extends StatelessWidget {
       builder: (context,state){
         if(state is ProductLoadedState) {
           return GridView.builder(
-            scrollDirection: Axis.vertical,
+            // scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              childAspectRatio: 3/4.5,
+              childAspectRatio: 2/3,
               crossAxisCount: 2,
-              crossAxisSpacing: 0,
-              mainAxisSpacing: 0,
+              crossAxisSpacing: 2,
+              mainAxisSpacing: 2,
             ),
             itemBuilder: (context,index){
               return ProductItemWidget(
