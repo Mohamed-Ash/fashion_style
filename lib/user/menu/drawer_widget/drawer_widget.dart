@@ -12,7 +12,6 @@ class DrawerWidget extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-     
         SizedBox(
           height: 15,
         ),
@@ -81,13 +80,27 @@ class DrawerWidget extends StatelessWidget {
           child:  Flex(
             direction: Axis.horizontal,
             children: [
-              Icon(
-                Icons.settings_outlined,
-                color:  ColorsTheme.iconUnselect,
-                
-              ),
-              SizedBox(  width: 50),
-              Text('settings'),
+               InkWell(
+                hoverColor:Colors.transparent,
+                splashColor:Colors.transparent,
+                focusColor:Colors.transparent,
+                highlightColor:Colors.transparent,
+                onTap: (){},
+                child: Flex(
+                  direction: Axis.horizontal,
+                  children: [
+                    TextButton.icon(
+                      label: Text('settings'),
+                      icon: Icon(
+                        Icons.people_alt_outlined,
+                        color: Color.fromARGB(255, 146, 227, 169),
+                      ), 
+                      onPressed: () => Navigator.pushNamed(context, setting),
+                      clipBehavior: Clip.antiAlias,
+                    ),
+                  ],
+                ),
+              ),  
             ],
           ),
         ),
