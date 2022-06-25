@@ -51,11 +51,16 @@ class CreatSQl {
     return response;
   }
 
-   deleteData(String sql)async{
+   deleteAllDatabase(String sql)async{
     Database? mydb = await db;
     int response = await mydb!.rawDelete(sql);
     return response;
   }
-}
 
+  myDeleteData()async{
+    String databasePath = await getDatabasesPath();
+    String path = join(databasePath + 'demo.db');
+    return deleteDatabase(path);
+  }
+}
 
