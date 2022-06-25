@@ -1,5 +1,10 @@
 {
-    "login_screen_generic_field_email_title":"Email",
+    "login_screen_generic_field_email_title":"الإلكتروني",
     "login_screen_generic_field_email_hint_text_title":"Enter Your Email",
-    "login_screen_generic_field_password_title":"Password"
+    "login_screen_generic_field_password_title":"Password",
+    "save":"Save",
+    "cansel":"Cancel",
+    "english":"English",
+    "arabic":"Arabic"
+
 }

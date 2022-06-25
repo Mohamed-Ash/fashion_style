@@ -50,10 +50,10 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `Email`
+  /// `الإلكتروني`
   String get login_screen_generic_field_email_title {
     return Intl.message(
-      'Email',
+      'الإلكتروني',
       name: 'login_screen_generic_field_email_title',
       desc: '',
       args: [],
@@ -75,6 +75,46 @@ class S {
     return Intl.message(
       'Password',
       name: 'login_screen_generic_field_password_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Save`
+  String get save {
+    return Intl.message(
+      'Save',
+      name: 'save',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cansel {
+    return Intl.message(
+      'Cancel',
+      name: 'cansel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get english {
+    return Intl.message(
+      'English',
+      name: 'english',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Arabic`
+  String get arabic {
+    return Intl.message(
+      'Arabic',
+      name: 'arabic',
       desc: '',
       args: [],
     );

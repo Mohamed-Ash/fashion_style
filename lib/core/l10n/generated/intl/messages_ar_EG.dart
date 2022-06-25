@@ -22,11 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "cansel": MessageLookupByLibrary.simpleMessage("الغاء"),
+        "english": MessageLookupByLibrary.simpleMessage("الانجليزية"),
         "login_screen_generic_field_email_hint_text_title":
             MessageLookupByLibrary.simpleMessage("أدخل البريد الإلكتروني"),
         "login_screen_generic_field_email_title":
-            MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
+            MessageLookupByLibrary.simpleMessage("الإلكتروني"),
         "login_screen_generic_field_password_title":
-            MessageLookupByLibrary.simpleMessage("كلمة المرور")
+            MessageLookupByLibrary.simpleMessage("كلمة المرور"),
+        "save": MessageLookupByLibrary.simpleMessage("حفظ")
       };
 }
