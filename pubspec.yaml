@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+5
+version: 1.0.0+10
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -29,25 +29,36 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
+  ## firebase auth 
   firebase_core: ^1.17.1
   firebase_auth: ^3.3.19
-  flutter_bloc: ^8.0.1
+  ## flutter bloc library
   bloc: ^8.0.3
+  flutter_bloc: ^8.0.1
+  ## flutter form builder plugin
   flutter_form_builder: ^7.3.0
   build_runner: ^2.1.11
   flutter_gen_runner: ^4.3.0
+  ## anmimated bull right & left 
   carousel_slider: ^4.1.1
   page_transition: ^2.0.5
   shared_preferences: ^2.0.15
   video_player: ^2.4.4
+  ## Dio (the Network Request) Extension
   dio: ^4.0.6
+  ## caching support
   sqflite: ^2.0.2+1
   flutter_native_splash: ^2.2.3+1
+  # editable table plugin
   pluto_grid: ^4.0.1
+  ## language and translation support
+  intl: ^0.17.0
   
 
 
@@ -58,6 +69,18 @@ flutter_native_splash:
     image: assets/images/user.png
     color: "#ffffff"
 
+
+
+
+
+generate: true
+
+enable-flutter-i18n: true
+
+flutter_intl:
+  enabled: true
+  arb_dir: lib/core/l10n
+  output_dir: lib/core/l10n/generated
 
 dev_dependencies:
   flutter_test:
@@ -74,7 +97,7 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
+  
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
