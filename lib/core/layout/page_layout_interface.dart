@@ -9,18 +9,16 @@ abstract class PageLayoutInterface extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       // todo : build new app bar without sliver
-      appBar: buildAppBar,
+      appBar: appBar,
       drawer: buildDrawer,
-      body: SafeArea(
-        child: buildBody(context)
-      ),
+      body: buildBody(context),
     );
   }
 
   // Widget? buildDrawer() => DrawerPage();
   Widget? get  buildDrawer => null ;
 
-  PreferredSizeWidget? get buildAppBar => null;
+  PreferredSizeWidget? get appBar => null;
 
   Widget buildBody(BuildContext context);
   

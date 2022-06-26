@@ -8,19 +8,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
-class SalesPage extends UserInterface {
+class SalesPage extends StatelessWidget {
   const SalesPage({Key? key}) : super(key: key);
-  
+
   @override
-  Widget buildBody(BuildContext context) {
+  Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SalesCubit(AllSalesRepository(AllSalesWebService()))..getAllSales(),
       child: const SalesWidget(),
     );
   }
   
-  @override
-  String get title => throw UnimplementedError();
 }
 /*  ListView.separated(
         scrollDirection: Axis.vertical,

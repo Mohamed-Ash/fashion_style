@@ -1,7 +1,7 @@
-// ignore_for_file: body_might_complete_normally_nullable
+
 
 import 'package:fashion_style/account_sales/account_sales_page/account_sales_page.dart';
-import 'package:fashion_style/account_sales/profile_sales/profile_sales_page/profile_sales_page.dart';
+import 'package:fashion_style/account_sales/profile_sales_widget/item_profile_sales_widget.dart';
 import 'package:fashion_style/admin/active_sales/active_sales_page/active_sales.dart';
 import 'package:fashion_style/admin/admin_all_order/admin_all_order_page/admin_all_order_page.dart';
 import 'package:fashion_style/admin/admin_reels/admin_reels_page/admin_reels.dart';
@@ -12,10 +12,13 @@ import 'package:fashion_style/admin/admin_interface/admin_dashboard.dart';
 import 'package:fashion_style/core/auth/forget_password/forget_password.dart';
 import 'package:fashion_style/core/auth/login/login_form_page/login_page.dart';
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
+import 'package:fashion_style/core/data/model/all_sales_model.dart';
+import 'package:fashion_style/core/data/model/get_product.dart';
 import 'package:fashion_style/core/page/app_layout_page.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
 import 'package:fashion_style/user/favorite/favorite_page/favorite_page.dart';
+import 'package:fashion_style/user/product/product_page/preview_product_page.dart';
 import 'package:fashion_style/user/product/product_page/product_page.dart';
 import 'package:fashion_style/user/product/product_page/product_sell_page.dart';
 import 'package:fashion_style/user/profile/profile_page/create_profile_page.dart';
@@ -31,16 +34,16 @@ class Routesrs{
     switch (settings.name) {
 
       // Todo: auth 
-      case login :                              return MaterialPageRoute(builder: (_) => LoginPage(),);
-      case register:                            return MaterialPageRoute(builder: (_) => Registerpage());   
-      case forgetPassword:                      return MaterialPageRoute(builder: (_) => ForgetPassword());   
+      case login :                              return MaterialPageRoute(builder: (_) => const LoginPage(),);
+      case register:                            return MaterialPageRoute(builder: (_) => const Registerpage());   
+      case forgetPassword:                      return MaterialPageRoute(builder: (_) => const ForgetPassword());   
       case craeteUserProfile:                   return MaterialPageRoute(builder: (_) => CreateProfilePage());       
 
 
       // Todo: user 
-      case testpage:                            return MaterialPageRoute(builder: (_) => TestImagePage());       
+      case testpage:                            return MaterialPageRoute(builder: (_) => const TestImagePage());       
       case setting:                             return MaterialPageRoute(builder: (_) => const SettngsPage());       
-      case favorite:                            return MaterialPageRoute(builder: (_) => const FavoritePage());       
+      case favorite:                            return MaterialPageRoute(builder: (_) => FavoritePage());       
       case product:                             return MaterialPageRoute(builder: (_) => const ProductPage());       
       case sales:                               return MaterialPageRoute(builder: (_) => const SalesPage());       
       case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
@@ -49,10 +52,13 @@ class Routesrs{
       case appPage:                             return MaterialPageRoute(builder: (_) => const AppLayoutPage());     
       case appLayoutPage:                       return MaterialPageRoute(builder: (_) => const AppLayoutPage());      
       case activeSales:                         return MaterialPageRoute(builder: (_) => const ActiveSales());  
+      case previewProduct:
+        final previewItemProduct = settings.arguments as ProductModel;                      
+        return MaterialPageRoute(builder: (_) => PreviewProductPage(productModel: previewItemProduct));  
 
       // Todo: admin   
       case adminDashboard:                      return MaterialPageRoute(builder: (_) => const AdminDashboard());     
-      case adminAllOrders:                      return MaterialPageRoute(builder: (_) => const AdminAllOrdersPage());      
+      case adminAllOrders:                      return MaterialPageRoute(builder: (_) => AdminAllOrdersPage());      
       case adminReels:                          return MaterialPageRoute(builder: (_) => const AdminReels());      
       case adminSalesNumber:                    return MaterialPageRoute(builder: (_) => const AdminSalesNumberPage());      
       case adminSalesProduct:                   return MaterialPageRoute(builder: (_) => const AdminSalesProduct());      
@@ -61,7 +67,10 @@ class Routesrs{
      
       // Todo: accountSales 
       case accountSales:                        return MaterialPageRoute(builder: (_) => const AccountSalesPage());
-      case profileSales:                        return MaterialPageRoute(builder: (_) => const AccountProfileSalesPage());
+      case profileSales:         
+        final prfileSales = settings.arguments as AllSalesModel ;
+        return MaterialPageRoute(builder: (_) =>  ItemProfileSalesWidget(allSalesModel: prfileSales,));
     }
+    return null;
   }
 }

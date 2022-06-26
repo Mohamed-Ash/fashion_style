@@ -19,10 +19,12 @@ class AppLayoutPage extends StatelessWidget {
         builder: (context, state) {
           AuthCubit blocLayout = AuthCubit.get(context);
           return Scaffold(
-            // backgroundColor:  ColorsTheme.backgaroundPage,
             drawer: buildDrawer,
+            // appBar:  blocLayout.currentIndex == 2 ? null : appBarPage,
+            // body: blocLayout.screens[blocLayout.currentIndex],
             body: NestedScrollView(
               floatHeaderSlivers: true,
+              physics: const NeverScrollableScrollPhysics(),
               body: blocLayout.screens[blocLayout.currentIndex],
               headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
                 blocLayout.currentIndex == 2 ? const SliverToBoxAdapter() : const AppBarPage()
@@ -54,6 +56,7 @@ class AppLayoutPage extends StatelessWidget {
   }
 
   Widget? get  buildDrawer => const DrawerPage();
+  PreferredSizeWidget get appBarPage =>  AppBar();
 
 }
 

@@ -19,10 +19,21 @@ class $AssetsImagesGen {
   AssetGenImage get userrr => const AssetGenImage('assets/images/userrr.png');
 }
 
+class $AssetsVideosGen {
+  const $AssetsVideosGen();
+
+  /// File path: assets/videos/adidas.mp4
+  String get adidas => 'assets/videos/adidas.mp4';
+
+  /// File path: assets/videos/test_vedio.mp4
+  String get testVedio => 'assets/videos/test_vedio.mp4';
+}
+
 class Assets {
   Assets._();
 
   static const $AssetsImagesGen images = $AssetsImagesGen();
+  static const $AssetsVideosGen videos = $AssetsVideosGen();
 }
 
 class AssetGenImage {
@@ -37,7 +48,7 @@ class AssetGenImage {
     ImageErrorWidgetBuilder? errorBuilder,
     String? semanticLabel,
     bool excludeFromSemantics = false,
-    double? scale = 1.0,
+    double? scale,
     double? width,
     double? height,
     Color? color,
@@ -84,4 +95,6 @@ class AssetGenImage {
   }
 
   String get path => _assetName;
+
+  String get keyName => _assetName;
 }

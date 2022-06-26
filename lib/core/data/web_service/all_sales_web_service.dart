@@ -6,7 +6,7 @@ import 'package:fashion_style/core/data/web_service/interface/web_service_interf
 class AllSalesWebService extends WebServiceInterface{
   Future<List<dynamic>> getAllSales()async{
     try{
-      Response response = await dio.get(baseUrl + 'Sales/GetSales');
+      Response response = await dio.get(baseUrl + 'Sales/GetAllSales');
       print(response.data.toString());  
       if(response.statusCode == 200){
         return response.data;

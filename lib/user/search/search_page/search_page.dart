@@ -12,6 +12,5 @@ class SearchPage extends PageLayoutInterface {
     return Column();
   }
   
-  @override
   bool get backButton => false;
 }

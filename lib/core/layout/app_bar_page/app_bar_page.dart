@@ -21,6 +21,12 @@ class AppBarPage extends StatelessWidget implements PreferredSizeWidget {
           }, 
           icon: Icon(Icons.notifications_none),
         ),
+        IconButton(
+          onPressed: (){
+            Navigator.pushNamed(context, testpage);
+          }, 
+          icon: Icon(Icons.backpack),
+        ),
       ],
       bottom: PreferredSize(
         child:Padding(

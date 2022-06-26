@@ -1,18 +1,52 @@
 
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
+import 'package:fashion_style/core/bloc/product_cubit/product_cubit.dart';
+import 'package:fashion_style/core/data/repository/get_product_repository.dart';
+import 'package:fashion_style/core/data/web_service/product_web_service.dart';
 import 'package:fashion_style/user/product/product_widget/product_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
+// ignore: must_be_immutable
+class ProductPage extends StatelessWidget {
+  
 
-
-
-class ProductPage extends  StatelessWidget {
   const ProductPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return BlocProvider(
+      create: (context)=>ProductCubit(GetProductRepository(ProductWebService()))..getAllProduct(),
+      child: const ProductWidget(),
+    );
+  }
+
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Column(
       children: [
         buildProduct(),
         const SizedBox(
@@ -28,33 +62,4 @@ class ProductPage extends  StatelessWidget {
         ),
         buildProduct(),
       ],
-    );
-  }
-}
-
-Widget buildProduct(){
-  return Row(
-    children: [
-      ProductWidget(),
-      const SizedBox(
-        width: 10,
-      ),
-      ProductWidget(),
-      /* Container(
-        decoration: BoxDecoration(
-          color: ColorsTheme.wight,
-          borderRadius: BorderRadius.circular(8)
-        ),
-        alignment: Alignment.topCenter,
-        width: 235,
-        height: 400,
-        padding: EdgeInsets.all(8),
-        child: Image(
-          image: NetworkImage(
-            'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500'
-          ),
-        ),
-      ), */
-    ],
-  );
-}
+    ); */

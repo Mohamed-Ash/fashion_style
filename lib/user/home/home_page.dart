@@ -1,7 +1,4 @@
 
-// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, must_be_immutable, void_checks, unused_field
-
-import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/user/carousel_slider/carousel_slider_page.dart';
 import 'package:fashion_style/user/product/product_page/product_page.dart';
 import 'package:flutter/material.dart';
@@ -10,29 +7,39 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: SingleChildScrollView(
-        physics: ScrollPhysics(),
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 10,
-            ),
-            InkWell(
-              onTap: (){
-                Navigator.pushNamed(context, testpage);
-              },
-              child: const CarouselSliderPage(),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            ProductPage(),
-          ],
-        ),
+    return  Card(
+      child: ListView(
+        physics: const  NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        children:const [
+          CarouselSliderPage(),
+          SizedBox(height: 10),
+          ProductPage(),
+        ],
       ),
     );
+    /* Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+      // clipBehavior: Clip.none,
+      // physics: PageScrollPhysics(),
+        children: [
+          const SizedBox(
+            height: 10,
+          ),
+          InkWell(
+            onTap: (){
+              Navigator.pushNamed(context, testpage);
+            },
+            child: const CarouselSliderPage(),
+          ),
+          const SizedBox(
+            height: 10,
+          ),
+         
+        ],
+      ),
+    ); */
   }
 
 

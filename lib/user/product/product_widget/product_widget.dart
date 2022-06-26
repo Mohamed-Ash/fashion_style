@@ -1,134 +1,78 @@
-// ignore_for_file: must_be_immutable, prefer_const_literals_to_create_immutables, prefer_const_constructors
-
-import 'package:fashion_style/core/router/string_route.dart';
-import 'package:fashion_style/core/theme/fonts/style.dart';
+import 'package:fashion_style/core/bloc/product_cubit/product_cubit.dart';
+import 'package:fashion_style/user/product/product_widget/product_item_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:fashion_style/core/theme/colors/colors_theme.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ProductWidget extends StatefulWidget {
-
+// ignore: must_be_immutable
+class ProductWidget extends StatelessWidget {
   const ProductWidget({Key? key}) : super(key: key);
 
   @override
-  State<ProductWidget> createState() => _ProductWidgetState();
-}
-
-class _ProductWidgetState extends State<ProductWidget> {
-  bool select2 = false;
-
-  IconData iconselect2 = Icons.favorite;
-
-  IconData iconUnSelect2 = Icons.favorite_outline_sharp;
-
-  @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: (){
-        Navigator.pushNamed(context, testpage);
-      },
-      child: Stack(
-        children: [
-          Container(
-            width: 175,
-            height: 275,
-            decoration: BoxDecoration(
-              color: ColorsTheme.wight,
-              borderRadius: BorderRadius.circular(8),
+    return BlocBuilder<ProductCubit,ProductState>(
+      builder: (context,state){
+        if(state is ProductLoadedState) {
+          return GridView.builder(
+            // scrollDirection: Axis.vertical,
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              childAspectRatio: 2/3,
+              crossAxisCount: 2,
+              crossAxisSpacing: 2,
+              mainAxisSpacing: 2,
             ),
-            // alignment: Alignment.topCenter,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Stack(
-                  alignment: Alignment.bottomCenter,
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      height: 220,
-                      decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: ColorsTheme.black,
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: NetworkImage(
-                            'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500'
-                            // 'https://media.istockphoto.com/photos/image-of-brunette-in-fake-fur-coat-with-hood-picture-id535313567?k=20&m=535313567&s=612x612&w=0&h=xU51bRMrO0IV_uhBeys4orEUjktUbwzJVszpNgikKOY='
-                          ),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      height: 20,
-                      width: double.infinity,
-                      color: Colors.black38,
-                      child: Center(
-                        child: Text(
-                          'Zara',
-                          style: getBoldStyle(color: ColorsTheme.wight),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(8, 0, 0, 0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      
-                      Text(
-                        'reversible angora',
-                        style: getSemiBoldStyle(color: ColorsTheme.gray),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        '\$120',
-                          style: getRegulerStyle(color: ColorsTheme.black),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            height: 40,
-            right: 3,
-            child: IconButton(
-              icon: Icon(
-                select2 ? iconselect2: iconUnSelect2
-              ),
-              onPressed: () {
-                setState(() {
-                  select2 = !select2 ;
-                });
-              },
-            ),
-          ),
-        ],
-      ),
+            itemBuilder: (context,index){
+              return ProductItemWidget(
+              productModel: state.productState[index],
+              );
+            },
+            itemCount: state.productState.length, 
+          );
+        } else if(state is ProductLoadingState) {
+          return const Center(child: CircularProgressIndicator());
+        } else {
+          return const Center(child: Text('error'));
+        }
+        
+      }
     );
   }
+
+/*   Widget buildProduct(){
+    return GridView.builder(
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        childAspectRatio: 1,
+        mainAxisExtent: 1,
+        crossAxisSpacing: 3,
+        mainAxisSpacing: 2,
+      ),
+      itemBuilder: (context,index){
+        return ProductItemWidget(
+        productModel: proModel![index],
+        );
+      }
+    );
+
+
+
+
+
+    ListView.separated(
+            scrollDirection: Axis.vertical,
+            itemBuilder: (
+              (context, index) => ProductItemWidget(
+                productModel: state.productState[index],)
+              ), 
+            separatorBuilder:((context, index) => const SizedBox()), 
+            itemCount: state.productState.length, 
+          );
+        } else if(state is ProductLoadingState) {
+          return const Center(child: CircularProgressIndicator());
+        } else {
+          return const Center(child: Text('error'));
+        }
+        
+  } */
 }
-
-
-
-
-
- /* const SizedBox(
-            height: 10,
-          ), */
-         /*  Image(
-            height: 200,
-            width: double.infinity,
-            color: ColorsTheme.black,
-            image: NetworkImage(
-              // 'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500'
-              'https://media.istockphoto.com/photos/image-of-brunette-in-fake-fur-coat-with-hood-picture-id535313567?k=20&m=535313567&s=612x612&w=0&h=xU51bRMrO0IV_uhBeys4orEUjktUbwzJVszpNgikKOY='
-            ),
-          ), */

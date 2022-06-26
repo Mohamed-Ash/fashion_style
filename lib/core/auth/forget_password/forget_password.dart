@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ForgetPassword extends PageLayoutInterface {
-  ForgetPassword({Key? key}) : super(key: key);
+  const ForgetPassword({Key? key}) : super(key: key);
 
-  @override
   bool get backButton => true;
+  
   @override
   Widget buildBody(BuildContext context) {
     return Container();
