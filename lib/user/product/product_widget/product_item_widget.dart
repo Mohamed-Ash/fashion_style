@@ -49,10 +49,11 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                         width: double.infinity,
                         height: 220,
                         decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        image: DecorationImage(
-                          image: NetworkImage(urlImage)
-                        )
+                          color: ColorsTheme.wight,
+                          borderRadius: BorderRadius.circular(8),
+                          image: DecorationImage(
+                            image: NetworkImage(urlImage)
+                          ),
                         /* color: ColorsTheme.black,
                           image: DecorationImage(
                             fit: BoxFit.cover,
