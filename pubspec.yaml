@@ -36,8 +36,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.5
   ## firebase auth 
-  firebase_core: ^1.17.1
-  firebase_auth: ^3.3.19
   ## flutter bloc library
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
@@ -45,7 +43,7 @@ dependencies:
   flutter_form_builder: ^7.3.0
   build_runner: ^2.1.11
   flutter_gen_runner: ^4.3.0
-  ## anmimated bull right & left 
+  ## anmimated slider right & left 
   carousel_slider: ^4.1.1
   page_transition: ^2.0.5
   shared_preferences: ^2.0.15
@@ -59,7 +57,8 @@ dependencies:
   pluto_grid: ^4.0.1
   ## language and translation support
   intl: ^0.17.0
-  
+  ## cache images (officially supports android, ios, mac only)
+  cached_network_image: ^3.2.0
 
 
 flutter_native_splash:

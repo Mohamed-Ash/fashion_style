@@ -6,7 +6,6 @@ import 'package:fashion_style/core/auth/login/login_form_page/login_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class RegisterWidget extends StatefulWidget {
@@ -23,10 +22,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
   final phonecontroller = TextEditingController();
   final passwordController = TextEditingController();
   final confirmpassword = TextEditingController();
-  UserCredential? credential;
-  FirebaseAuthException? firebaseAuthException;
-  User? user = FirebaseAuth.instance.currentUser;
-  
+ 
 
 
   @override
@@ -146,26 +142,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                 height: 10,
               ),
               GestureDetector(
-                onTap: ()async{
+                onTap: (){
                   if(formkye.currentState!.validate()){
-                    try {
-                      credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                        email: emailController.text,
-                        password: passwordController.text
-                      );
-                    } on FirebaseAuthException catch (e) {
-                      if (e.code == 'weak-password') {
-                        'The password provided is too weak.' ;
-                      } else if (e.code == 'email-already-in-use') {
-                        print('The account already exists for that email.');
-                      }
-                    } catch (e) {
-                       print(e.toString());
-                    }
-                    print(credential);
-                    if(credential!.user!.email != null) {
-                      Navigator.pushNamed(context, craeteUserProfile);
-                    }
+                   
+                    Navigator.pushNamed(context, craeteUserProfile);
+                  
                   }
                },
                 child: DefaulteFormField.container(

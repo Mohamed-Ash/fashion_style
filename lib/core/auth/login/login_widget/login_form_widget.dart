@@ -3,7 +3,6 @@
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/router/string_route.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -20,16 +19,12 @@ class LoginFormWidgt extends StatefulWidget {
 class _LoginFormWidgtState extends State<LoginFormWidgt> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  final user = FirebaseAuth.instance.currentUser;
-  final formkey = GlobalKey<FormState>(); 
-  FirebaseAuth auth = FirebaseAuth.instance;
-  UserCredential? userCredential;
-
+  final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Form(
-        key: formkey,
+        key: formKey,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(12, 0, 12, 0),
           child: Column(
@@ -83,30 +78,15 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
               ),
               GestureDetector(
                 onTap: ()async{
-                  try {
-                    userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-                      email: emailController.text,
-                      password: passwordController.text
-                    );
-                  } on FirebaseAuthException catch (e) {
-                    if (e.code == 'user-not-found') {
-                      print('No user found for that email.');
-                    } else if (e.code == 'wrong-password') {
-                      print('Wrong password provided for that user.');
-                    }
-                    print(userCredential!.user!.email);
-                  }
-                  if(userCredential!.user!.email != null) {
-                    SharedPreferences prefs = await SharedPreferences.getInstance();
-                        bool? loginpage = prefs.getBool('loginpage');
-                        login != null ? 
-                      Navigator.pushNamedAndRemoveUntil(
-                        context, 
-                        '/app_page' ,
-                        (route) => false
-                      ) : 
-                    Navigator.pushNamed(context, '/');
-                  }
+                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                      bool? loginpage = prefs.getBool('loginpage');
+                      login != null ? 
+                    Navigator.pushNamedAndRemoveUntil(
+                      context, 
+                      '/app_page' ,
+                      (route) => false
+                    ) : 
+                  Navigator.pushNamed(context, '/');
                 },
                 child: DefaulteFormField.container(
                   child: Center(

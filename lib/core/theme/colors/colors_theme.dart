@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 class ColorsTheme{
   static Color wight = const Color(0xffFFFFFF);
   static Color black = const Color(0xff000000);
-  static Color primary = const Color(0xff92FFA9);
+  static Color primary = const Color(0xff3DA66E);
   static Color iconUnselect = const Color(0xff77D18B);
   static Color green = const Color(0xff035304);
   static Color dividerColor = const Color(0xff68C46B);
