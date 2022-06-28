@@ -20,6 +20,7 @@ const String  search = '/search';
 const String  appPage = '/app_page';
 const String  activeSales = '/active_sales';
 const String  previewProduct = '/preview_product';
+const String  payments = '/payments';
 
 
 
