@@ -13,14 +13,13 @@ class ProductWidget extends StatelessWidget {
       builder: (context,state){
         if(state is ProductLoadedState) {
           return GridView.builder(
-            // scrollDirection: Axis.vertical,
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               childAspectRatio: 2/3,
               crossAxisCount: 2,
-              crossAxisSpacing: 2,
-              mainAxisSpacing: 2,
+              crossAxisSpacing: 1,
+              mainAxisSpacing: 1,
             ),
             itemBuilder: (context,index){
               return ProductItemWidget(
@@ -32,7 +31,7 @@ class ProductWidget extends StatelessWidget {
         } else if(state is ProductLoadingState) {
           return const Center(child: CircularProgressIndicator());
         } else {
-          return const Center(child: Text('error'));
+          return const Center(child: Text('error 404'));
         }
         
       }
@@ -54,10 +53,6 @@ class ProductWidget extends StatelessWidget {
         );
       }
     );
-
-
-
-
 
     ListView.separated(
             scrollDirection: Axis.vertical,
