@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class AdminUserNumberPage extends AdminInterface {
-  AdminUserNumberPage({Key? key}) : super(key: key);
+ const AdminUserNumberPage({Key? key}) : super(key: key);
 
   @override
   String get title => 'User Number';
 
-  @override
   bool get backButton => true;
 
   @override
