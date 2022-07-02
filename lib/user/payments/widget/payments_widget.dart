@@ -52,7 +52,7 @@ class PaymentsWidget extends StatelessWidget {
           ),
           InkWell(
             onTap: (){
-              Navigator.pushNamed(context, testpage);
+              Navigator.pushNamed(context, paymentWhenReceiving);
             },
             child: Container(
               color: ColorsTheme.wight,
