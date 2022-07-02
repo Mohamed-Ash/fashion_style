@@ -60,7 +60,9 @@ dependencies:
   ## cache images (officially supports android, ios, mac only)
   cached_network_image: ^3.2.0
   ##upload image from Gallery or camera
-  image_picker: ^0.8.5+3
+  # image_picker: ^0.8.5+3
+  ## The content of badge. Usually Text or Icon
+  badges: ^2.0.3
 
 
 flutter_native_splash:
