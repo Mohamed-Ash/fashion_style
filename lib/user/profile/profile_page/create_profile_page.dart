@@ -1,5 +1,8 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print
 
+import 'dart:convert';
+
+import 'package:dio/dio.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/layout/page_layout_interface.dart';
 import 'package:fashion_style/core/router/string_route.dart';
@@ -8,6 +11,9 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class CreateProfilePage extends PageLayoutInterface {
+  String? token;
+  String? userId;
+
   final nameController = TextEditingController();
   final phonecontroller = TextEditingController();
   final formKey = GlobalKey<FormState>();
@@ -97,9 +103,9 @@ class CreateProfilePage extends PageLayoutInterface {
                   child: GestureDetector(
                     child : Center(child: Text('Continue')),
                     onTap: () {
-                      // if(formKey.currentState!.validate()){
-                        Navigator.pushNamed(context, appPage);
-                      // }
+                      if(formKey.currentState!.validate()){
+                        confirmEmail(context);
+                      }
                     },
                   )
                 ),
@@ -110,7 +116,23 @@ class CreateProfilePage extends PageLayoutInterface {
       ),
     );
   }
-
+  Future confirmEmail(context)async{
+    try{
+      Response response = await Dio().post(
+        'http://jack07-001-site1.htempurl.com/api/Accounts/confirmemail',
+        data: {
+          "token": "string",
+          "userId": "string"
+        },
+      ); 
+      
+      if (response.statusCode == 200) {
+        Navigator.pushNamed(context, appPage);
+      }
+    }catch(e){
+      print(e.toString());
+    }
+  }
   PreferredSizeWidget? get apBar =>AppBar(
     leading: Container(),
     title: Text('fashion style'),
