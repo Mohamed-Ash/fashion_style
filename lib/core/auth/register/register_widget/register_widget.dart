@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print, unrelated_type_equality_checks, unused_local_variable, prefer_const_constructors_in_immutables
 
-
-
+import 'package:dio/dio.dart';
 import 'package:fashion_style/core/auth/login/login_form_page/login_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/router/string_route.dart';
@@ -17,6 +16,7 @@ class RegisterWidget extends StatefulWidget {
 }
 
 class _RegisterWidgetState extends State<RegisterWidget> {
+  
   final formkye = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final phonecontroller = TextEditingController();
@@ -30,25 +30,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     emailController.dispose();
     passwordController.dispose();
     confirmpassword.dispose();
+    phonecontroller.dispose();
     super.dispose();
   }
- 
-  /* void createNewEmail()async{
-    try {
-      credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email:   emailController.text.trim(), 
-        password: passwordController.text.trim(),
-      );
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
-      }
-    } catch (e) {
-      print(e.toString());
-    }
-  } */
+
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -108,11 +93,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   }else if(value.length < 6){
                     return 'Confirm Password does  not match' ;
                   }
-                  /* else if(passwordController.text != confirmpassword.text){
+                  else if(passwordController.text != confirmpassword.text){
                     return 'Confirm Pas sword does not match';
                   } else if(value.length < 6){
                     return 'Confirm Password does  not match' ;
-                  } */
+                  }
                   return null;
                 }
               ),
@@ -123,7 +108,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                 SizedBox(
                 height: 2.5,  
               ),
-              /* DefaulteFormField.field(
+              DefaulteFormField.field(
                 controller: confirmpassword,
                 obscure: true,
                 keyboardType: TextInputType.visiblePassword,
@@ -137,17 +122,38 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                   }
                   return null;
                 }
-              ), */
+              ),
+              SizedBox(
+                height: 10,
+              ),
+             
+              DefaulteFormField.field(
+                controller: phonecontroller,
+                keyboardType: TextInputType.phone,
+                obscure: true,
+                validate: (value){
+                  if(value == null){
+                    return 'Confirm Password';
+                  }else if(value.length < 6){
+                    return 'Confirm Password does  not match' ;
+                  }
+                  else if(passwordController.text != confirmpassword.text){
+                    return 'Confirm Pas sword does not match';
+                  } else if(value.length < 6){
+                    return 'Confirm Password does  not match' ;
+                  }
+                  return null;
+                }
+              ),
               SizedBox(
                 height: 10,
               ),
               GestureDetector(
-                onTap: (){
-                  if(formkye.currentState!.validate()){
-                   
+                onTap: ()async{
+                  registerWidget();
+                  /* if(formkye.currentState!.validate()){
                     Navigator.pushNamed(context, craeteUserProfile);
-                  
-                  }
+                  } */
                },
                 child: DefaulteFormField.container(
                   child: Center(
@@ -197,78 +203,24 @@ class _RegisterWidgetState extends State<RegisterWidget> {
       ),
     );
   }
-/*   void createNewEmail()async{
-    try {
-      credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email:  "asd@gmail.com",
-        password: "asdasd",
+
+  Future registerWidget()async{
+    try{
+      Response response = await Dio().post(
+        'http://jack07-001-site1.htempurl.com/api/Accounts/Rigester',
+        data: {
+          "email": emailController.text,
+          "password": passwordController.text,
+          "confirmPassword": confirmpassword.text,
+          "phoneNumber": phonecontroller.text,
+        },    
       );
-    } on FirebaseAuthException catch (e) {
-      if (e.code == 'weak-password') {
-        print('The password provided is too weak.');
-      } else if (e.code == 'email-already-in-use') {
-        print('The account already exists for that email.');
+      if (response.statusCode == 200) {
+        Navigator.pushNamed(context, craeteUserProfile);
+          print('test masseage تم الاشتراك بنجاح');
       }
-    } catch (e) {
+    }catch(e){
       print(e.toString());
     }
-      print('user is. '+ credential.toString());
-  } */
-
-/*   void changePassword()async{
-    await FirebaseAuth.instance.setLanguageCode('eg');
-    await user?.sendEmailVerification();
-  } */
+  }
 }
-
-
-
-/*  onTap: ()async{
-                  try {
-                    credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                      email: emailAddress,
-                      password: password,
-                    );
-                  } on FirebaseAuthException catch (e) {
-                    if (e.code == 'weak-password') {
-                      print('The password provided is too weak.');
-                    } else if (e.code == 'email-already-in-use') {
-                      print('The account already exists for that email.');
-                    }
-                  } catch (e) {
-                    print(e);
-                  }
-                 /*  credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-                    /* email: emailController.text.trim(),
-                    password: passwordController.text.trim(), */
-                    email: 'asdadsa@gmail.com',
-                    password: '34343444',
-                  /*). then((value) => Navigator.pushNamedAndRemoveUntil(
-                      context,   
-                      '/layout',  
-                      (route) => false
-                    ), */
-                  );
-                } on FirebaseAuthException catch (e) {
-                  if (e.code == 'weak-password') {
-                  } else if (e.code == 'email-already-in-use') {
-                  } else if (e.code == 'user-not-found') {
-                  } else if (e.code == 'wrong-password') {
-                  }
-                  print(e.code) ; //Add this line to see other firebase exceptions.
-                } catch (e) {
-                  print(e);
-                } */
-              if(formkye.currentState!.validate()){
-               
-              /*  if(formkye.currentState!.validate()){
-                 Navigator.pushNamedAndRemoveUntil(
-                  context,      email: "emailAddressewrwewerer@gmail.com",
-                  password: "22334432234"   
-                  '/layout',  
-                  (route) => false
-                );
-              } */
-              print('Login');
-             }
-            }, */
