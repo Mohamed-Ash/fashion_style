@@ -18,6 +18,7 @@ import 'package:fashion_style/core/page/app_layout_page.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
 import 'package:fashion_style/user/favorite/favorite_page/favorite_page.dart';
+import 'package:fashion_style/user/payments/page/buy_order_page.dart';
 import 'package:fashion_style/user/payments/page/payments_page.dart';
 import 'package:fashion_style/user/product/product_page/preview_product_page.dart';
 import 'package:fashion_style/user/product/product_page/product_page.dart';
@@ -52,11 +53,12 @@ class Routesrs{
       case search:                              return MaterialPageRoute(builder: (_) => const SearchPage()); 
       case appPage:                             return MaterialPageRoute(builder: (_) => const AppLayoutPage());     
       case appLayoutPage:                       return MaterialPageRoute(builder: (_) => const AppLayoutPage());      
-      case payments:                       return MaterialPageRoute(builder: (_) => const PaymentsPage());      
       case activeSales:                         return MaterialPageRoute(builder: (_) => const ActiveSales());  
       case previewProduct:
         final previewItemProduct = settings.arguments as ProductModel;                      
         return MaterialPageRoute(builder: (_) => PreviewProductPage(productModel: previewItemProduct));  
+      case payments:                       return MaterialPageRoute(builder: (_) => const PaymentsPage());      
+      case paymentWhenReceiving:                       return MaterialPageRoute(builder: (_) => const PaymentWhenReceivingPage());      
 
       // Todo: admin   
       case adminDashboard:                      return MaterialPageRoute(builder: (_) => const AdminDashboard());     
