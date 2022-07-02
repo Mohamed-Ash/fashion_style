@@ -1,25 +1,18 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, avoid_print, curly_braces_in_flow_control_structures, must_be_immutable, overridden_fields, prefer_const_constructors_in_immutables, unnecessary_null_comparison, deprecated_member_use, unused_local_variable, body_might_complete_normally_nullable
+// ignore_for_file: avoid_print
 
+import 'package:dio/dio.dart';
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-class LoginFormWidgt extends StatefulWidget {
-  
-  LoginFormWidgt({Key? key}) : super(key: key);
-
- 
-
-  @override
-  State<LoginFormWidgt> createState() => _LoginFormWidgtState();
-}
-
-class _LoginFormWidgtState extends State<LoginFormWidgt> {
+class LoginFormWidgt extends StatelessWidget {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+
+  LoginFormWidgt({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -32,7 +25,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
+             const Center(
                  child: Text(
                   'Login',
                   style: TextStyle(
@@ -40,11 +33,11 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
-              Text('Email:'),
-              SizedBox(
+              const Text('Email:'),
+              const SizedBox(
                 height: 2.5,
               ),
               DefaulteFormField.field(
@@ -60,11 +53,11 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   return null;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text('Password:'),
-              SizedBox(
+              const Text('Password:'),
+              const SizedBox(
                 height: 2.5,
               ),
               DefaulteFormField.field(
@@ -73,23 +66,17 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                 obscure: true,
                 validate: (value) => value == null || value.length < 6 ? 'Password does  not match' : null,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               GestureDetector(
                 onTap: ()async{
-                  SharedPreferences prefs = await SharedPreferences.getInstance();
-                      bool? loginpage = prefs.getBool('loginpage');
-                      login != null ? 
-                    Navigator.pushNamedAndRemoveUntil(
-                      context, 
-                      '/app_page' ,
-                      (route) => false
-                    ) : 
-                  Navigator.pushNamed(context, '/');
+                  if(formKey.currentState!.validate()) {
+                    loginWidget(context);
+                  }
                 },
                 child: DefaulteFormField.container(
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'Login',  
                       style: TextStyle(
@@ -100,7 +87,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               GestureDetector(
@@ -109,12 +96,12 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Registerpage(),
+                      builder: (context) => const Registerpage(),
                     ),
                   );
                 },
                 child: DefaulteFormField.container(
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'Sign UP',
                       style: TextStyle(
@@ -125,14 +112,14 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextButton(
                 onPressed: () {
                   Navigator.pushNamed(context, appPage);
                 },
-                child: Text(
+                child: const Text(
                   'Forget Pssword ?',
                   style: TextStyle(
                     color: Color.fromARGB(255, 146, 227, 169),
@@ -145,36 +132,24 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
         ),
       ),
     );
-    
   }
   
- /*  Future loginTap(context)async{
-    User? user = await loginUseingEmailPassword(
-      password: passwordController.text,
-      email: emailController.text,
-      context: context
-    );
-    if (user != null) {
-      Navigator.pushNamed(context, layout);
-      print('Login');
-    } else {
-      print('testtttttttt' + user.toString());
-    }
-  }   */
-  
-  /* static Future<User?> loginUseingEmailPassword() async {
-    
-     try {
-        UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: "asdasdasdasdas.allen@example.com",
-          password: "SuperSecretPassword!"
-        );
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'user-not-found') {
-          print('No user found for that email.');
-        } else if (e.code == 'wrong-password') {
-          print('Wrong password provided for that user.');
-        }
+  Future loginWidget(context)async{
+    try{
+      Response response = await Dio().post(
+        'http://jack07-001-site1.htempurl.com/api/Accounts/Login',
+        data: {
+          "email": emailController.text,
+          "password": passwordController.text,
+          "rememberMe": false
+        } ,    
+      );
+      if (response.statusCode == 200) {
+      print(response.statusCode.toString());
+        Navigator.pushNamed(context, appPage);
       }
-  } */
+    }catch(e){
+      print(e.toString());
+    }
+  }
 }
