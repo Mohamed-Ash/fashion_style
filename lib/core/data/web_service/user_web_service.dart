@@ -5,9 +5,14 @@ import 'package:fashion_style/core/data/web_service/interface/web_service_interf
 
 class UserWebService extends WebServiceInterface{
   
-  Future<List<dynamic>> getProfileUsers() async {
+  Future<dynamic> getUserProfile({required String id,}) async {
     try{
-      Response respons = await dio.get(baseUrl+'Users/GetAllUsers');
+      Response respons = await dio.get(
+        baseUrl+'Accounts/GetUser?',
+        queryParameters: {
+          'id' : id,
+        },
+      );///'f2fb6681-31f2-4ba9-8da6-7931ca04ac02'
       print(respons.data.toString());
       if(respons.statusCode == 200){
         return respons.data;

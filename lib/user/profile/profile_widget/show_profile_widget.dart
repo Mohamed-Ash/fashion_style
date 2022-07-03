@@ -1,12 +1,18 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
+
+import 'package:flutter/material.dart';
 import 'package:fashion_style/core/data/model/user_model.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
-import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class ShowProfileWidget extends StatelessWidget {
- final UserModel userModel;
 
-  const ShowProfileWidget({Key? key,required this.userModel}) : super(key: key);
+  final UserModel userModel;
+
+  const ShowProfileWidget({
+    Key? key,
+    required this.userModel,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +52,7 @@ class ShowProfileWidget extends StatelessWidget {
           ),
         ),
         Text(
-          '${userModel.name}',
+          '${userModel.email}',
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
@@ -55,7 +61,7 @@ class ShowProfileWidget extends StatelessWidget {
         ),
         const SizedBox(height: 10,),
         Text(
-          '${userModel.age}',
+          '${userModel.phoneNumber}',
           style: TextStyle(
             fontSize: 20,
             color: ColorsTheme.black,
@@ -70,7 +76,7 @@ class ShowProfileWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10,),
-        Text('gender: ${userModel.gender}',
+        Text('gender: ${userModel.userName}',
           style: TextStyle(
             fontSize: 20,
             color: ColorsTheme.black,
@@ -84,7 +90,7 @@ class ShowProfileWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10,),
-        Text('address: ${userModel.address}',
+        Text(' ${userModel.id}',
           style: TextStyle(
             fontSize: 20,
             color: ColorsTheme.black,

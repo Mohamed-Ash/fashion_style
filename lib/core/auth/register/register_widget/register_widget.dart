@@ -216,7 +216,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
         },    
       );
       if (response.statusCode == 200) {
-        Navigator.pushNamed(context, craeteUserProfile);
+        Navigator.pushNamed(context, appPage);
           print('test masseage تم الاشتراك بنجاح');
       }
     }catch(e){

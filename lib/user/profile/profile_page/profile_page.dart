@@ -13,12 +13,14 @@ class ProfilePage extends UserInterface {
   // UserRepository? userRepository;
   // late ApidatablocuserCubit apidatablocuserCubit;
 
-   const ProfilePage({Key? key}) : super(key: key);
+  String? id;
+
+  ProfilePage({Key? key, this.id,}) : super(key: key);
  
   @override
   Widget buildBody(BuildContext context) {
     return BlocProvider(
-      create: (context) => Usercubit(UserRepository(UserWebService()))..getAllUserModel(),
+      create: (context) => Usercubit(UserRepository(UserWebService()))..getUserProfile(id: id!),
       child: ProfileWidget(),
     );
   }
