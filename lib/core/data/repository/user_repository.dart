@@ -6,8 +6,8 @@ class UserRepository{
 
   UserRepository(this.usersWebServices);
 
-  Future<List<UserModel>> getProfileUserRepository()async{
-    final users = await usersWebServices?.getProfileUsers();
-    return users!.map((user) => UserModel.fromJson(user)).toList();
+  Future<UserModel> getUserProfile({required String id,})async{
+    final userProfile = await usersWebServices?.getUserProfile(id: id);
+    return UserModel.fromJson(userProfile);
   }
 }

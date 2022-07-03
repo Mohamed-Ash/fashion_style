@@ -42,6 +42,11 @@ class Routesrs{
       case craeteUserProfile:                   return MaterialPageRoute(builder: (_) => CreateProfilePage());       
 
 
+
+
+      
+
+
       // Todo: user 
       case testpage:                            return MaterialPageRoute(builder: (_) => const TestImagePage());       
       case setting:                             return MaterialPageRoute(builder: (_) => const SettngsPage());       
@@ -49,7 +54,9 @@ class Routesrs{
       case product:                             return MaterialPageRoute(builder: (_) => const ProductPage());       
       case sales:                               return MaterialPageRoute(builder: (_) => const SalesPage());       
       case producitem:                          return MaterialPageRoute(builder: (_) => const ProductItemSellPage());      
-      case userProfilePage:                     return MaterialPageRoute(builder: (_) => const ProfilePage());      
+      case userProfilePage:                     
+        String id = settings.arguments as String;
+        return MaterialPageRoute(builder: (_) => ProfilePage(id: id,));      
       case search:                              return MaterialPageRoute(builder: (_) => const SearchPage()); 
       case appPage:                             return MaterialPageRoute(builder: (_) => const AppLayoutPage());     
       case appLayoutPage:                       return MaterialPageRoute(builder: (_) => const AppLayoutPage());      
@@ -59,6 +66,10 @@ class Routesrs{
         return MaterialPageRoute(builder: (_) => PreviewProductPage(productModel: previewItemProduct));  
       case payments:                       return MaterialPageRoute(builder: (_) => const PaymentsPage());      
       case paymentWhenReceiving:                       return MaterialPageRoute(builder: (_) => const PaymentWhenReceivingPage());      
+
+
+
+
 
       // Todo: admin   
       case adminDashboard:                      return MaterialPageRoute(builder: (_) => const AdminDashboard());     
