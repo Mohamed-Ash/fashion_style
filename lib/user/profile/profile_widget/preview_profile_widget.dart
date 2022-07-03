@@ -5,11 +5,11 @@ import 'package:fashion_style/core/data/model/user_model.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 
 // ignore: must_be_immutable
-class ShowProfileWidget extends StatelessWidget {
+class PreviewProfileWidget extends StatelessWidget {
 
   final UserModel userModel;
 
-  const ShowProfileWidget({
+  const PreviewProfileWidget({
     Key? key,
     required this.userModel,
   }) : super(key: key);
