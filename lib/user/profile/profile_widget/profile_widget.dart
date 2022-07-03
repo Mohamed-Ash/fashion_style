@@ -1,6 +1,6 @@
  // ignore_for_file: 
 
-import 'package:fashion_style/user/profile/profile_widget/show_profile_widget.dart';
+import 'package:fashion_style/user/profile/profile_widget/preview_profile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fashion_style/core/bloc/user_cubit/user_cubit.dart';
@@ -17,7 +17,7 @@ class ProfileWidget extends StatelessWidget {
       builder: (context, state) {
         if(state is UserProfileLoadedState) {
           //  userModel = (state).users; 
-           return ShowProfileWidget(userModel: state.userProfile);
+           return PreviewProfileWidget(userModel: state.userProfile);
           // return   ShowProfileWidget(userModel: state.users.first,); //userModel : state.users[2]
         } else if(state is UserLoadingState){
           return const Center(child: CircularProgressIndicator());
