@@ -1,4 +1,4 @@
-import 'package:fashion_style/user/helper/settings_service.dart';
+/* import 'package:fashion_style/user/helper/settings_service.dart';
 import 'package:flutter/material.dart';
 
 class SettingHelper{
@@ -10,4 +10,4 @@ class SettingHelper{
       SettingsService().settings.locale = const Locale('ar', 'EG');
     }
   }
-}
+} */
