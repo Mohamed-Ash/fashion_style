@@ -1,19 +1,13 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, unnecessary_null_comparison, unrelated_type_equality_checks
 
+import 'package:fashion_style/core/router/string_route.dart';
+import 'package:fashion_style/core/service/auth_service.dart';
+import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:flutter/material.dart';
 
-import 'package:fashion_style/core/data/model/user_model.dart';
-import 'package:fashion_style/core/router/string_route.dart';
-import 'package:fashion_style/core/theme/colors/colors_theme.dart';
-
-// ignore: must_be_immutable
 class DrawerWidget extends StatelessWidget {
-  UserModel? userModel;
-  
-  DrawerWidget({
-    Key? key,
-  }) : super(key: key);
+  const DrawerWidget({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -135,7 +129,7 @@ class DrawerWidget extends StatelessWidget {
                   Icons.people_alt_outlined,
                   color: Color.fromARGB(255, 146, 227, 169),
                 ), 
-                onPressed: () => Navigator.pushNamed(context, userProfilePage, arguments: 'f2fb6681-31f2-4ba9-8da6-7931ca04ac02'),
+                onPressed: () => Navigator.pushNamed(context, userProfilePage, arguments: AuthService().id),
                 clipBehavior: Clip.antiAlias,
               ),
             ], //profile
