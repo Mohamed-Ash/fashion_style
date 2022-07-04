@@ -11,6 +11,7 @@ class SplashScreen extends PageLayoutInterface{
   @override
   Widget buildBody(BuildContext context) {
     return PageView(
+      
       scrollDirection: Axis.horizontal,
       children: const[],
     ) ;

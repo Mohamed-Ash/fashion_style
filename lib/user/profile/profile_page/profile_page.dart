@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors, avoid_print
 
 import 'package:fashion_style/core/bloc/user_cubit/user_cubit.dart';
-import 'package:fashion_style/core/data/model/user_model.dart';
 import 'package:fashion_style/core/data/repository/user_repository.dart';
 import 'package:fashion_style/core/data/web_service/user_web_service.dart';
 import 'package:fashion_style/user/profile/profile_widget/profile_widget.dart';

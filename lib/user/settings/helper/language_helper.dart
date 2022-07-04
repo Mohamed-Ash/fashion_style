@@ -1,3 +1,5 @@
+// ignore_for_file: constant_identifier_names
+
 import 'package:fashion_style/core/service/settings_service.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_style/core/l10n/generated/l10n.dart';
