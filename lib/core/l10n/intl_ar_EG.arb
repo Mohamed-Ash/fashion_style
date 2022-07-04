@@ -1,10 +1,10 @@
 {
-    "login_screen_generic_field_email_title":"الإلكتروني",
+    "user_setting_widget_change_language_language_title":"اللغه",
     "login_screen_generic_field_email_hint_text_title":"أدخل البريد الإلكتروني",
     "login_screen_generic_field_password_title":"كلمة المرور",
     "save":"حفظ",
     "cansel":"الغاء",
-    "english":"الانجليزية",
-    "arabic":"العربية"
+    "user_setting_widget_change_language_english_text":"الانجليزية",
+    "user_setting_widget_change_language_arabic_text":"العربية"
     
 }
