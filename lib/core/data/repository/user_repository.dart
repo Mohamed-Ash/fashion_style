@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:fashion_style/core/data/model/user_model.dart';
 import 'package:fashion_style/core/data/web_service/user_web_service.dart';
 
