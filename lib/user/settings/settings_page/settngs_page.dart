@@ -1,12 +1,20 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:fashion_style/core/l10n/generated/l10n.dart';
-import 'package:fashion_style/core/theme/colors/colors_theme.dart';
+import 'package:fashion_style/core/theme/themes.dart';
+import 'package:fashion_style/user/settings/helper/language_helper.dart';
 import 'package:fashion_style/user/user_interface.dart';
 import 'package:flutter/material.dart';
 
+import '../../../core/service/settings_service.dart';
+
 class SettngsPage extends UserInterface {
-  const SettngsPage({Key? key}) : super(key: key);
+
+  late LanguageEnum currentLang;
+
+  SettngsPage({Key? key}) : super(key: key) {
+    currentLang = LanguageHelper.getCurrentLang();
+  }
   
   @override
   Widget buildBody(BuildContext context) {
@@ -20,14 +28,15 @@ class SettngsPage extends UserInterface {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 0.0,horizontal: 5.0),
               child: Text(
-                S.current.login_screen_generic_field_email_title,
+                S.current.user_setting_widget_change_language_language_title,
               ),
             ),
-            // Text(LanguageHelper.getCurrentLocalName() ,style: Themes().style(74),),
-           /*  Icon(
+            Spacer(),
+            Text(LanguageHelper.getCurrentLocalName() /* ,style: Themes().style(74) */,),
+            Icon(
               SettingsService().isRTL ? Icons.keyboard_arrow_left : Icons.keyboard_arrow_right,
-              color: Themes().color(2),
-            ), */
+              /* color: Themes().color(2), */
+            ),
           ],
         ),
       ),
@@ -65,13 +74,13 @@ class SettngsPage extends UserInterface {
   String get title => 'setting';
 
 void showLangDialog(BuildContext context){
-  // currentLang = LanguageHelper.getCurrentLang();
+    currentLang = LanguageHelper.getCurrentLang();
     showDialog(
       context: context,
       builder: (context){
         return AlertDialog(
           title: Text('Choose Language',),
-          backgroundColor: ColorsTheme.wight,
+          backgroundColor: Colors.white,
           contentPadding: EdgeInsets.fromLTRB(4, 8, 4, 8),
           // actionsPadding: EdgeInsets.all(4),
           content: StatefulBuilder(
@@ -82,7 +91,7 @@ void showLangDialog(BuildContext context){
                 child: Column(
                   children: [
                     ListTile(
-                    /*   leading: Radio<LanguageEnum>(
+                      leading: Radio<LanguageEnum>(
                         value: LanguageEnum.English,
                         groupValue: currentLang,
                         onChanged: (value) {
@@ -90,11 +99,11 @@ void showLangDialog(BuildContext context){
                             currentLang = value!;
                           });
                         },
-                      ), */
-                      title: Text(S.current.english)
+                      ),
+                      title: Text(S.current.user_setting_widget_change_language_english_text)
                     ),
                     ListTile(
-                      /* leading: Radio<LanguageEnum>(
+                      leading: Radio<LanguageEnum>(
                         value: LanguageEnum.Arabic,
                         groupValue: currentLang,
                         onChanged: (value) {
@@ -102,8 +111,8 @@ void showLangDialog(BuildContext context){
                             currentLang = value!;
                           });
                         },
-                      ), */
-                      title: Text(S.current.arabic)
+                      ),
+                      title: Text(S.current.user_setting_widget_change_language_arabic_text)
                     ),
                   ],
                 ),
@@ -119,7 +128,8 @@ void showLangDialog(BuildContext context){
             TextButton(
               onPressed: () {
                 Navigator.of(context).pop();
-                // LanguageHelper.saveSelectedLang(currentLang);
+                LanguageHelper.saveSelectedLang(currentLang);
+                
               },
               child: Text(S.current.save),
             ),
