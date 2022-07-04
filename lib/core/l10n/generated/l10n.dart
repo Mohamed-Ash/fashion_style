@@ -50,11 +50,11 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
-  /// `الإلكتروني`
-  String get login_screen_generic_field_email_title {
+  /// `Language`
+  String get user_setting_widget_change_language_language_title {
     return Intl.message(
-      'الإلكتروني',
-      name: 'login_screen_generic_field_email_title',
+      'Language',
+      name: 'user_setting_widget_change_language_language_title',
       desc: '',
       args: [],
     );
@@ -101,20 +101,20 @@ class S {
   }
 
   /// `English`
-  String get english {
+  String get user_setting_widget_change_language_english_text {
     return Intl.message(
       'English',
-      name: 'english',
+      name: 'user_setting_widget_change_language_english_text',
       desc: '',
       args: [],
     );
   }
 
   /// `Arabic`
-  String get arabic {
+  String get user_setting_widget_change_language_arabic_text {
     return Intl.message(
       'Arabic',
-      name: 'arabic',
+      name: 'user_setting_widget_change_language_arabic_text',
       desc: '',
       args: [],
     );
