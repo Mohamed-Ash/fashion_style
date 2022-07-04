@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:fashion_style/core/auth/login/login_form_page/login_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/router/string_route.dart';
+import 'package:fashion_style/core/service/auth_service.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -216,8 +217,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
         },    
       );
       if (response.statusCode == 200) {
+        AuthService().id = response.data['userId'];
+        print('test masseage تم الاشتراك بنجاح'); 
         Navigator.pushNamed(context, appPage);
-          print('test masseage تم الاشتراك بنجاح');
       }
     }catch(e){
       print(e.toString());

@@ -7,7 +7,8 @@ class UserRepository{
   UserRepository(this.usersWebServices);
 
   Future<UserModel> getUserProfile({required String id,})async{
-    final userProfile = await usersWebServices?.getUserProfile(id: id);
+    print('*************** [id] : $id ******************');
+    final userProfile = await usersWebServices?.getUserProfile(id:id);
     return UserModel.fromJson(userProfile);
   }
 }

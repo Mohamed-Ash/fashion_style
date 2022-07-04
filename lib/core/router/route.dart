@@ -49,7 +49,7 @@ class Routesrs{
 
       // Todo: user 
       case testpage:                            return MaterialPageRoute(builder: (_) => const TestImagePage());       
-      case setting:                             return MaterialPageRoute(builder: (_) => const SettngsPage());       
+      case setting:                             return MaterialPageRoute(builder: (_) => SettngsPage());       
       case favorite:                            return MaterialPageRoute(builder: (_) => FavoritePage());       
       case product:                             return MaterialPageRoute(builder: (_) => const ProductPage());       
       case sales:                               return MaterialPageRoute(builder: (_) => const SalesPage());       
