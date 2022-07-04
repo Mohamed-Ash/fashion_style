@@ -4,6 +4,7 @@ import 'package:dio/dio.dart';
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/router/string_route.dart';
+import 'package:fashion_style/core/service/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class LoginFormWidgt extends StatelessWidget {
@@ -145,7 +146,9 @@ class LoginFormWidgt extends StatelessWidget {
         } ,    
       );
       if (response.statusCode == 200) {
-      print(response.statusCode.toString());
+        AuthService().id = response.data['userId'];
+        // response.data['userId'];
+        print(response.statusCode.toString());
         Navigator.pushNamed(context, appPage);
       }
     }catch(e){
