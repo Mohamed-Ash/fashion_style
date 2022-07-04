@@ -3,6 +3,7 @@
 
 import 'package:fashion_style/core/l10n/generated/l10n.dart';
 import 'package:fashion_style/core/router/route.dart';
+import 'package:fashion_style/core/service/settings_service.dart';
 import 'package:fashion_style/core/theme/theme_manager.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -17,20 +18,26 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) { 
-    return MaterialApp(
-      localizationsDelegates: const [
-              S.delegate,
-              AppLocalizationDelegate(),
-              GlobalWidgetsLocalizations.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-              // AppForm.FormBuilderLocalizations.delegate,
-            ],
-      supportedLocales: S.delegate.supportedLocales,
-      debugShowCheckedModeBanner: false,
-      scrollBehavior: MyCustomScrollBehavior(),
-      onGenerateRoute: routesrs.genrateRoute,
-      theme: getAppThemeData(),
+    return AnimatedBuilder(
+      animation: SettingsService(),
+      builder: (context, child) {
+        return MaterialApp(
+          locale: SettingsService().locale,
+          localizationsDelegates: const [
+            S.delegate,
+            AppLocalizationDelegate(),
+            GlobalWidgetsLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            // AppForm.FormBuilderLocalizations.delegate,
+          ],
+          supportedLocales: S.delegate.supportedLocales,
+          debugShowCheckedModeBanner: false,
+          scrollBehavior: MyCustomScrollBehavior(),
+          onGenerateRoute: routesrs.genrateRoute,
+          theme: getAppThemeData(),
+        );
+      },
     );
   }
 

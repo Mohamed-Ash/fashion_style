@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_print
 
-abstract class ServiceInterface {
+/* abstract class ServiceInterface {
 
   String get name;
 
@@ -15,4 +15,4 @@ abstract class ServiceInterface {
 
   Future initialize();
 
-}
+} */
