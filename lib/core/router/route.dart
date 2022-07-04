@@ -1,5 +1,3 @@
-
-
 import 'package:fashion_style/account_sales/account_sales_page/account_sales_page.dart';
 import 'package:fashion_style/account_sales/profile_sales_widget/item_profile_sales_widget.dart';
 import 'package:fashion_style/admin/active_sales/active_sales_page/active_sales.dart';
@@ -44,6 +42,14 @@ class Routesrs{
 
 
 
+
+
+
+
+
+
+
+
       
 
 
@@ -71,6 +77,12 @@ class Routesrs{
 
 
 
+
+
+
+
+
+
       // Todo: admin   
       case adminDashboard:                      return MaterialPageRoute(builder: (_) => const AdminDashboard());     
       case adminAllOrders:                      return MaterialPageRoute(builder: (_) => AdminAllOrdersPage());      
@@ -80,12 +92,26 @@ class Routesrs{
       case adminUserNumber:                     return MaterialPageRoute(builder: (_) => const AdminUserNumberPage());       
      
      
+
+
+
+
+
+
+
+
+
+
+
+
       // Todo: accountSales 
       case accountSales:                        return MaterialPageRoute(builder: (_) => const AccountSalesPage());
       case profileSales:         
         final prfileSales = settings.arguments as AllSalesModel ;
         return MaterialPageRoute(builder: (_) =>  ItemProfileSalesWidget(allSalesModel: prfileSales,));
     }
+
+
     return null;
   }
 }
