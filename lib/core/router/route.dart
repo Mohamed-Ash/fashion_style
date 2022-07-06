@@ -34,11 +34,10 @@ class Routesrs{
     switch (settings.name) {
 
       // Todo: auth 
-      case login :                              return MaterialPageRoute(builder: (_) => const LoginPage(),);
+      case login :                              return MaterialPageRoute(builder: (_) => const LoginPage());
       case register:                            return MaterialPageRoute(builder: (_) => const Registerpage());   
       case forgetPassword:                      return MaterialPageRoute(builder: (_) => const ForgetPassword());   
       case craeteUserProfile:                   return MaterialPageRoute(builder: (_) => CreateProfilePage());       
-
 
 
 

@@ -2,18 +2,35 @@
 
 import 'package:dio/dio.dart';
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
+import 'package:fashion_style/core/data/repository/auth_login_repository.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/core/service/auth_service.dart';
+import 'package:fashion_style/core/service/data_storage_service.dart';
 import 'package:flutter/material.dart';
 
-class LoginFormWidgt extends StatelessWidget {
+// ignore: must_be_immutable
+class LoginFormWidgt extends StatefulWidget {
+
+  const LoginFormWidgt({Key? key}) : super(key: key);
+
+  @override
+  State<LoginFormWidgt> createState() => _LoginFormWidgtState();
+}
+
+class _LoginFormWidgtState extends State<LoginFormWidgt> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
-
-  LoginFormWidgt({Key? key}) : super(key: key);
-
+  final DataStorageService _dataStorageService = DataStorageService();
+  AuthloginRepository? authloginRepository;
+   
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -73,7 +90,11 @@ class LoginFormWidgt extends StatelessWidget {
               GestureDetector(
                 onTap: ()async{
                   if(formKey.currentState!.validate()) {
+                    // AuthloginRepository(email: emailController.text, password: passwordController.text);
+                    // testLogin(context);
                     loginWidget(context);
+                    _dataStorageService.saveString('email', 'useremail@gmail.com');
+                    
                   }
                 },
                 child: DefaulteFormField.container(
@@ -117,7 +138,8 @@ class LoginFormWidgt extends StatelessWidget {
                 height: 10,
               ),
               TextButton(
-                onPressed: () {
+                onPressed: () async{
+                 
                   Navigator.pushNamed(context, appPage);
                 },
                 child: const Text(
@@ -134,7 +156,13 @@ class LoginFormWidgt extends StatelessWidget {
       ),
     );
   }
-  
+
+ /*   testLogin(BuildContext context){
+    return AuthloginRepository(
+      email: emailController.text,
+      password: passwordController.text,
+    );
+  } */
   Future loginWidget(context)async{
     try{
       Response response = await Dio().post(
@@ -142,13 +170,15 @@ class LoginFormWidgt extends StatelessWidget {
         data: {
           "email": emailController.text,
           "password": passwordController.text,
-          "rememberMe": false
+          "rememberMe": true
         } ,    
       );
       if (response.statusCode == 200) {
         AuthService().id = response.data['userId'];
-        // response.data['userId'];
-        print(response.statusCode.toString());
+        AuthService().statusMessage = response.data["statusMessage"];
+        print("test massage " + response.data["statusMessage"].toString());
+          _dataStorageService.saveString('user.id','${response.data["userId"]}');
+            print('[test massage  +++++++++++#######+  ]  ' + _dataStorageService.getString('user.id').toString());
         Navigator.pushNamed(context, appPage);
       }
     }catch(e){

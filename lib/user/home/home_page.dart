@@ -1,4 +1,7 @@
 
+// ignore_for_file: avoid_print
+
+import 'package:fashion_style/core/service/auth_service.dart';
 import 'package:fashion_style/user/carousel_slider/carousel_slider_page.dart';
 import 'package:fashion_style/user/product/product_page/product_page.dart';
 import 'package:flutter/material.dart';
@@ -7,14 +10,16 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+          print(AuthService().statusMessage);
     return  Card(
       child: ListView(
         physics: const  NeverScrollableScrollPhysics(),
         shrinkWrap: true,
-        children:const [
-          CarouselSliderPage(),
-          SizedBox(height: 10),
-          ProductPage(),
+        children: [
+          const CarouselSliderPage(),
+          const SizedBox(height: 10),
+          Text('${AuthService().statusMessage}'),
+          const ProductPage(),
         ],
       ),
     );
