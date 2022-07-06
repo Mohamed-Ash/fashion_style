@@ -5,6 +5,8 @@ class AuthService extends ServiceInterface {
 
   String? id;
 
+  String? statusMessage;
+
   final DataStorageService _storageService = DataStorageService();
 
   final String userIdKeyName = 'user.id';
@@ -18,6 +20,9 @@ class AuthService extends ServiceInterface {
     this.id = id;
   }
 
+   /* set userStatusMessage(String statusMessage) {
+    this.statusMessage = statusMessage;
+  } */
   // singleton
   static AuthService? _instance;
 

@@ -41,7 +41,7 @@ class DataStorageService extends ServiceInterface {
     try {
       return _sharedPreferences.getString(key);
     } catch (e) {
-      print('Services: Settings: unknown variable: $key');
+      print('Services: unknown variable: $key');
     }
     return null;
   }
@@ -50,7 +50,7 @@ class DataStorageService extends ServiceInterface {
     try {
       return _sharedPreferences.getBool(key);
     } catch (e) {
-      print('Services: Settings: unknown variable: $key');
+      print('Services: unknown variable: $key');
     }
     return null;
   }
@@ -59,7 +59,7 @@ class DataStorageService extends ServiceInterface {
     try {
       return _sharedPreferences.getInt(key);
     } catch (e) {
-      print('Services: Settings: unknown variable: $key');
+      print('Services: unknown variable: $key');
     }
     return null;
   }
@@ -68,7 +68,7 @@ class DataStorageService extends ServiceInterface {
     try {
       return _sharedPreferences.getDouble(key);
     } catch (e) {
-      print('Services: Settings: unknown variable: $key');
+      print('Services: unknown variable: $key');
     }
     return null;
   }
@@ -77,12 +77,20 @@ class DataStorageService extends ServiceInterface {
     try {
       return _sharedPreferences.getStringList(key);
     } catch (e) {
-      print('Services: Settings: unknown variable: $key');
+      print('Services: unknown variable: $key');
     }
     return null;
   }
 
 
+  Future<bool>? removeString(String key) {
+    try {
+      return _sharedPreferences.remove(key);
+    } catch (e) {
+      print('Services: unknown variable: $key');
+    }
+    return null;
+  }
   // singleton
   static DataStorageService? _instance;
 
