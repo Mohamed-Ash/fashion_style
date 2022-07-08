@@ -1,7 +1,8 @@
-// ignore_for_file: must_be_immutable, prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: must_be_immutable, prefer_const_literals_to_create_immutables, prefer_const_constructors, avoid_print
 
 import 'package:fashion_style/core/data/model/get_product.dart';
 import 'package:fashion_style/core/router/string_route.dart';
+import 'package:fashion_style/core/sql/sql.dart';
 import 'package:fashion_style/core/theme/fonts/style.dart';
 import 'package:flutter/material.dart';
 import 'package:fashion_style/core/theme/colors/colors_theme.dart';
@@ -19,11 +20,12 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
   bool select = false;
   String urlImage = 'https://images.unsplash.com/photo-1613915617430-8ab0fd7c6baf?ixlib=rb-1.2.1&raw_url=true&q=60&fm=jpg&crop=entropy&cs=tinysrgb&ixid=MnwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDd8fHxlbnwwfHx8fA%3D%3D&auto=format&fit=crop&w=500';
   IconData iconselect2 = Icons.favorite;
-
   IconData iconUnSelect2 = Icons.favorite_outline_sharp;
   Icon icon = Icon(Icons.favorite, color: Colors.red,);
   Icon uniIcon = Icon(Icons.favorite_outline_sharp, color: Colors.red,);
 
+ CreatSQl createSQl = CreatSQl();
+ 
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -104,10 +106,26 @@ class _ProductItemWidgetState extends State<ProductItemWidget> {
                   select ? iconselect2: iconUnSelect2
                 ),
                 color: Colors.red,
-                onPressed: () {
-                  setState(() {
+                onPressed: ()async {
+                  setState((){
                     select = !select ;
                   });
+                  if(select) {
+                    int response = await createSQl.insertData('''
+                      INSERT INTO 'product' (
+                        'name','title','price','image') VALUES (
+                          '${widget.productModel.name}',
+                          '${widget.productModel.description}',
+                          '${widget.productModel.price}',
+                          '$urlImage')
+                    ''');
+                    print("==================== response ================");
+                    print(response);
+                  }else{
+                   int response = await createSQl.deleteAllDatabase("DELETE FROM 'product' WHERE id = 'id' ");
+                    print("==================== response ================");
+                    print(response);
+                  }
                 },
               ),
             ),
