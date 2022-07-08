@@ -30,13 +30,34 @@ class CreatSQl {
   
   _onUpgrade(Database db, int oldVersion, int newVersion ){
     print('===================== UPGRADE DATEBASE ============================');
+    
   }
 
   _createDatabase(Database db, int version)async{
-    await db.execute(
-      'CREATE TABLE product ("id" INTEGER  NOT NULL PRIMARY KEY  AUTOINCREMENT , "name" TEXT , "title" TEXT , "price" TEXT )'
-      );
+    Batch batch = db.batch();
+    batch.execute('''
+        CREATE TABLE "product" (
+          "id" INTEGER  NOT NULL PRIMARY KEY  AUTOINCREMENT ,
+          "name" TEXT ,
+          "title" TEXT , 
+          "price" REAL ,
+          "image" BLOB
+        )
+      ''');
+      
     print('===================== CREATE DATEBASE AND TABLE ============================');
+
+     batch.execute('''
+        CREATE TABLE "sales" (
+          "id" INTEGER  NOT NULL PRIMARY KEY  AUTOINCREMENT ,
+          "name" TEXT ,
+          "title" TEXT , 
+          "price" REAL ,
+          "image" BLOB
+        )
+      ''');
+    print('===================== CREATE DATEBASE AND TABLE ============================');
+    await batch.commit();
   }
 
   readData(String sql)async{
@@ -59,8 +80,8 @@ class CreatSQl {
 
   myDeleteData()async{
     String databasePath = await getDatabasesPath();
-    String path = join(databasePath + 'demo.db');
-    return deleteDatabase(path);
+    String path = join(databasePath ,'demo.db');
+    await deleteDatabase(path);
   }
 }
 
