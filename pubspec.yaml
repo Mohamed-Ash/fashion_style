@@ -15,7 +15,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+10
+version: 1.0.1+20
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -45,20 +45,20 @@ dependencies:
   flutter_gen_runner: ^4.3.0
   ## anmimated slider right & left 
   carousel_slider: ^4.1.1
-  page_transition: ^2.0.5
+  page_transition: ^2.0.9
   shared_preferences: ^2.0.15
-  video_player: ^2.4.4
+  video_player: ^2.4.5
   ## Dio (the Network Request) Extension
   dio: ^4.0.6
   ## caching support
-  sqflite: ^2.0.2+1
-  flutter_native_splash: ^2.2.3+1
+  sqflite: ^2.0.3
   # editable table plugin
+  flutter_native_splash: ^2.2.4
   pluto_grid: ^4.0.1
   ## language and translation support
   intl: ^0.17.0
   ## cache images (officially supports android, ios, mac only)
-  cached_network_image: ^3.2.0
+  cached_network_image: ^3.2.1
   ##upload image from Gallery or camera
   # image_picker: ^0.8.5+3
   ## The content of badge. Usually Text or Icon
