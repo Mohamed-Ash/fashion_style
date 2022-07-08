@@ -22,6 +22,7 @@ const String  activeSales = '/active_sales';
 const String  previewProduct = '/preview_product';
 const String  payments = '/payments';
 const String  paymentWhenReceiving = '/payment_when_receiving';
+const String  basketPage = '/basket_page';
 
 
 

@@ -14,6 +14,7 @@ import 'package:fashion_style/core/data/model/all_sales_model.dart';
 import 'package:fashion_style/core/data/model/get_product.dart';
 import 'package:fashion_style/core/page/app_layout_page.dart';
 import 'package:fashion_style/core/router/string_route.dart';
+import 'package:fashion_style/user/basket/basket_page/basket_page.dart';
 import 'package:fashion_style/user/carousel_slider/test_image_page.dart';
 import 'package:fashion_style/user/favorite/favorite_page/favorite_page.dart';
 import 'package:fashion_style/user/payments/page/buy_order_page.dart';
@@ -34,10 +35,13 @@ class Routesrs{
     switch (settings.name) {
 
       // Todo: auth 
-      case login :                              return MaterialPageRoute(builder: (_) => const LoginPage());
+      case login :                              return MaterialPageRoute(builder: (_) => const LoginPage(),
+        );
       case register:                            return MaterialPageRoute(builder: (_) => const Registerpage());   
       case forgetPassword:                      return MaterialPageRoute(builder: (_) => const ForgetPassword());   
       case craeteUserProfile:                   return MaterialPageRoute(builder: (_) => CreateProfilePage());       
+      // case logOut:                              return MaterialPageRoute(builder: (_) => LogOutPage());       
+
 
 
 
@@ -69,8 +73,9 @@ class Routesrs{
       case previewProduct:
         final previewItemProduct = settings.arguments as ProductModel;                      
         return MaterialPageRoute(builder: (_) => PreviewProductPage(productModel: previewItemProduct));  
-      case payments:                       return MaterialPageRoute(builder: (_) => const PaymentsPage());      
-      case paymentWhenReceiving:                       return MaterialPageRoute(builder: (_) => const PaymentWhenReceivingPage());      
+      case payments:                            return MaterialPageRoute(builder: (_) => const PaymentsPage());      
+      case paymentWhenReceiving:                return MaterialPageRoute(builder: (_) => const PaymentWhenReceivingPage());      
+      case basketPage:                          return MaterialPageRoute(builder: (_) => const BasketPage());
 
 
 
@@ -90,18 +95,6 @@ class Routesrs{
       case adminSalesProduct:                   return MaterialPageRoute(builder: (_) => const AdminSalesProduct());      
       case adminUserNumber:                     return MaterialPageRoute(builder: (_) => const AdminUserNumberPage());       
      
-     
-
-
-
-
-
-
-
-
-
-
-
 
       // Todo: accountSales 
       case accountSales:                        return MaterialPageRoute(builder: (_) => const AccountSalesPage());
