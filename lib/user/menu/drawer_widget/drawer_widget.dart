@@ -114,7 +114,7 @@ class DrawerWidget extends StatelessWidget {
         const Divider(
           height: 1.5,
         ),
-        SizedBox(
+       /*  SizedBox(
           height: 15,
         ),
          InkWell(
@@ -137,7 +137,7 @@ class DrawerWidget extends StatelessWidget {
               ),
             ], //profile
           ),
-        ),  
+        ),   */
         SizedBox(
           height: 15,
         ),
