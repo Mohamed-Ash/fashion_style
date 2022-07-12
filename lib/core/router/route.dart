@@ -22,6 +22,7 @@ import 'package:fashion_style/user/payments/page/payments_page.dart';
 import 'package:fashion_style/user/product/product_page/preview_product_page.dart';
 import 'package:fashion_style/user/product/product_page/product_page.dart';
 import 'package:fashion_style/user/product/product_page/product_sell_page.dart';
+import 'package:fashion_style/user/product/product_widget/post_product_widget.dart';
 import 'package:fashion_style/user/profile/profile_page/create_profile_page.dart';
 import 'package:fashion_style/user/profile/profile_page/profile_page.dart';
 import 'package:fashion_style/user/sales/sales_page/sales_page.dart';
@@ -76,6 +77,7 @@ class Routesrs{
       case payments:                            return MaterialPageRoute(builder: (_) => const PaymentsPage());      
       case paymentWhenReceiving:                return MaterialPageRoute(builder: (_) => const PaymentWhenReceivingPage());      
       case basketPage:                          return MaterialPageRoute(builder: (_) => const BasketPage());
+      case postProductWidget:                   return MaterialPageRoute(builder: (_) => const PostProductWidget());
 
 
 
