@@ -2,16 +2,22 @@
 
 import 'package:fashion_style/core/data/model/auth_login_model.dart';
 import 'package:fashion_style/core/data/web_service/auth_login_web_service.dart';
+import 'package:flutter/material.dart';
 
 class AuthloginRepository{
   late AuthLoginWebSevice authLoginWebSevice;
-  final String email;
-  final String password;
-  AuthloginRepository({required this.email,required this.password});
+  final AuthLoginModel authLoginModel = AuthLoginModel(); 
 
-  Future<AuthLoginModel> postLogin()async{
-    final authLogin = await authLoginWebSevice.loginWidget(email: email, password: password);
-    print(email + password);
+  Future<AuthLoginModel> postLogin({
+    required String email, 
+    required String  password, 
+    // required BuildContext context,
+    })async{
+    final authLogin = await authLoginWebSevice.loginWidget(
+      email: email, 
+      password: password, 
+      // context: context
+    );
     return AuthLoginModel.fromJson(authLogin);
   }
 }
