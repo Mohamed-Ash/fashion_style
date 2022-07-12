@@ -6,7 +6,7 @@ import 'package:fashion_style/core/data/web_service/interface/web_service_interf
 class ProductWebService extends WebServiceInterface{
   Future<List<dynamic>> getProduct() async {
     try{
-      Response response = await dio.get(baseUrl + 'products/GetProduct');
+      Response response = await dio.get(baseUrl + 'Products/GetProducts');
       print (response.data.toString());
       if(response.statusCode == 200) {
         return response.data ;

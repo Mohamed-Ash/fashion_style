@@ -1,21 +1,54 @@
 
 // ignore_for_file: avoid_print
 
+import 'package:dio/dio.dart';
+import 'package:fashion_style/core/data/web_service/post_product_web_service.dart';
 import 'package:fashion_style/core/service/auth_service.dart';
 import 'package:fashion_style/user/carousel_slider/carousel_slider_page.dart';
 import 'package:fashion_style/user/product/product_page/product_page.dart';
 import 'package:flutter/material.dart';
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  PostProductWebSerivice postProductWebSerivice = PostProductWebSerivice();
 
+  HomePage({Key? key}) : super(key: key);
+
+    Future postProduct(context) async{
+    try{
+      Response response = await Dio().post(
+        'http://jack07-001-site1.htempurl.com/api/Products/AddProduct',
+        data: {
+          "id": "0",
+          "name": "jack",
+          "description": "jack jack",
+          "price": 22.44
+        }
+      ); 
+      print(response.statusCode);
+      if (response.statusCode == 200) {
+        
+       print('8888888test id********  ' +  response.data["id"]);
+        print('تم رفع المنج بنجاح'); 
+      }else{
+        print('error missing id');
+      }
+    }catch(e){
+      print(e.toString());
+    }
+  }
   @override
   Widget build(BuildContext context) {
-          print(AuthService().statusMessage);
+    print(AuthService().statusMessage);
     return  Card(
       child: ListView(
         physics: const  NeverScrollableScrollPhysics(),
         shrinkWrap: true,
         children: [
+          TextButton(
+            onPressed: (){
+              postProduct(context);
+            },
+            child: const Text('post product'),
+          ),
           const CarouselSliderPage(),
           const SizedBox(height: 10),
           Text('${AuthService().statusMessage}'),

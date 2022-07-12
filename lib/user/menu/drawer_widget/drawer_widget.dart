@@ -187,6 +187,26 @@ class DrawerWidget extends StatelessWidget {
             ], //profile
           ),
         ),  
+        InkWell(
+          hoverColor:Colors.transparent,
+          splashColor:Colors.transparent,
+          focusColor:Colors.transparent,
+          highlightColor:Colors.transparent,
+          onTap: (){
+            Navigator.pushNamed(context, postProductWidget);
+          },
+          child: Flex(
+            direction: Axis.horizontal,
+            children: [
+              Icon(
+                Icons.admin_panel_settings_rounded,
+                color: Color.fromARGB(255, 146, 227, 169),
+              ),
+              SizedBox(  width: 50),
+              Text('admin'),
+            ],
+          ),
+        ),
       ],
     );
   }
