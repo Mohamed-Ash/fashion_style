@@ -3,10 +3,12 @@
 import 'package:dio/dio.dart';
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
 import 'package:fashion_style/core/data/repository/auth_login_repository.dart';
+import 'package:fashion_style/core/data/web_service/auth_login_web_service.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/router/string_route.dart';
 import 'package:fashion_style/core/service/auth_service.dart';
 import 'package:fashion_style/core/service/data_storage_service.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
@@ -23,7 +25,8 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
   final DataStorageService _dataStorageService = DataStorageService();
-  AuthloginRepository? authloginRepository;
+  AuthLoginWebSevice authLoginWebSevice = AuthLoginWebSevice();
+  
    
   @override
   void dispose() {
@@ -92,9 +95,20 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   if(formKey.currentState!.validate()) {
                     // AuthloginRepository(email: emailController.text, password: passwordController.text);
                     // testLogin(context);
-                    loginWidget(context);
-                    _dataStorageService.saveString('email', 'useremail@gmail.com');
-                    
+                    //  loginWidget(context);
+                    authLoginWebSevice.loginWidget(
+                      email: emailController.text ,
+                      password: passwordController.text,
+                    ).then((value) => 
+                    Navigator.pushNamed(context, appPage),
+                    );
+                   /*
+                    _dataStorageService.saveString('email', 'useremail@gmail.com'); */
+                    /* authloginRepository.postLogin(
+                      email: emailController.text, 
+                      password: passwordController.text,
+                      context: context
+                    ); */
                   }
                 },
                 child: DefaulteFormField.container(
@@ -163,7 +177,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
       password: passwordController.text,
     );
   } */
-  Future loginWidget(context)async{
+  /* Future loginWidget(context)async{
     try{
       Response response = await Dio().post(
         'http://jack07-001-site1.htempurl.com/api/Accounts/Login',
@@ -184,5 +198,5 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
     }catch(e){
       print(e.toString());
     }
-  }
+  } */
 }
