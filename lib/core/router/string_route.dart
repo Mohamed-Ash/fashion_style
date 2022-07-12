@@ -23,6 +23,7 @@ const String  previewProduct = '/preview_product';
 const String  payments = '/payments';
 const String  paymentWhenReceiving = '/payment_when_receiving';
 const String  basketPage = '/basket_page';
+const String  postProductWidget = '/post_product_widget';
 
 
 
