@@ -1,4 +1,3 @@
-
 // ignore_for_file: avoid_print
 
 import 'package:dio/dio.dart';
@@ -7,6 +6,8 @@ import 'package:fashion_style/core/service/auth_service.dart';
 import 'package:fashion_style/user/carousel_slider/carousel_slider_page.dart';
 import 'package:fashion_style/user/product/product_page/product_page.dart';
 import 'package:flutter/material.dart';
+
+// ignore: must_be_immutable
 class HomePage extends StatelessWidget {
   PostProductWebSerivice postProductWebSerivice = PostProductWebSerivice();
 
