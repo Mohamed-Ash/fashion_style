@@ -70,7 +70,7 @@ packages:
       name: build_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0"
+    version: "1.1.0"
   build_daemon:
     dependency: transitive
     description:
@@ -91,7 +91,7 @@ packages:
       name: build_runner
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.11"
+    version: "2.2.0"
   build_runner_core:
     dependency: transitive
     description:
@@ -306,7 +306,7 @@ packages:
       name: flutter_form_builder
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "7.3.0"
+    version: "7.4.0"
   flutter_gen_core:
     dependency: transitive
     description:
@@ -339,7 +339,7 @@ packages:
       name: flutter_native_splash
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.2.4"
+    version: "2.2.5"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
@@ -476,13 +476,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.5.0"
-  linked_scroll_controller:
-    dependency: transitive
-    description:
-      name: linked_scroll_controller
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.0"
   lint:
     dependency: transitive
     description:
@@ -650,7 +643,7 @@ packages:
       name: pluto_grid
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.0.1"
+    version: "5.0.4"
   pool:
     dependency: transitive
     description:
@@ -692,7 +685,7 @@ packages:
       name: rxdart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.27.4"
+    version: "0.27.5"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -915,13 +908,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.10"
-  visibility_detector:
-    dependency: transitive
-    description:
-      name: visibility_detector
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.3"
   watcher:
     dependency: transitive
     description:
