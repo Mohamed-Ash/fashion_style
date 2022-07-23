@@ -40,8 +40,8 @@ dependencies:
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
   ## flutter form builder plugin
-  flutter_form_builder: ^7.3.0
-  build_runner: ^2.1.11
+  flutter_form_builder: ^7.4.0
+  build_runner: ^2.2.0
   flutter_gen_runner: ^4.3.0
   ## anmimated slider right & left 
   carousel_slider: ^4.1.1
@@ -53,8 +53,8 @@ dependencies:
   ## caching support
   sqflite: ^2.0.3
   # editable table plugin
-  flutter_native_splash: ^2.2.4
-  pluto_grid: ^4.0.1
+  flutter_native_splash: ^2.2.5
+  pluto_grid: ^5.0.4
   ## language and translation support
   intl: ^0.17.0
   ## cache images (officially supports android, ios, mac only)
