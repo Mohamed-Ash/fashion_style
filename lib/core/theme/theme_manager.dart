@@ -35,7 +35,7 @@ ThemeData getAppThemeData(){
     // ),
     dividerColor: ColorsTheme.backgaround,
 
-    cursorColor: ColorsTheme.primary,
+    // cursorColor: ColorsTheme.primary,
     cardTheme: CardTheme(
 
       
