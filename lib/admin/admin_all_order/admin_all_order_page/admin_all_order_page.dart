@@ -31,7 +31,7 @@ class AdminAllOrdersPage extends AdminInterface{
           print(event);
         },
         configuration: const PlutoGridConfiguration(
-          enableColumnBorder: true,
+          // enableColumnBorder: true,
         ),
       ),
     );

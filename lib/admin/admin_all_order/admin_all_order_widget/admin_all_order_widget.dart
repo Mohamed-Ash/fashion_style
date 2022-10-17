@@ -112,7 +112,7 @@ class _AdminAllOrderWidgetState extends State<AdminAllOrderWidget> {
             print(event);
           },
           configuration: const PlutoGridConfiguration(
-            enableColumnBorder: true,
+            // enableColumnBorder: true,
           ),
         ),
       ),

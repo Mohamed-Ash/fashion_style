@@ -1,16 +1,20 @@
-// ignore_for_file: prefer_const_constructors, duplicate_ignore, avoid_print, curly_braces_in_flow_control_structures, must_be_immutable, overridden_fields, prefer_const_constructors_in_immutables, unnecessary_null_comparison, deprecated_member_use, unused_local_variable, body_might_complete_normally_nullable
+// ignore_for_file: avoid_print
 
+import 'package:dio/dio.dart';
 import 'package:fashion_style/core/auth/register/register_page/register_page.dart';
+import 'package:fashion_style/core/data/repository/auth_login_repository.dart';
+import 'package:fashion_style/core/data/web_service/auth_login_web_service.dart';
 import 'package:fashion_style/core/form_fields/defaulte_form_field.dart';
 import 'package:fashion_style/core/router/string_route.dart';
+import 'package:fashion_style/core/service/auth_service.dart';
+import 'package:fashion_style/core/service/data_storage_service.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+// ignore: must_be_immutable
 class LoginFormWidgt extends StatefulWidget {
-  
-  LoginFormWidgt({Key? key}) : super(key: key);
 
- 
+  const LoginFormWidgt({Key? key}) : super(key: key);
 
   @override
   State<LoginFormWidgt> createState() => _LoginFormWidgtState();
@@ -20,6 +24,16 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  final DataStorageService _dataStorageService = DataStorageService();
+  AuthLoginWebSevice authLoginWebSevice = AuthLoginWebSevice();
+  
+   
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -32,7 +46,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
+             const Center(
                  child: Text(
                   'Login',
                   style: TextStyle(
@@ -40,11 +54,11 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 35,
               ),
-              Text('Email:'),
-              SizedBox(
+              const Text('Email:'),
+              const SizedBox(
                 height: 2.5,
               ),
               DefaulteFormField.field(
@@ -60,11 +74,11 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   return null;
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
-              Text('Password:'),
-              SizedBox(
+              const Text('Password:'),
+              const SizedBox(
                 height: 2.5,
               ),
               DefaulteFormField.field(
@@ -73,23 +87,32 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                 obscure: true,
                 validate: (value) => value == null || value.length < 6 ? 'Password does  not match' : null,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               GestureDetector(
                 onTap: ()async{
-                  SharedPreferences prefs = await SharedPreferences.getInstance();
-                      bool? loginpage = prefs.getBool('loginpage');
-                      login != null ? 
-                    Navigator.pushNamedAndRemoveUntil(
-                      context, 
-                      '/app_page' ,
-                      (route) => false
-                    ) : 
-                  Navigator.pushNamed(context, '/');
+                  if(formKey.currentState!.validate()) {
+                    // AuthloginRepository(email: emailController.text, password: passwordController.text);
+                    // testLogin(context);
+                    //  loginWidget(context);
+                    authLoginWebSevice.loginWidget(
+                      email: emailController.text ,
+                      password: passwordController.text,
+                    ).then((value) => 
+                    Navigator.pushNamed(context, appPage),
+                    );
+                   /*
+                    _dataStorageService.saveString('email', 'useremail@gmail.com'); */
+                    /* authloginRepository.postLogin(
+                      email: emailController.text, 
+                      password: passwordController.text,
+                      context: context
+                    ); */
+                  }
                 },
                 child: DefaulteFormField.container(
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'Login',  
                       style: TextStyle(
@@ -100,7 +123,7 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               GestureDetector(
@@ -109,12 +132,12 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Registerpage(),
+                      builder: (context) => const Registerpage(),
                     ),
                   );
                 },
                 child: DefaulteFormField.container(
-                  child: Center(
+                  child: const Center(
                     child: Text(
                       'Sign UP',
                       style: TextStyle(
@@ -125,14 +148,15 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               TextButton(
-                onPressed: () {
+                onPressed: () async{
+                 
                   Navigator.pushNamed(context, appPage);
                 },
-                child: Text(
+                child: const Text(
                   'Forget Pssword ?',
                   style: TextStyle(
                     color: Color.fromARGB(255, 146, 227, 169),
@@ -145,36 +169,34 @@ class _LoginFormWidgtState extends State<LoginFormWidgt> {
         ),
       ),
     );
-    
   }
-  
- /*  Future loginTap(context)async{
-    User? user = await loginUseingEmailPassword(
-      password: passwordController.text,
+
+ /*   testLogin(BuildContext context){
+    return AuthloginRepository(
       email: emailController.text,
-      context: context
+      password: passwordController.text,
     );
-    if (user != null) {
-      Navigator.pushNamed(context, layout);
-      print('Login');
-    } else {
-      print('testtttttttt' + user.toString());
-    }
-  }   */
-  
-  /* static Future<User?> loginUseingEmailPassword() async {
-    
-     try {
-        UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: "asdasdasdasdas.allen@example.com",
-          password: "SuperSecretPassword!"
-        );
-      } on FirebaseAuthException catch (e) {
-        if (e.code == 'user-not-found') {
-          print('No user found for that email.');
-        } else if (e.code == 'wrong-password') {
-          print('Wrong password provided for that user.');
-        }
+  } */
+  /* Future loginWidget(context)async{
+    try{
+      Response response = await Dio().post(
+        'http://jack07-001-site1.htempurl.com/api/Accounts/Login',
+        data: {
+          "email": emailController.text,
+          "password": passwordController.text,
+          "rememberMe": true
+        } ,    
+      );
+      if (response.statusCode == 200) {
+        AuthService().id = response.data['userId'];
+        AuthService().statusMessage = response.data["statusMessage"];
+        print("test massage " + response.data["statusMessage"].toString());
+          _dataStorageService.saveString('user.id','${response.data["userId"]}');
+            print('[test massage  +++++++++++#######+  ]  ' + _dataStorageService.getString('user.id').toString());
+        Navigator.pushNamed(context, appPage);
       }
+    }catch(e){
+      print(e.toString());
+    }
   } */
 }

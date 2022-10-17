@@ -16,7 +16,7 @@ class ActiveSales extends AdminInterface {
   @override
   String get title => 'Active Sales';
   
-  @override
+
   bool get isAppBar => true;
    
 }

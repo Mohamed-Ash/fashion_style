@@ -27,7 +27,7 @@ class AppLayoutPage extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               body: blocLayout.screens[blocLayout.currentIndex],
               headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) => [
-                blocLayout.currentIndex == 2 ? const SliverToBoxAdapter() : const AppBarPage()
+                blocLayout.currentIndex == 2 || blocLayout.currentIndex == 3 ? const SliverToBoxAdapter() : const AppBarPage(),
               ],
             ),
             bottomNavigationBar: SalomonBottomBar(
@@ -46,7 +46,7 @@ class AppLayoutPage extends StatelessWidget {
                 SalomonBottomBarItem(
                   icon: const Icon(Icons.video_library_outlined), title: const Text('reels')),
                 SalomonBottomBarItem(
-                  icon: const Icon(Icons.shopping_basket_sharp), title: const Text('basket')),
+                  icon: const Icon(Icons.person_outline_outlined),title: const Text('profile')),
               ],
             ),
           );

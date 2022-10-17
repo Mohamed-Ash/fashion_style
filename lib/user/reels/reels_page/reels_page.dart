@@ -1,6 +1,7 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, sized_box_for_whitespace
+import 'package:fashion_style/user/reels/reels_widget/reels2_widget.dart';
+import 'package:fashion_style/user/reels/reels_widget/reels_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:video_player/video_player.dart';
 
 // ignore: must_be_immutable
 class ReelsPage extends StatefulWidget {
@@ -13,7 +14,8 @@ class ReelsPage extends StatefulWidget {
 class _ReelsPageState extends State<ReelsPage> {
   PageController controller = PageController(initialPage: 0);
 
-   late VideoPlayerController _videoPlayerController;
+/*   late VideoPlayerController _videoPlayerController;
+
   @override
   void initState() {
     super.initState();
@@ -28,20 +30,21 @@ class _ReelsPageState extends State<ReelsPage> {
   void dispose() {
     _videoPlayerController.dispose();
     super.dispose();
-  }
+  } */
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: PageView(
-        scrollDirection: Axis.vertical,
-        controller: controller,
-        children:content(context),
-      ) ,
+    return PageView(
+      scrollDirection: Axis.vertical,
+      // controller: controller,
+      children:const [
+        ReelsWidget(),
+        ReelsWidget2()
+      ],
     );
   }
 
-  List<Widget> content(BuildContext context){
+ /*  List<Widget> content(BuildContext context){
     return [
       Container(
         width: MediaQuery.of(context).size.width,
@@ -64,7 +67,7 @@ class _ReelsPageState extends State<ReelsPage> {
         color: Colors.grey,
       ),
     ];
-  }
+  } */
 }
 
 /* 

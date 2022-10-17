@@ -1,4 +1,4 @@
-// ignore_for_file: constant_identifier_names
+/* // ignore_for_file: constant_identifier_names
 
 import 'package:fashion_style/core/l10n/generated/l10n.dart';
 import 'package:fashion_style/user/helper/settings_service.dart';
@@ -38,4 +38,4 @@ class LanguageHelper {
       SettingsService().settings.locale = const Locale('ar', 'EG');
     }
   }
-}
+} */

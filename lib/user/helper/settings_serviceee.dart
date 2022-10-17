@@ -1,4 +1,4 @@
-// ignore_for_file: non_constant_identifier_names, prefer_conditional_assignment, avoid_renaming_method_parameters
+/* // ignore_for_file: non_constant_identifier_names, prefer_conditional_assignment, avoid_renaming_method_parameters
 
 import 'package:fashion_style/core/l10n/generated/l10n.dart';
 import 'package:fashion_style/user/helper/service_interface.dart';
@@ -102,4 +102,4 @@ class SettingsVariables with ChangeNotifier {
     notifyListeners();
   }
 
-}
+} */

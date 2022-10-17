@@ -8,7 +8,6 @@ part 'save_product_bloc_state.dart';
 class SaveproductblocBloc extends Bloc<SaveproductblocEvent, SaveproductblocState> {
   SaveproductblocBloc() : super(SaveproductblocInitial()) {
     on<SaveproductblocEvent>((event, emit) {
-      // TODO: implement event handler
     });
   }
   Database? database;

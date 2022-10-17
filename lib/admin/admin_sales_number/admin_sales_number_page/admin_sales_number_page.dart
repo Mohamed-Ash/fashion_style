@@ -14,6 +14,5 @@ class AdminSalesNumberPage extends AdminInterface{
   @override
   String get title => 'Sales Nmber';
   
-  @override
   bool get backButton => true;
 }

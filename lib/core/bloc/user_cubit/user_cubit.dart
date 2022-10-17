@@ -5,15 +5,19 @@ import 'package:fashion_style/core/data/repository/user_repository.dart';
 
 
 class Usercubit extends Cubit<UserState> {
+
   final UserRepository userRepository;
-  List<UserModel> users = [];
+
+  late UserModel user;
   
   Usercubit(this.userRepository) : super(UserInitialState());
 
 
-  void getAllUserModel()async {
+  void getUserProfile({
+    required String id,
+  })async {
     emit(UserLoadingState());
-    users = await userRepository.getProfileUserRepository();
-    emit(UserLoadedState(users));
+    user = await userRepository.getUserProfile(id: id);
+    emit(UserProfileLoadedState(user));
   }
 }

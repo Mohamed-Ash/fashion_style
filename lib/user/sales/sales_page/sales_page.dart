@@ -3,7 +3,6 @@ import 'package:fashion_style/core/bloc/sales_cubit/sales_cubit.dart';
 import 'package:fashion_style/core/data/repository/all_sales_repository.dart';
 import 'package:fashion_style/core/data/web_service/all_sales_web_service.dart';
 import 'package:fashion_style/user/sales/sales_widget/sales_widet.dart';
-import 'package:fashion_style/user/user_interface.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
